@@ -110,6 +110,7 @@
 4. **社区驱动选题**：Inspired by Minimalist Entrepreneur——从金融社区中发现问题
 5. **公开产品为终点**：路演面向全校/企业合作伙伴，产品可公开访问
 6. **AI基础工具栈渐进融入**：Prompt+AI辅助编程(W1起步) → RAG(W9进阶) → Agent+Skill(W13自动化) → AI系统评估(W14质量保障)，工具随项目需求自然引入而非单独设课
+7. **知识框架有机支撑**：知识按项目阶段而非学科章节组织（见`knowledge-map.md`），通过里程碑制造知识缺口在需求时刻引入（Challenge→Gap→Knowledge→Apply节奏），反思环节逼迫学生重构个人知识框架（见`templates/reflection-log.md`），交付物锚定核心知识概念（见`milestones.md`）
 
 ## 参考资料
 
@@ -123,6 +124,7 @@
 ```
 data-analysis/
 ├── data-analysis-teaching-plan.md  # 本文件：PBL教学方案
+├── knowledge-map.md                # 知识地图（按项目阶段组织）
 ├── syllabus.md                      # 课程大纲（17周详细安排）
 ├── rubric.md                        # 评分标准（PBL六要素对应）
 ├── milestones.md                    # 阶段里程碑与交付物定义

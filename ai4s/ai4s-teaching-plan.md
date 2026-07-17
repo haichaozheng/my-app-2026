@@ -98,6 +98,7 @@
 4. **个人项目驱动**：每位博士生围绕自己的科研项目构建工具栈，确保真实性与实用性
 5. **方法论优先**：工具栈服务于研究方法论，而非技术炫技；AI辅助"做对"比"做出来"更重要
 6. **AI基础工具栈渐进融入**：Prompt+AI辅助编程(W1起步) → RAG(W2文献智能) → Agent(W4研究设计) → Skill(W5-6方案实施) → AI系统评估(W7质量控制)，工具随科研流程自然引入而非单独设课
+7. **知识框架有机支撑**：科研方法论知识按五模块而非学科章节组织（见`knowledge-map.md`），通过科研阶段制造方法论缺口在需求时刻引入（Challenge→Gap→Knowledge→Apply节奏），反思环节重构个人AI4S方法论框架（见`templates/reflection-log.md`），交付物锚定核心方法论概念（见`milestones.md`）
 
 ## 与课程1的关键差异
 
@@ -123,6 +124,7 @@
 ```
 ai4s/
 ├── ai4s-teaching-plan.md              # 本文件：AI4S课程教学方案
+├── knowledge-map.md                    # 知识地图（按科研模块组织）
 ├── syllabus.md                         # 课程大纲
 ├── rubric.md                           # 评分标准
 ├── milestones.md                       # 阶段里程碑
