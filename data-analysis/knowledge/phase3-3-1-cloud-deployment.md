@@ -111,7 +111,7 @@ git push -u origin main
 
 **步骤4：部署到Streamlit Community Cloud**
 
-1. 访问 https://share.streamlit.io/
+1. 访问 https://streamlit.io/cloud
 2. 点击"New app"，选择GitHub仓库
 3. 指定主文件路径（如`app.py`）
 4. 在Secrets中配置API密钥：
@@ -136,7 +136,7 @@ TUSHARE_TOKEN = "your_token_here"
 
 ## 参考链接
 
-- https://docs.streamlit.io/streamlit-community-cloud - Streamlit Community Cloud官方文档
+- https://docs.streamlit.io/deploy/streamlit-community-cloud - Streamlit Community Cloud官方文档
 - https://vercel.com/docs - Vercel部署文档
 - https://docs.docker.com/get-started/ - Docker官方入门教程
 - https://letsencrypt.org/ - Let's Encrypt免费SSL证书

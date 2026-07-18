@@ -360,6 +360,6 @@ if st.button("📋 生成每日报告"):
 ## 参考链接
 
 - https://python.langchain.com/docs/modules/agents/ — LangChain Agent文档
-- https://microsoft.github.io/autogen/ — AutoGen多Agent框架
+- https://microsoft.github.io/autogen/stable/ — AutoGen多Agent框架
 - https://arxiv.org/abs/2210.03629 — ReAct论文：Agent的推理与行动范式
 - https://platform.openai.com/docs/guides/function-calling — OpenAI Function Calling文档

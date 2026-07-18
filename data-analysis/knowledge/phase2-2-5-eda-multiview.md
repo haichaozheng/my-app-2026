@@ -194,7 +194,7 @@ print(extreme_days[["date", "name", "return"]].sort_values("return"))
 
 ## 参考链接
 
-- https://www.linkedin.com/pulse/exploratory-data-analysis-eda-complete-guide/ — EDA完整指南
+- https://www.kaggle.com/learn — EDA完整指南和Notebook
 - https://seaborn.pydata.org/examples/index.html — Seaborn图表画廊
-- https://ydata-profiling.ydata.ai/docs/ — ydata-profiling自动化EDA工具
+- https://ydata-profiling.ydata.ai/ — ydata-profiling自动化EDA工具
 - https://www.amazon.com/Exploratory-Data-Analysis-John-Tukey/dp/0201076160 — Tukey的EDA经典著作

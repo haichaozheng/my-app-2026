@@ -307,5 +307,5 @@ print(stress_results)
 
 - https://www.portfoliovisualizer.com/ —— 组合优化可视化工具
 - https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2299415 —— 风险平价论文
-- https://www.bridgewater.com/resources/ All-Weather-Strategy.pdf —— All Weather策略
+- https://www.bridgewater.com/ —— All Weather策略
 - https://www.mathworks.com/help/finance/portfolio-optimization.html —— 组合优化教程

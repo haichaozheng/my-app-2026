@@ -199,7 +199,7 @@ LLM会"自信地"编造不存在的事实，在金融领域这尤其危险。它
 ## 拓展学习
 
 - **OpenAI Prompt Engineering Guide**：https://platform.openai.com/docs/guides/prompt-engineering 官方的Prompt工程最佳实践，涵盖策略、示例和常见模式
-- **Anthropic Prompt Engineering Guide**：https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview Claude的官方Prompt工程指南，侧重于结构化提示和迭代优化
+- **Anthropic Prompt Engineering Guide**：https://docs.anthropic.com/en/docs/about-claude/prompt-engineering Claude的官方Prompt工程指南，侧重于结构化提示和迭代优化
 - **Learn Prompting**：https://learnprompting.org/ 开源的Prompt工程课程，从基础到高级，包含大量交互式示例
 - **Prompt Engineering for Finance**：专门讨论金融领域Prompt技巧的文章和案例集，关注如何让AI准确处理金融专业概念和数据
 - **《ChatGPT Prompt Engineering for Developers》**：DeepLearning.AI的免费短课程，由Andrew Ng和Isa Fulford主讲，侧重开发者视角的Prompt技巧
@@ -207,7 +207,7 @@ LLM会"自信地"编造不存在的事实，在金融领域这尤其危险。它
 ## 参考链接
 
 - https://platform.openai.com/docs/guides/prompt-engineering - OpenAI官方Prompt工程指南
-- https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview - Anthropic官方Prompt工程指南
+- https://docs.anthropic.com/en/docs/about-claude/prompt-engineering - Anthropic官方Prompt工程指南
 - https://learnprompting.org/ - 开源Prompt工程学习平台
 - https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/ - Andrew Ng的Prompt工程课程
 - https://cookbook.openai.com/ - OpenAI Cookbook，包含大量实用Prompt示例

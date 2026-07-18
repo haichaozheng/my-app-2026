@@ -250,7 +250,7 @@ print(f"最大回撤: {((strategy_nav / strategy_nav.cummax() - 1).min()):.2%}")
 
 ## 参考链接
 
-- https://mrjbq7.github.io/ta-lib/ —— TA-Lib Python文档
+- https://github.com/ta-lib/ta-lib-python —— TA-Lib Python文档
 - https://www.investopedia.com/ —— 技术指标详解
 - https://github.com/bukosabino/ta —— Python技术分析库
 - https://zhuanlan.zhihu.com/p/337226798 —— A股技术指标量化回测

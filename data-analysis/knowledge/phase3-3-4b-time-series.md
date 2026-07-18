@@ -199,4 +199,4 @@ print(f"Naive RMSE: {rmse_naive:.4f}")
 - https://www.statsmodels.org/stable/tsa.html - Statsmodels时间序列分析文档
 - https://facebook.github.io/prophet/ - Prophet官方文档
 - https://alkaline-ml.com/pmdarima/ - pmdarima库，auto_arima自动参数选择
-- https://quantrade.github.io/ - 量化交易中的时间序列方法
+- https://vectorbt.dev/ - 量化交易中的时间序列方法

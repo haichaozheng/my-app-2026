@@ -236,6 +236,6 @@ print(f"Consistency: {max(answer_variance.values()) / len(answers):.0%}")
 
 - https://docs.ragas.io/ - RAGAS评估框架文档
 - https://github.com/openai/evals - OpenAI评估框架
-- https://www.anthropic.com/research/model-evaluations - Anthropic模型评估研究
-- https://arxiv.org/abs/2302.07464 - LLM评估方法综述论文
+- https://www.anthropic.com/research —— Anthropic模型评估研究
+- https://arxiv.org/abs/2211.09110 - LLM评估方法综述论文(HELM)
 - https://huggingface.co/spaces/open-llm-leaderboard - 开源LLM排行榜

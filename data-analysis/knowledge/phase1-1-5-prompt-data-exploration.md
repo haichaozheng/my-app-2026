@@ -242,6 +242,6 @@ print(extreme[["股票代码", "日期", "涨跌幅"]].head(10))
 
 - https://plotly.com/python/ - Plotly Python图表示例库
 - https://pandas.pydata.org/docs/ - Pandas官方文档
-- https://www.kaggle.com/datasets?tags=13204-finance - Kaggle金融数据集和Notebook
+- https://www.kaggle.com/datasets - Kaggle金融数据集
 - https://wesmckinney.com/book/ - 《Python for Data Analysis》在线版本
 - https://www.quantconnect.com/docs/v2/writing-algorithms/trading-and-orders/order-types/market-orders - QuantConnect量化交易学习资源

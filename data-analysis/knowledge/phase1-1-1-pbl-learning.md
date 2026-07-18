@@ -126,7 +126,7 @@ print(etf_data.head())
 ## 参考链接
 
 - https://www.pblworks.org/what-is-pbl - PBLWorks对PBL的定义与核心理念
-- https://www.pblworks.org/gold-standard-project-based-learning - PBLWorks金标准PBL模型
-- https://www.edutopia.org/project-based-learning - Edutopia的PBL资源集合，包含实践案例和视频
+- https://www.pblworks.org/what-is-pbl/gold-standard-project-design - PBLWorks金标准PBL模型
+- https://www.edutopia.org/project-based-learning — Edutopia PBL专题
 - https://www.hightechhigh.org/student-work/ - High Tech High学生项目作品展示
-- https://models.digitalis.io/model/feynman-technique - 费曼学习法详细介绍
+- https://fs.blog/feynman-technique/ - 费曼学习法详细介绍

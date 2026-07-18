@@ -114,5 +114,5 @@ print(correlation)
 
 - https://www.oreilly.com/library/view/the-pragmatic-programmer/9780135956977/ — 《The Pragmatic Programmer》中关于曳光弹开发的方法论
 - https://www.excel-easy.com/data-analysis/pivot-tables.html — Excel数据透视表教程，用于快速手动分析
-- https://realpython.com/pandas-eda/ — 用Pandas做探索性数据分析，适合从手动过渡到自动
-- https://martinfowler.com/articles/data-monolith-to-datamesh.html — 数据架构演进思路，理解从简单到复杂的演化路径
+- https://realpython.com/pandas-eda-exploratory-data-analysis/ — 用Pandas做探索性数据分析，适合从手动过渡到自动
+- https://martinfowler.com/articles/data-monolith-to-mesh.html — 数据架构演进思路，理解从简单到复杂的演化路径

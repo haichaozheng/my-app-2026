@@ -245,7 +245,7 @@ def calculate_score(scores, rubric):
 
 ## 参考链接
 
-- https://library.gv.com/heart-method-for-ux-metrics-c4076337d6a2 — Google HEART用户体验评估框架
+- https://medium.com/@mrtondon/the-heart-framework-agesgr-the-framework-every-product-manager-should-know-44b7693c4a1c — Google HEART用户体验评估框架
 - https://www.nngroup.com/articles/usability-metrics/ — Nielsen Norman可用性评估指标
-- https://www.productplan.com/glossary/product-scorecard/ — 产品评分卡设计方法
-- https://rubrics.knowledgehouse.org/ — Rubric设计工具和模板
+- https://www.productplan.com/learn/ — 产品评分卡设计方法
+- https://www.cmu.edu/teaching/designteach/teach/rubrics.html — Rubric设计工具和模板

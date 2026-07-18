@@ -126,7 +126,7 @@ print(f"当前PE处于历史{current_percentile:.1%}分位")
 
 ## 参考链接
 
-- https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-mckinsey-for — 麦肯锡问题拆解方法论
+- https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights — 麦肯锡问题拆解方法论
 - https://www.gapminder.org/factfulness/ — 用数据纠正认知偏误的实践
-- https://fs.blog/simpsons-paradox/ — 辛普森悖论详解与案例
+- https://en.wikipedia.org/wiki/Simpson%27s_paradox — 辛普森悖论详解与案例
 - https://www.analyticsvidhya.com/blog/2020/08/data-analysis-process/ — 数据分析流程完整指南

@@ -217,5 +217,5 @@ V1.0 (W15): 产品打磨 +性能优化 +Demo准备
 
 - https://www.productplan.com/learn/ —— 产品管理知识库
 - https://www.interaction-design.org/ —— UX设计方法
-- https://www.ycombinator.com/library/4f-how-to-build-a-product —— YC产品构建指南
-- https://aarrr.co/ —— AARRR海盗指标框架
+- https://www.ycombinator.com/library/6f-how-to-build-a-product —— YC产品构建指南
+- https://www.paulgraham.com/aarrr.html —— AARRR海盗指标框架

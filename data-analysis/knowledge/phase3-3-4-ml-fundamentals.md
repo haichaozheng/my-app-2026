@@ -154,6 +154,6 @@ def choose_model(problem_type, data_size, interpretability_needed):
 
 - https://scikit-learn.org/stable/tutorial/machine_learning_map/ - Scikit-learn模型选择流程图
 - https://www.deeplearningbook.org/ - 深度学习经典教材在线版
-- https://quantresearch.org/ - Marcos López de Prado的研究资源
+- https://github.com/quantopian/pyfolio - 金融组合分析工具库
 - https://paperswithcode.com/ - 最新ML论文与代码，跟踪前沿方法
 - https://www.coursera.org/learn/machine-learning - Andrew Ng的ML课程，经典入门

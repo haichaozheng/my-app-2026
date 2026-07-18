@@ -179,7 +179,7 @@ Pre-mortem：
 
 ## 参考链接
 
-- https://fs.blog/pre-mortem/ — Pre-mortem决策方法详解
+- https://hbr.org/2007/09/performing-a-project-premortem — Pre-mortem决策方法详解
 - https://www.lesswrong.com/tag/bayesian-reasoning — 贝叶斯推理入门
 - https://callingbullshit.org/ — 华盛顿大学"辨别胡扯"课程
 - https://goodjudgment.io/ — Superforecasting实践社区

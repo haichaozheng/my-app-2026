@@ -149,7 +149,7 @@ print(f"成功获取 {len(all_data)}/{len(hs300_members)} 只股票数据")
 ## 拓展学习
 
 - **Cursor官方文档**：https://docs.cursor.com/ 全面介绍Cursor的功能、快捷键、最佳实践和高级用法
-- **Trae官方文档**：https://trae-docs.app.bytedance.com/ 介绍Trae AI IDE的功能和使用方法
+- **Trae官方文档**：https://docs.trae.ai 介绍Trae AI IDE的功能和使用方法
 - **opencode官方文档**：https://opencode.ai 命令行AI编程助手的使用指南
 - **《AI-Assisted Programming》**：深入讨论AI辅助编程的方法论、最佳实践和潜在风险
 - **Prompt Engineering for Code**：专门针对代码生成的Prompt技巧，包括如何描述需求、提供上下文、约束输出格式
@@ -159,6 +159,6 @@ print(f"成功获取 {len(all_data)}/{len(hs300_members)} 只股票数据")
 
 - https://docs.cursor.com/ - Cursor编辑器官方文档
 - https://opencode.ai - opencode命令行AI编程助手
-- https://trae-docs.app.bytedance.com/ - Trae AI IDE文档
+- https://docs.trae.ai - Trae AI IDE文档
 - https://www.anthropic.com/research/building-effective-agents - Anthropic关于构建有效AI Agent的研究，对理解AI编程助手的工作原理有帮助
 - https://platform.openai.com/docs/guides/prompt-engineering - OpenAI的Prompt工程指南，对优化AI编程交互有帮助

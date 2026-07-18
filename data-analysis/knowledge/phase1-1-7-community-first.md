@@ -152,7 +152,7 @@
 
 ## 参考链接
 
-- https://www.minimalistentrepreneur.com/ - 《The Minimalist Entrepreneur》官方网站
+- https://sahillavingia.com/ - 《The Minimalist Entrepreneur》作者Sahil Lavingia个人网站
 - https://paulgraham.com/ - Paul Graham文章集
 - https://www.indiehackers.com/ - Indie Hackers独立开发者社区
 - https://xueqiu.com/ - 雪球投资社区

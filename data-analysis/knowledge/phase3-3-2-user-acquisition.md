@@ -92,7 +92,7 @@
 
 [附上相关性热力图]
 
-工具链接：https://your-app.streamlit.app
+工具链接：https://your-app.streamlit.app（示例地址）
 可以自定义时间段和行业范围
 ```
 
@@ -129,8 +129,7 @@ if "user_source" not in st.session_state:
 
 ## 参考链接
 
-- https://www.product-market-fit.com/ - 产品市场匹配相关资源
+- https://www.productplan.com/glossary/product-market-fit/ - 产品市场匹配概念解析
 - https://www.reforge.com/ - Reforge增长课程，硅谷主流的增长方法论
 - https://xueqiu.com/ - 雪球社区，国内最大的投资者社区之一
-- https://www.growthhackers.com/ - GrowthHackers社区，增长方法论讨论
-- https://www.hubspot.com/growth - HubSpot增长资源，包含免费课程和模板
+- https://blog.hubspot.com/marketing — HubSpot增长资源，包含免费课程和模板

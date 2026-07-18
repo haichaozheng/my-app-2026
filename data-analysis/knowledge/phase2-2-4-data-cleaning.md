@@ -213,5 +213,5 @@ print(f"缺失值比例：{data.isnull().mean().max():.2%}")
 
 - https://pandas.pydata.org/docs/user_guide/missing_data.html — Pandas缺失值处理官方文档
 - https://docs.greatexpectations.io/docs/ — Great Expectations数据质量测试框架
-- https://pandas-profiling.ydata.ai/docs/ — Pandas Profiling自动数据报告工具
+- https://ydata-profiling.ydata.ai/ — Pandas Profiling自动数据报告工具
 - https://scikit-learn.org/stable/modules/impute.html — Scikit-learn缺失值填充方法

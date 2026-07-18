@@ -167,4 +167,4 @@ AI分析后，你需要：
 - https://github.com/features/copilot —— GitHub Copilot文档
 - https://cursor.sh/docs —— Cursor编辑器文档
 - https://www.anthropic.com/research/building-effective-agents —— 构建有效的AI代理
-- https://pythonspeed.com/articles/ai-code-review/ —— AI代码审查实践
+- https://graphite.dev/guides/ai-code-review —— AI代码审查实践

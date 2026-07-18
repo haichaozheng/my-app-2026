@@ -243,4 +243,4 @@ def analyze_industry_correlation(period: str, method: str = "pearson") -> str:
 - https://fastapi.tiangolo.com/tutorial/dependencies/ - FastAPI依赖注入设计
 - https://swagger.io/specification/ - OpenAPI规范
 - https://martinfowler.com/bliki/BoundedContext.html - 限界上下文概念
-- https://plugins.jetbrains.com/docs/intellij/plugin-architecture.html - 插件架构设计参考
+- https://plugins.jetbrains.com/docs/intellij/ — 插件架构设计参考

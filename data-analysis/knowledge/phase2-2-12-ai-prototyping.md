@@ -228,4 +228,4 @@ streamlit run app.py
 - https://docs.cursor.com/ — Cursor官方文档
 - https://github.blog/developer-skills/github/how-to-write-better-prompts-for-github-copilot/ — GitHub Copilot Prompt最佳实践
 - https://v0.dev/ — Vercel AI UI生成器
-- https://www.anthropic.com/prompt-library — Anthropic Prompt库，包含代码生成模板
+- https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview — Anthropic Prompt工程指南，包含代码生成模板

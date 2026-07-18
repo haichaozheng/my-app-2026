@@ -244,6 +244,6 @@ def generate_analysis(stock_code, stock_data):
 ## 参考链接
 
 - https://platform.openai.com/docs/guides/prompt-engineering —— OpenAI提示工程指南
-- https://docs.anthropic.com/claude/docs/prompt-engineering —— Anthropic提示工程指南
+- https://docs.anthropic.com/en/docs/about-claude/prompt-engineering —— Anthropic提示工程指南
 - https://python.langchain.com/docs/modules/model_io/prompts/ —— LangChain Prompt模板
 - https://github.com/AI4Finance-Foundation/FinGPT —— 金融领域开源LLM

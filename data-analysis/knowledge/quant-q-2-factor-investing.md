@@ -254,7 +254,7 @@ def full_ic_analysis(factor_df, return_df):
 
 ## 参考链接
 
-- https://arxiv.org/abs/2009.11384 —— 101 Formulaic Alphas
-- https://www.msci.com/equity-risk-models —— Barra风险模型
-- https://joiningthedata.com/ —— 因子投资学习资源
+- https://arxiv.org/abs/1601.00991 —— 101 Formulaic Alphas
+- https://www.msci.com/ —— Barra风险模型
+- https://www.aqr.com —— 因子投资学习资源
 - https://zhuanlan.zhihu.com/p/139485497 —— A股因子研究实践

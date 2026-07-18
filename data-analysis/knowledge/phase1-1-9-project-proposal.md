@@ -221,5 +221,5 @@ A股市场中行业轮动效应显著——不同行业在不同时期表现差�
 - https://www.ycombinator.com/apply - Y Combinator申请页面，可以参考其问题设计
 - https://www.producthunt.com/ - Product Hunt产品发布平台
 - https://www.startupschool.org/ - YC Startup School免费创业课程
-- https://www.notion.so/templates/project-proposal - Notion项目提案模板
-- https://milestones.pmi.org/ - PMI项目管理里程碑框架
+- https://www.notion.so/templates - Notion模板库
+- https://www.pmi.org/learning/library - PMI项目管理里程碑框架

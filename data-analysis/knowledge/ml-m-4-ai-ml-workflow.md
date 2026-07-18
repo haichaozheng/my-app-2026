@@ -311,6 +311,6 @@ shap_values = explain_model(best_model, X_test[:100])
 ## 参考链接
 
 - https://scikit-learn.org/stable/modules/compose.html —— Scikit-learn Pipeline
-- https://mlflow.org/docs/latest/index.html —— MLflow文档
+- https://mlflow.org/docs/latest/ —— MLflow文档
 - https://shap.readthedocs.io/ —— SHAP模型解释
 - https://microsoft.github.io/FLAML/ —— FLAML AutoML

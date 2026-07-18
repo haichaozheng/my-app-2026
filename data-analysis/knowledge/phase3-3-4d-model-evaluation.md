@@ -182,8 +182,8 @@ print(f"Sharpe Ratio: {results['sharpe_ratio']:.2f}")
 
 ## 参考链接
 
-- https://scikit-learn.org/stable/model_evaluation.html - Scikit-learn模型评估文档
+- https://scikit-learn.org/stable/modules/model_evaluation.html - Scikit-learn模型评估文档
 - https://mlflow.org/ - MLflow模型跟踪与评估平台
-- https://quantstats.readthedocs.io/ - QuantStats组合回测分析库
+- https://github.com/ranaroussi/quantstats - QuantStats组合回测分析库
 - https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3870260 - Marcos Lopez de Prado的组合式交叉验证论文
 - https://www.backtrader.com/ - Backtrader回测框架

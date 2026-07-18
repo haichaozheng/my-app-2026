@@ -170,7 +170,7 @@ SOM（第一年）：
 
 ## 参考链接
 
-- https://www.ycombinator.com/startup-school —— YC创业课程
+- https://startupschool.org/ —— YC创业课程
 - https://pmf.firstround.com/ —— Product-Market Fit验证方法论
-- https://abovethecrowd.com/2013/08/22/the-power-of-unit-economics/ —— 单位经济模型详解
-- https://christenseninc.com/startup-idea/ —— 创业想法评估框架
+- https://tomtunguz.com/ —— 单位经济模型详解
+- https://www.ycombinator.com/library/Mf-how-to-evaluate-startup-ideas —— 创业想法评估框架

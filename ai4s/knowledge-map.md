@@ -90,6 +90,7 @@ Prompt gap分析(2.2) + Agent辅助(2.6) ─→ AI驱动的gap发现
 | 3.6 | Agent辅助研究设计 | W4 | "如何让Agent作为'研究设计顾问'帮我探索设计方案？" | Essential | `ai-toolstack/agent/` |
 | 3.7 | 混合方法设计 | W4 | "如何设计定量+定性相结合的混合方法研究？" | Recommended | `weeks/week04/resources.md` |
 | 3.8 | Skill研究方案模板 | W4 | "如何用Skill快速生成研究方案框架？" | Essential | `ai-toolstack/skill/` |
+| 3b | 批判性思维与判断 | W4 | "我怎么知道我的研究设计是对的？我该不该信任AI给出的gap和方法建议？" | Essential | `knowledge/phase3-3b-critical-thinking.md` |
 
 ### 本模块知识关系图
 
@@ -103,6 +104,8 @@ Prompt gap分析(2.2) + Agent辅助(2.6) ─→ AI驱动的gap发现
 方法选择(3.4) + 混合方法(3.7) ─→ 方法匹配
     │
 Prompt方法匹配(3.5) + Agent设计顾问(3.6) + Skill方案模板(3.8) ─→ AI辅助设计
+    │
+批判性思维与判断(3b) ─→ 审视推理过程，提高研究设计判断可靠性
 ```
 
 ---
@@ -195,7 +198,7 @@ LLM辅助写作(5.2) + LaTeX(5.4) + Skill写作(5.5) ─→ AI写作工具链
 W1  AI4S范式 + AI辅助编程 + Prompt ──────────── 理解大图景 + 工具起步
 W2  RAG + 文献检索 + AI综述 + 综述规范 ──────── 文献智能模块
 W3  Gap analysis + 选题对话 + Agent选题 ──────── 研究选题模块
-W4  理论框架 + 因果推断 + Agent设计 + Skill ──── 研究设计模块
+W4  理论框架 + 因果推断 + Agent设计 + Skill + 批判性思维与判断 ──── 研究设计模块
 W5  数据采集 + AI编程深度 + Skill封装 ────────── 方案实施(数据)
 W6  LLM解读 + 定量/定性方法 + Skill+Agent ────── 方案实施(分析)
 W7  AI系统评估 + 稳健性检验 + 效度验证 ──────── 质量控制

@@ -235,4 +235,4 @@ def evaluate_predictions(y_true, y_pred_proba, threshold=0.5):
 - https://scikit-learn.org/stable/supervised_learning.html —— Scikit-learn监督学习
 - https://otexts.com/fpp3/ —— 时序预测在线教材
 - https://www.amazon.science/blog —— Amazon Science ML研究
-- https://mlfinlab.readthedocs.io/ —— 金融ML工具库
+- https://github.com/hmmlearn/hmmlearn —— 金融ML工具库

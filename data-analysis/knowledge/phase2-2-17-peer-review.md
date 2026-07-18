@@ -220,7 +220,7 @@ feedback_categories = {
 
 ## 参考链接
 
-- https://www.nngroup.com/articles/ux-reviews/ — Nielsen Norman用户体验评审方法
+- https://www.nngroup.com/articles/how-to-conduct-a-heuristic-evaluation/ — Nielsen Norman用户体验评审方法
 - https://www.atlassian.com/agile/scrum/retrospectives — 敏捷回顾方法论
 - https://google.github.io/eng-practices/review/ — Google工程实践中的代码评审指南
-- https://www.mindtools.com/pages/article/newTMM_98.htm — 建设性反馈的SBI模型
+- https://www.mindtools.com/a8ab7h2/giving-feedback/ — 建设性反馈方法

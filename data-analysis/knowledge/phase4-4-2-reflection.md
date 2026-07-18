@@ -136,7 +136,7 @@ PBL的核心闭环是Challenge→Gap→Knowledge→Apply→Reflect。没有Refle
 
 ## 参考链接
 
-- https://www.pblworks.org/teaching-projects/reflection —— PBL反思方法论
+- https://www.pblworks.org/what-is-pbl —— PBL反思方法论
 - https://www.feynmanlectures.caltech.edu/ —— 费曼学习法参考
-- https://hbr.org/2016/03/you-learn-by-doing-but-you-learn-even-more-by-reflecting —— Harvard Business Review: 反思的学习价值
-- https://www.learning-theories.com/experiential-learning-kolb.html —— Kolb经验学习循环
+- https://hbr.org/2007/09/performing-a-project-premortem —— Harvard Business Review: 反思的学习价值
+- https://www.simplypsychology.org/learning-theories.html —— Kolb经验学习循环

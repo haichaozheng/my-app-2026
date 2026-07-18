@@ -119,4 +119,4 @@ Demo是路演中最具风险也最具冲击力的环节。一个流畅的现场�
 - https://www.ycombinator.com/demoday —— YC Demo Day路演范例
 - https://speaking.io/ —— 演讲准备与PPT设计指南
 - https://www.ted.com/talks —— TED演讲结构参考
-- https://www.pblworks.org/teaching-projects/presenting —— PBL项目展示指南
+- https://www.pblworks.org/what-is-pbl —— PBL项目展示指南

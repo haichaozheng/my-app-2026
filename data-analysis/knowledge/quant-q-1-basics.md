@@ -224,7 +224,7 @@ print(f"最大回撤: {max_dd:.2%}")
 
 ## 参考链接
 
-- https://www.aqr.com/Insights/Research —— AQR研究论文
+- https://www.aqr.com —— AQR研究论文
 - https://www.joinquant.com/ —— 聚宽量化平台
 - https://www.ricequant.com/ —— 米筐量化平台
 - https://zhuanlan.zhihu.com/p/139485497 —— 量化投资核心指标详解

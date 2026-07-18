@@ -188,7 +188,7 @@ scheduler.start()
 ## 参考链接
 
 - https://langchain-ai.github.io/langgraph/ - LangGraph官方文档
-- https://microsoft.github.io/autogen/ - AutoGen官方文档
+- https://microsoft.github.io/autogen/stable/ - AutoGen官方文档
 - https://docs.crewai.com/ - CrewAI官方文档
 - https://modelcontextprotocol.io/ - MCP协议规范
 - https://www.anthropic.com/research/building-effective-agents - Anthropic关于构建有效Agent的研究
