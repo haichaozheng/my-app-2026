@@ -24,6 +24,7 @@
 | 1.3 | Prompt Engineering基础 | W1-2 | "如何与LLM有效交互，让它帮我完成任务？" | Essential | `ai-toolstack/prompt-engineering/` |
 | 1.4 | 金融数据生态与获取 | W2 | "金融数据在哪里？怎么获取？有哪些API和数据源？" | Essential | `weeks/week02/resources.md` |
 | 1.5 | Prompt驱动的金融数据探索 | W2 | "拿到数据后不知道从哪里开始分析，如何用Prompt引导探索？" | Essential | `ai-toolstack/prompt-engineering/` |
+| 1.5b | 产业链图谱梳理与痛点挖掘 | W2-3 | "选了赛道但找不到具体痛点——如何通过梳理产业链图谱，从关键环节中发现可产品化的痛点？" | Recommended | `weeks/week02/resources.md` |
 | 1.6 | 用户洞察方法论 | W3 | "我访谈了5个人但提炼不出痛点，如何系统性地从用户对话中发现需求？" | Essential | `weeks/week03/resources.md` |
 | 1.7 | Minimalist Entrepreneur社区先行 | W3 | "如何发现真实需求而非假想需求？为什么应该先去社区而不是先写代码？" | Recommended | `references/The Minimalist Entrepreneur.md` |
 | 1.8 | Deep Research | W3 | "如何用AI做深度调研，快速了解一个领域？" | Essential | `ai-toolstack/prompt-engineering/` |
@@ -38,6 +39,8 @@ PBL方法论(1.1) ─→ 理解"做中学"的节奏
 AI辅助编程(1.2) + Prompt(1.3) ─→ 工具基础，贯穿全程
     │
 金融数据生态(1.4) + Prompt探索(1.5) ─→ 从数据端发现问题
+    │
+产业链图谱梳理(1.5b) ─→ 从产业链结构中发现痛点
     │
 用户洞察(1.6) + 社区先行(1.7) + Deep Research(1.8) ─→ 从用户端发现问题
     │
