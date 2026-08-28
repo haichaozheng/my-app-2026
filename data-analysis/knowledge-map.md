@@ -24,9 +24,8 @@
 | 1.3 | Prompt Engineering基础 | W1-2 | "如何与LLM有效交互，让它帮我完成任务？" | Essential | `ai-toolstack/prompt-engineering/` |
 | 1.4 | 金融数据生态与获取 | W2 | "金融数据在哪里？怎么获取？有哪些API和数据源？" | Essential | `weeks/week02/resources.md` |
 | 1.5 | Prompt驱动的金融数据探索 | W2 | "拿到数据后不知道从哪里开始分析，如何用Prompt引导探索？" | Essential | `ai-toolstack/prompt-engineering/` |
-| 1.5b | 产业链图谱梳理与痛点挖掘 | W2-3 | "选了赛道但找不到具体痛点——如何通过梳理产业链图谱，从关键环节中发现可产品化的痛点？" | Recommended | `weeks/week02/resources.md` |
 | 1.6 | 用户洞察方法论 | W3 | "我访谈了5个人但提炼不出痛点，如何系统性地从用户对话中发现需求？" | Essential | `weeks/week03/resources.md` |
-| 1.7 | Minimalist Entrepreneur社区先行 | W3 | "如何发现真实需求而非假想需求？为什么应该先去社区而不是先写代码？" | Recommended | `references/The Minimalist Entrepreneur.md` |
+| 1.7 | Minimalist Entrepreneur社区先行 | W2-3 | "如何发现真实需求而非假想需求？为什么应该先去社区而不是先写代码？" | Essential | `references/The Minimalist Entrepreneur.md` |
 | 1.8 | Deep Research | W3 | "如何用AI做深度调研，快速了解一个领域？" | Essential | `ai-toolstack/prompt-engineering/` |
 | 1.9 | 项目提案方法论 | W4 | "如何写出清晰的项目提案，让老师和同伴理解我要做什么？" | Essential | `weeks/week04/resources.md` |
 | 1.10 | Andrew Ng项目筛选框架 | W4 | "我的想法够好吗？如何判断一个项目是否值得投入？" | Recommended | `references/build-career-in-ai-era.md` |
@@ -39,8 +38,6 @@ PBL方法论(1.1) ─→ 理解"做中学"的节奏
 AI辅助编程(1.2) + Prompt(1.3) ─→ 工具基础，贯穿全程
     │
 金融数据生态(1.4) + Prompt探索(1.5) ─→ 从数据端发现问题
-    │
-产业链图谱梳理(1.5b) ─→ 从产业链结构中发现痛点
     │
 用户洞察(1.6) + 社区先行(1.7) + Deep Research(1.8) ─→ 从用户端发现问题
     │
@@ -109,28 +106,34 @@ LLM API(2.13) + RAG(2.14) + Agent(2.15) ─→ 产品AI能力注入
 | 3.1 | 云部署 | W11 | "产品只能在本地跑，如何让目标用户公网访问？" | Essential | `weeks/week11/resources.md` |
 | 3.2 | 获客与推广方法论 | W12 | "产品上线了但没人用，如何让目标用户知道并愿意尝试？" | Essential | `weeks/week12/resources.md` |
 | 3.3 | Sell to Your First 100 Customers | W12 | "如何找到第一批用户？从哪里触达他们？" | Recommended | `references/The Minimalist Entrepreneur.md` |
-| 3.4 | ML基础与模型选择逻辑 | W13 | "想给产品加AI预测功能，但不知道选什么模型——监督/无监督/回归/分类，如何根据问题选模型？" | Recommended | `weeks/week13/resources.md` |
-| 3.4a | 回归与分类模型 | W13 | "用户想知道'这只股票未来会不会涨'或'这个客户违约概率多大'——如何用回归/分类模型做预测？" | Recommended | `weeks/week13/resources.md` |
-| 3.4b | 时间序列分析与预测 | W13 | "金融数据天然是时间序列——如何用ARIMA/趋势分解/季节性分析预测市场趋势？" | Recommended | `weeks/week13/resources.md` |
-| 3.4c | 特征工程与因子构建 | W13 | "ML模型效果不好，可能不是模型问题而是特征问题——如何从金融数据中提取有预测力的特征/因子？" | Recommended | `weeks/week13/resources.md` |
-| 3.4d | 模型评估与验证 | W13 | "模型训练出来后，如何判断它是否真的有效？交叉验证、过拟合、偏差-方差权衡怎么处理？" | Recommended | `weeks/week13/resources.md` |
-| 3.4e | ML产品化架构 | W13 | "ML模型如何嵌入数据分析产品？训练→推理→展示的架构怎么设计？" | Recommended | `weeks/week13/resources.md` |
-| 3.5 | Agent驱动高级功能 | W13 | "如何让产品自动监控市场变化、自动生成报告？" | Essential | `ai-toolstack/agent/` |
-| 3.6 | Skill封装可复用分析能力 | W13 | "如何把常用的分析流程封装为可复用模块，加速迭代？" | Recommended | `ai-toolstack/skill/` |
-| 3.7 | UX优化 | W14 | "用户反馈产品不好用，如何改进交互体验？" | Essential | `weeks/week14/resources.md` |
-| 3.8 | AI系统评估 | W14 | "产品的AI功能准确吗？可靠吗？如何系统性地评估？" | Essential | `ai-toolstack/ai-evaluation/` |
+| 3.4 | ML基础与模型选择逻辑 | W12 | "想给产品加AI预测功能，但不知道选什么模型——监督/无监督/回归/分类，如何根据问题选模型？" | Essential | `weeks/week12/resources.md` |
+| 3.4a | 回归与分类模型 | W12 | "用户想知道'这只股票未来会不会涨'或'这个客户违约概率多大'——如何用回归/分类模型做预测？（必做基础）" | Essential | `weeks/week12/resources.md` |
+| 3.4b | 时间序列分析与预测 | W13 | "金融数据天然是时间序列——如何用ARIMA/趋势分解/季节性分析预测市场趋势？（进阶可选）" | Recommended | `weeks/week13/resources.md` |
+| 3.4c | 特征工程与因子构建 | W13 | "ML模型效果不好，可能不是模型问题而是特征问题——如何从金融数据中提取有预测力的特征（必做基础）/因子（进阶可选）？" | Essential | `weeks/week13/resources.md` |
+| 3.4d | 模型评估与验证 | W15 | "模型训练出来后，如何判断它是否真的有效？交叉验证、过拟合、偏差-方差权衡怎么处理？" | Essential | `weeks/week15/resources.md` |
+| 3.4e | ML产品化架构 | W15 | "ML模型如何嵌入数据分析产品？训练→推理→展示的架构怎么设计？" | Essential | `weeks/week15/resources.md` |
+| 3.4f | 大模型做数据分析（分析引擎） | W14 | "如何让LLM本身成为数据分析/建模引擎——解读数据规律、生成洞察、代码生成做分析？与传统ML如何互补？" | Essential | `weeks/week14/resources.md` |
+| 3.5 | Agent驱动高级功能 | W15 | "如何让产品自动监控市场变化、自动生成报告？（进阶可选）" | Recommended | `ai-toolstack/agent/` |
+| 3.6 | Skill封装可复用分析能力 | W15 | "如何把常用的分析流程封装为可复用模块，加速迭代？（进阶可选）" | Recommended | `ai-toolstack/skill/` |
+| 3.7 | UX优化 | W15 | "用户反馈产品不好用，如何改进交互体验？（并入建模产品化）" | Essential | `weeks/week15/resources.md` |
+| 3.8 | AI系统评估 | W15 | "产品的AI功能准确吗？可靠吗？如何系统性地评估？（嵌入建模产品化）" | Essential | `ai-toolstack/ai-evaluation/` |
 | 3.9 | 路演叙事与演讲 | W15 | "如何讲好产品故事？路演时怎么让听众理解产品价值？" | Essential | `weeks/week15/resources.md` |
 
 ### 本阶段知识关系图
 
 ```
-云部署(3.1) ─→ 产品公网可达
+云部署(3.1) ─→ 产品公网可达（含W9 AI功能的MVP）
     │
-获客推广(3.2) + First 100(3.3) ─→ 找到真实用户
+建模增强期(W12-W15):
+  讲1 机器学习建模基础(3.4/3.4a) + 获客准备(3.2/3.3) ─→ 第一个基础模型(回归/分类) + 锁定用户
     │
-进阶分析: ML基础(3.4) + 回归分类(3.4a) + 时间序列(3.4b) + 特征工程(3.4c) + 模型评估(3.4d) + ML产品化(3.4e) ─→ 产品分析能力深化 + Agent高级功能(3.5) + Skill封装(3.6) ─→ 产品能力深化
+  讲2 特征工程与模型选择(3.4c) + 用户反馈收集(3.2/3.3) ─→ 模型迭代 + 5-10 用户反馈
     │
-UX优化(3.7) + AI系统评估(3.8) ─→ 产品质量打磨
+  讲3 大模型做数据分析(3.4f) + 据反馈迭代 ─→ LLM分析实验 + 模型v1.0
+    │
+  讲4 模型评估(3.4d) + 建模产品化(3.4e) + UX优化(3.7) + AI系统评估(3.8) ─→ 含模型的v1.1 + 文档
+    │
+Agent(3.5)/Skill(3.6)（进阶可选）─→ 产品能力深化
     │
 路演叙事(3.9) ─→ 价值传达
 ```
@@ -162,6 +165,7 @@ UX优化(3.7) + AI系统评估(3.8) ─→ 产品质量打磨
 | X.3 | Prompt→RAG→Agent→Skill→评估 渐进融入 | W1→W9→W13→W14 | 渐进 | Essential | AI工具栈随项目需求自然深入 |
 | X.4 | 金融领域知识 | W2 | 全程 | Recommended | 具体赛道领域的专业知识，学生在项目中自学 |
 | X.5 | 产品思维 | W5 | W5-15 | Recommended | 从问题到产品的完整链路思维 |
+| X.6 | AI-Native 项目工作流 | W1 | 全程 | Essential | 以 repo 为枢纽，requirements→design→scope（循环）+ AGENTS.md（稳定）管理项目；详见 `teaching-plan.md` AI-Native 项目工作流节 |
 
 ---
 
@@ -238,11 +242,11 @@ W7  可视化原则 + 叙事 + 交互式工具 ───────────
 W8  快速原型 + Streamlit/Gradio ──────────────────────── 骨架搭建
 W9  LLM API + RAG + Agent ──────────────────────────── AI能力注入
 W10 产品评审 + 同侪互评 ────────────────────────────── 评价迭代
-W11 云部署 ─────────────────────────────────────────── 上线
-W12 获客推广 ───────────────────────────────────────── 找用户
-W13 进阶分析: ML基础+回归分类+时间序列+特征工程+模型评估+ML产品化 + Agent高级功能 + Skill + 组合优化+量化产品化 ── 能力深化
-W14 UX优化 + AI系统评估 ────────────────────────────── 质量打磨
-W15 路演叙事 ────────────────────────────────────────── 价值传达
+W11 云部署 ─────────────────────────────────────────── 上线MVP(含W9 AI功能)
+W12 建模讲1: 机器学习建模基础(回归/分类) + 获客准备 ───────────────────────────────────────── 第一个基础模型
+W13 建模讲2: 特征工程与模型选择 + 用户反馈收集(5-10) ── 模型迭代
+W14 建模讲3: 大模型做数据分析 + 据反馈迭代 ────────────────────────────── LLM分析实验 + 模型v1.0
+W15 建模讲4: 模型评估与产品化 + UX优化 + AI系统评估 + 路演准备 ────────────────────────────────────────── 含模型v1.1 + 路演
 W16 路演展示 ────────────────────────────────────────── 公开展示
 W17 反思方法论 + 创业思维 ──────────────────────────── 知识重构
 ```
