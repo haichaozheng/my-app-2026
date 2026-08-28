@@ -1,4 +1,4 @@
-# AI辅助编程（opencode/Cursor/Trae）
+# AI辅助编程与AI工作流（opencode/Cursor/Trae/TraeWork/workbuddy）
 
 > **引入时机**：W1 | **核心挑战**：如何高效编写代码、减少重复劳动？ | **层级**：Essential
 
@@ -14,13 +14,14 @@
 
 ### AI编程工具概览
 
-当前主流的AI辅助编程工具可以分为以下几类：
+当前主流的AI辅助编程与AI办公工具可以分为以下几类：
 
 - **AI-first IDE**：Cursor、Trae、Windsurf等，将AI深度集成到编辑器中，支持代码生成、编辑、解释、重构等操作。Cursor基于VS Code生态，Trae基于字节跳动自研引擎，两者都支持自然语言驱动的代码编辑
 - **命令行AI助手**：opencode等工具，在终端环境中提供AI编程辅助，适合习惯命令行工作流的开发者，可以直接在项目目录中与AI对话、生成和修改代码
+- **AI办公/工作流平台**：TraeWork、workbuddy等，以Agent/工作流范式处理非纯编码任务。TraeWork（字节跳动）支持Work/Code/Design多模式，可自动拆解任务并调用Skills与工具，覆盖数据分析、深度调研、PPT/文档生成等场景；workbuddy定位"AI Agent办公新范式"，可承接数据分析与文档自动化等流程。两者适合在报告撰写、调研、成果展示等环节提效
 - **通用LLM对话**：ChatGPT、Claude、通义千问等，适合独立的代码问答和方案讨论，但无法直接操作你的代码文件
 
-在本课程中，推荐使用Cursor或Trae作为主力开发工具，opencode作为命令行场景的补充。
+在本课程中，推荐使用Cursor或Trae作为主力开发工具，opencode作为命令行场景的补充；对于数据分析报告、深度调研、PPT/文档等非纯编码任务，可结合TraeWork、workbuddy等AI办公平台提效。
 
 ### 高效使用AI编程工具的方法
 
@@ -149,8 +150,10 @@ print(f"成功获取 {len(all_data)}/{len(hs300_members)} 只股票数据")
 ## 拓展学习
 
 - **Cursor官方文档**：https://docs.cursor.com/ 全面介绍Cursor的功能、快捷键、最佳实践和高级用法
-- **Trae官方文档**：https://docs.trae.ai 介绍Trae AI IDE的功能和使用方法
+- **Trae官方文档**：https://docs.trae.cn 介绍Trae AI IDE的功能和使用方法
 - **opencode官方文档**：https://opencode.ai 命令行AI编程助手的使用指南
+- **TraeWork官方文档**：https://www.trae.cn/work 字节跳动AI办公平台，覆盖数据分析、调研、PPT/文档生成等场景
+- **workbuddy官方文档**：https://www.workbuddy.cn/ AI Agent办公新范式，适合工作流与文档自动化
 - **《AI-Assisted Programming》**：深入讨论AI辅助编程的方法论、最佳实践和潜在风险
 - **Prompt Engineering for Code**：专门针对代码生成的Prompt技巧，包括如何描述需求、提供上下文、约束输出格式
 - **GitHub Copilot文档**：https://docs.github.com/copilot 虽然本课程不使用Copilot，但其最佳实践文档对理解AI编程范式很有参考价值
@@ -159,6 +162,8 @@ print(f"成功获取 {len(all_data)}/{len(hs300_members)} 只股票数据")
 
 - https://docs.cursor.com/ - Cursor编辑器官方文档
 - https://opencode.ai - opencode命令行AI编程助手
-- https://docs.trae.ai - Trae AI IDE文档
+- https://docs.trae.cn - Trae AI IDE文档
+- https://www.trae.cn/work - TraeWork AI办公平台官网
+- https://www.workbuddy.cn/ - workbuddy AI Agent办公平台官网
 - https://www.anthropic.com/research/building-effective-agents - Anthropic关于构建有效AI Agent的研究，对理解AI编程助手的工作原理有帮助
 - https://platform.openai.com/docs/guides/prompt-engineering - OpenAI的Prompt工程指南，对优化AI编程交互有帮助
