@@ -26,7 +26,7 @@
 | W16 | 海报展(全体) + 精选Demo | 个人项目（产品质量·路演） |
 | W17 | 个人项目最终报告 + 仓库 | 个人项目（报告） |
 
-> 每周反思日志（模板 `templates/reflection-log.md`）属**平时成绩**形成性材料。
+> 每周反思日志（模板 `templates/reflection-log.md`）与项目日志（模板 `templates/journal.md`，repo 内 in-action 轻量日志）均属**平时成绩**形成性材料（教师抽查 repo 即可，无需单独提交）。阶段边界周（W3/W10/W15/W17）的反思日志须含「七、阶段 DSR 自检」节。
 
 ---
 
