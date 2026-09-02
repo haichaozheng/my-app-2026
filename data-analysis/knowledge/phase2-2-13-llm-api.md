@@ -1,6 +1,6 @@
-# LLM API集成
+# LangChain基础 + LLM API集成
 
-> **引入时机**：W8 | **核心挑战**："产品需要AI交互功能，如何集成？" | **层级**：Essential
+> **引入时机**：W8 | **核心挑战**："如何用框架化的方式调用LLM、构建产品AI功能？" | **层级**：Essential
 
 ## 为什么要在项目阶段学习这个知识点？
 
@@ -199,6 +199,104 @@ def call_llm_with_retry(client, messages, max_retries=3):
 
     return "AI分析服务多次请求失败，请检查网络或稍后重试。"
 ```
+
+### LangChain Chain + Prompt Template
+
+直接调用 OpenAI API 需要手动管理 messages 拼接、重试逻辑、输出解析。LangChain 用 Chain 和 Prompt Template 将这些流程模板化，让代码更简洁、可维护。
+
+**安装**：
+
+```bash
+pip install langchain langchain-openai langchain-core
+```
+
+**Prompt Template**：将 Prompt 模板化，参数可替换，避免字符串拼接：
+
+```python
+from langchain_core.prompts import ChatPromptTemplate
+
+prompt = ChatPromptTemplate.from_messages([
+    ("system", "你是一个专业的A股{domain}分析助手。基于提供的数据回答用户问题。回答要求：客观、数据驱动、不做投资建议。"),
+    ("user", "{question}\n\n数据上下文：\n{context}")
+])
+
+# 渲染
+msgs = prompt.invoke({
+    "domain": "银行板块",
+    "question": "今天银行股为什么下跌？",
+    "context": "工商银行收盘价5.42，涨跌幅-1.5%，PE 5.2"
+})
+print(msgs.messages[0].content)
+```
+
+**LLM Chain**：Prompt + LLM 串联为一条调用链，一行代码完成完整的 LLM 调用：
+
+```python
+from langchain_openai import ChatOpenAI
+
+llm = ChatOpenAI(
+    model="deepseek-chat",
+    api_key="your-api-key",
+    base_url="https://api.deepseek.com",
+    temperature=0.3,
+    max_tokens=500
+)
+
+# 组装 Chain：Prompt → LLM
+chain = prompt | llm
+response = chain.invoke({
+    "domain": "银行板块",
+    "question": "今天银行股为什么下跌？",
+    "context": "工商银行收盘价5.42，涨跌幅-1.5%，PE 5.2"
+})
+print(response.content)
+```
+
+**Chain 输出解析**：Chain 返回的是 LLM 原始对象，用 `StrOutputParser` 直接拿字符串：
+
+```python
+from langchain_core.output_parsers import StrOutputParser
+
+chain = prompt | llm | StrOutputParser()
+result = chain.invoke({...})
+print(result)  # 直接是字符串，不需要 result.choices[0].message.content
+```
+
+**在 Streamlit 中集成**：
+
+```python
+import streamlit as st
+from langchain_openai import ChatOpenAI
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.output_parsers import StrOutputParser
+
+client = ChatOpenAI(
+    model="deepseek-chat",
+    api_key=st.secrets["DEEPSEEK_API_KEY"],
+    base_url="https://api.deepseek.com",
+    temperature=0.3, max_tokens=500
+)
+
+prompt = ChatPromptTemplate.from_messages([
+    ("system", "你是一个专业的A股银行板块分析助手。基于提供的数据回答用户问题。"),
+    ("user", "{question}\n\n数据上下文：\n{context}")
+])
+
+chain = prompt | client | StrOutputParser()
+
+if prompt_input := st.chat_input("输入关于银行股的问题..."):
+    with st.chat_message("assistant"):
+        result = chain.invoke({
+            "question": prompt_input,
+            "context": f"工商银行：5.42元，-1.5%，PE 5.2，PB 0.61"
+        })
+        st.write(result)
+```
+
+**为什么用 LangChain 而不是直接调 API**：
+- 模板化：Prompt 可复用、可测试，不用每次手动拼 messages
+- 链式组合：Prompt → LLM → 解析 → 后处理，像水管一样串联
+- 为 W9 RAG 打基础：RAG 只需在 Chain 前加一步检索（Retriever），无需重写 LLM 调用逻辑
 
 ## 关键细节与易错点
 

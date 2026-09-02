@@ -5,19 +5,21 @@
 
 ## 教学内容
 1. 项目数据获取与落盘（复用W2金融数据生态知识：AKShare/Tushare获取、限流与复权处理、落盘CSV/DuckDB）
-2. Minimalist Entrepreneur先建手动流程理念
-3. 数据分析思维链
-4. 批判性思维与判断（偏误自检、AI输出判断、决策框架）
-5. 用AI辅助编程加速数据获取脚本与分析代码编写
+2. 网页数据采集（requests + BeautifulSoup静态页面、crawl4ai动态页面与LLM友好输出、爬虫伦理与合规：robots.txt/频率限制/法律边界/财经场景特殊注意）
+3. Minimalist Entrepreneur先建手动流程理念
+4. 数据分析思维链
+5. 批判性思维与判断（偏误自检、AI输出判断、决策框架）
+6. 用AI辅助编程加速数据获取脚本与分析代码编写
 
 ## 项目活动
-1. 基于Week03批准的项目提案，编写数据获取脚本（AKShare/Tushare），处理限流/复权/对齐，落盘为项目数据集（CSV/DuckDB，含字段说明）
-2. 在已落盘数据上用Excel/纸笔手动完成一次完整分析流程，验证逻辑正确性
-3. 记录手动过程中发现的边界问题和业务逻辑假设
-4. 用opencode将手动流程转化为代码（AI辅助编程加速），验证结果与手动一致
+1. 基于Week03批准的项目提案，编写数据获取脚本（AKShare/Tushare/requests/crawl4ai），处理限流/复权/对齐，落盘为项目数据集（CSV/DuckDB/Markdown，含字段说明）
+2. 若项目数据需要从网页采集（如贝壳房价、巨潮公告、财经新闻），使用requests或crawl4ai采集并落盘；采集前完成合规自检清单
+3. 在已落盘数据上用Excel/纸笔手动完成一次完整分析流程，验证逻辑正确性
+4. 记录手动过程中发现的边界问题和业务逻辑假设
+5. 用opencode将手动流程转化为代码（AI辅助编程加速），验证结果与手动一致
 
 ## 交付物
-- 项目数据集（获取脚本+落盘数据+字段说明）
+- 项目数据集（获取脚本+落盘数据+字段说明；若含网页采集须附合规自检清单）
 - 个人手动分析报告（含数据流图、计算公式、边界条件、假设清单）
 - 手动→自动转化代码（附验证结果对比）
 
@@ -28,6 +30,7 @@
 
 ## 学习资料
 - `knowledge/phase1-1-4-financial-data-ecosystem.md`（复用：数据获取与落盘）
+- `knowledge/phase1-1-4b-web-data-collection.md`（网页数据采集：requests + crawl4ai + 爬虫合规）
 - `knowledge/phase2-2-1-manual-flow-first.md`
 - `knowledge/phase2-2-2-thinking-chain.md`
 - `knowledge/phase2-2-2b-critical-thinking.md`

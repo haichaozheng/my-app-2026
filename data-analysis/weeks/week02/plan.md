@@ -33,6 +33,7 @@
 
 ## 学习资料
 - `knowledge/phase1-1-4-financial-data-ecosystem.md`
+- `knowledge/phase1-1-4b-web-data-collection.md`（提前选修：网页数据采集 requests + crawl4ai + 爬虫合规；W4 正式引入，感兴趣的同学可提前学习）
 - `knowledge/phase1-1-2-ai-assisted-coding.md`
 - `knowledge/phase1-1-7-community-first.md`（自主学习：社区先行方法）
 - `knowledge/phase1-1-6-user-insight.md`（自主学习：用户访谈技巧）

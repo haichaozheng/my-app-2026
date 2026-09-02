@@ -23,6 +23,7 @@
 | 1.2 | AI辅助编程(opencode/cursor/trae) | W1 | "如何高效编写代码、减少重复劳动？" | Essential | `ai-toolstack/ai-coding/` |
 | 1.3 | Prompt Engineering基础 | W1-2 | "如何与LLM有效交互，让它帮我完成任务？" | Essential | `ai-toolstack/prompt-engineering/` |
 | 1.4 | 金融数据生态与获取 | W2 | "金融数据在哪里？怎么获取？有哪些API和数据源？" | Essential | `weeks/week02/resources.md` |
+| 1.4b | 网页数据采集（requests + crawl4ai） | W4 | "有些数据没有现成API，如何从网页直接采集？如何合规地采集网页数据？" | Recommended | `knowledge/phase1-1-4b-web-data-collection.md` |
 | 1.5 | Prompt驱动的金融数据探索 | W2 | "拿到数据后不知道从哪里开始分析，如何用Prompt引导探索？" | Essential | `ai-toolstack/prompt-engineering/` |
 | 1.6 | 用户洞察方法论 | W3 | "我访谈了5个人但提炼不出痛点，如何系统性地从用户对话中发现需求？" | Essential | `weeks/week03/resources.md` |
 | 1.7 | Minimalist Entrepreneur社区先行 | W2-3 | "如何发现真实需求而非假想需求？为什么应该先去社区而不是先写代码？" | Essential | `references/The Minimalist Entrepreneur.md` |
@@ -38,6 +39,8 @@ PBL方法论(1.1) ─→ 理解"做中学"的节奏
 AI辅助编程(1.2) + Prompt(1.3) ─→ 工具基础，贯穿全程
     │
 金融数据生态(1.4) + Prompt探索(1.5) ─→ 从数据端发现问题
+    │
+网页数据采集(1.4b) ─→ 从网页获取API覆盖不到的数据（B/D族项目、RAG知识库素材）
     │
 用户洞察(1.6) + 社区先行(1.7) + Deep Research(1.8) ─→ 从用户端发现问题
     │
@@ -55,6 +58,7 @@ AI辅助编程(1.2) + Prompt(1.3) ─→ 工具基础，贯穿全程
 | # | 知识节点 | 引入时机 | 触发挑战 | 层级 | 参考资源 |
 |---|---|---|---|---|---|
 | 2.1 | 手动流程先行理念 | W4 | "我想直接写代码做产品，但不知道分析逻辑对不对——如何先验证价值再自动化？" | Essential | `references/The Minimalist Entrepreneur.md` |
+| 2.1b | 网页数据采集实战（衔接1.4b） | W4 | "项目需要从网页采集数据（房价/公告/新闻），如何用requests或crawl4ai获取并落盘？" | Recommended | `knowledge/phase1-1-4b-web-data-collection.md` |
 | 2.2 | 数据分析思维链 | W4 | "从数据到洞察的逻辑推导过程是什么？不是画图，而是思考链路。" | Essential | `weeks/week04/resources.md` |
 | 2.2b | 批判性思维与判断 | W4 | "我怎么知道我的分析结论是对的？我该不该信任AI给出的结果？" | Essential | `knowledge/phase2-2-2b-critical-thinking.md` |
 | 2.3 | Pandas高级操作 | W5 | "数据量大、格式复杂，如何高效处理金融数据？" | Essential | `weeks/week05/resources.md` |
@@ -63,21 +67,24 @@ AI辅助编程(1.2) + Prompt(1.3) ─→ 工具基础，贯穿全程
 | 2.6 | Prompt驱动EDA洞察 | W5 | "做了EDA但没发现有意思的结论，如何用Prompt引导AI帮我发现洞察？" | Essential | `ai-toolstack/prompt-engineering/` |
 | 2.7 | 可视化设计原则 | W6 | "为什么我的图表没人能看懂？如何选择合适的图表类型？" | Essential | `weeks/week06/resources.md` |
 | 2.8 | 可视化叙事 | W6 | "如何用可视化讲故事，而不是只是展示数据？" | Recommended | `weeks/week06/resources.md` |
-| 2.9 | 交互式可视化工具(Plotly/Pyecharts/Echarts) | W6 | "静态图表不够，用户需要交互探索数据。" | Essential | `weeks/week06/resources.md` |
+| 2.9 | 交互式可视化工具(Plotly/Pyecharts) | W6 | "静态图表不够，用户需要交互探索数据。" | Essential | `weeks/week06/resources.md` |
 | 2.10 | 快速原型方法论 | W7 | "如何快速搭建可运行的产品原型，验证核心功能？" | Essential | `weeks/week07/resources.md` |
-| 2.11 | Streamlit/Gradio | W7 | "用什么框架做数据分析产品原型？" | Essential | `weeks/week07/resources.md` |
+| 2.11 | Streamlit（必做）/ Gradio（可选） | W7 | "用什么框架做数据分析产品原型？" | Essential | `weeks/week07/resources.md` |
 | 2.12 | AI辅助编程加速原型 | W7 | "原型搭建速度慢，如何用AI辅助编程加速？" | Essential | `ai-toolstack/ai-coding/` |
-| 2.13 | LLM API集成 | W8 | "产品需要AI交互功能——智能解读、对话问答，如何集成？" | Essential | `weeks/week08/resources.md` |
-| 2.14 | RAG构建产品知识库 | W8 | "如何让产品回答金融数据相关问题？需要知识库支撑。" | Essential | `ai-toolstack/rag/` |
-| 2.15 | Agent设计产品智能功能 | W8 | "如何让产品自动执行任务——自动监控、自动报告？" | Essential | `ai-toolstack/agent/` |
+| 2.12b | 进阶前端/后端框架（React/Vue + FastAPI） | W7 | "有Web开发基础、追求更灵活定制的产品形式？" | Advanced | React/Vue/FastAPI官方文档 |
+| 2.13 | LangChain基础（Chain + Prompt Template）+ LLM API集成 | W8 | "如何用框架化的方式调用LLM、构建产品AI功能？" | Essential | `knowledge/phase2-2-13-llm-api.md` |
+| 2.14 | RAG构建产品知识库 | W9 | "如何让产品回答金融数据相关问题？需要知识库支撑。" | Recommended | `knowledge/phase2-2-14-rag.md` |
+| 2.15 | Agent设计产品智能功能 | W8（认知层） | "如何让产品自动执行任务——自动监控、自动报告？（概念了解，不要求W8实现）" | Recommended | `ai-toolstack/agent/` |
 | 2.16 | 产品评审标准 | W9 | "如何评判一个数据产品的好坏？功能完整度、可用性、分析深度？" | Essential | `weeks/week09/resources.md` |
 | 2.17 | 同侪互评方法 | W9 | "如何有效评价别人的产品，给出有建设性的反馈？" | Essential | `weeks/week09/resources.md` |
-| 2.18 | 上线前准备（服务器/云/数据库选型） | W10 | "产品要上线，需要服务器、云资源、数据库——如何选型与申请？" | Essential | `milestones.md`（2.7）+ `teaching-plan.md` W10 行 |
+| 2.18 | 上线前准备（云资源申请+数据库选型+AI功能部署考量） | W10 | "产品要上线，需要云资源、数据库、AI功能部署方案——如何准备？" | Essential | `milestones.md`（2.7）+ `teaching-plan.md` W10 行 |
 
 ### 本阶段知识关系图
 
 ```
 手动流程先行(2.1) ─→ 先验证价值再自动化
+    │
+网页数据采集实战(2.1b) ─→ 补充API覆盖不到的数据（衔接1.4b，为W8 RAG储备素材）
     │
 数据分析思维链(2.2) ─→ 从数据到洞察的思考链路
     │
@@ -87,13 +94,16 @@ Pandas(2.3) + 数据清洗(2.4) + EDA多视角(2.5) + PromptEDA(2.6) ─→ 数�
     │
 可视化原则(2.7) + 叙事(2.8) + 交互式工具(2.9) ─→ 洞察的视觉传达
     │
-快速原型(2.10) + Streamlit/Gradio(2.11) + AI加速(2.12) ─→ 产品骨架搭建
+快速原型(2.10) + Streamlit(2.11) + AI加速(2.12) ─→ 产品骨架搭建
+    │                          进阶可选：React/Vue+FastAPI(2.12b)
     │
-LLM API(2.13) + RAG(2.14) + Agent(2.15) ─→ 产品AI能力注入
+LangChain(2.13) + LLM API集成 ─→ 产品AI能力注入（Chain+PromptTemplate构建LLM解读）
+    │
+RAG(2.14, 可选) ─→ AI能力升级（检索增强，基于专属知识库回答）
     │
 产品评审(2.16) + 同侪互评(2.17) ─→ 评价与迭代
     │
-上线前准备(2.18) ─→ 服务器/云/数据库就绪
+上线前准备(2.18) ─→ 云/数据库/AI功能部署就绪
 ```
 
 ---
@@ -108,14 +118,14 @@ LLM API(2.13) + RAG(2.14) + Agent(2.15) ─→ 产品AI能力注入
 |---|---|---|---|---|---|
 | 3.1 | 云部署 | W11 | "产品只能在本地跑，如何让目标用户公网访问？" | Essential | `weeks/week11/resources.md` |
 | 3.2 | 获客与推广方法论 | W12 | "产品上线了但没人用，如何让目标用户知道并愿意尝试？" | Essential | `weeks/week12/resources.md` |
-| 3.3 | Sell to Your First 100 Customers | W12 | "如何找到第一批用户？从哪里触达他们？" | Recommended | `references/The Minimalist Entrepreneur.md` |
-| 3.4 | ML基础与模型选择逻辑 | W12 | "想给产品加AI预测功能，但不知道选什么模型——监督/无监督/回归/分类，如何根据问题选模型？" | Essential | `weeks/week12/resources.md` |
-| 3.4a | 回归与分类模型 | W12 | "用户想知道'这只股票未来会不会涨'或'这个客户违约概率多大'——如何用回归/分类模型做预测？（必做基础）" | Essential | `weeks/week12/resources.md` |
-| 3.4b | 时间序列分析与预测 | W13 | "金融数据天然是时间序列——如何用ARIMA/趋势分解/季节性分析预测市场趋势？（进阶可选）" | Recommended | `weeks/week13/resources.md` |
-| 3.4c | 特征工程与因子构建 | W13 | "ML模型效果不好，可能不是模型问题而是特征问题——如何从金融数据中提取有预测力的特征（必做基础）/因子（进阶可选）？" | Essential | `weeks/week13/resources.md` |
+| 3.3 | Sell to Your First 100 Customers | W13 | "如何找到第一批用户？从哪里触达他们？" | Recommended | `references/The Minimalist Entrepreneur.md` |
+| 3.4 | ML基础与模型选择逻辑 | W11 | "想给产品加AI预测功能，但不知道选什么模型——监督/无监督/回归/分类，如何根据问题选模型？" | Essential | `weeks/week11/resources.md` |
+| 3.4a | 回归与分类模型 | W11 | "用户想知道'这只股票未来会不会涨'或'这个客户违约概率多大'——如何用回归/分类模型做预测？（必做基础）" | Essential | `weeks/week11/resources.md` |
+| 3.4b | 时间序列分析与预测 | W12 | "金融数据天然是时间序列——如何用ARIMA/趋势分解/季节性分析预测市场趋势？（进阶可选）" | Recommended | `weeks/week12/resources.md` |
+| 3.4c | 特征工程与因子构建 | W12 | "ML模型效果不好，可能不是模型问题而是特征问题——如何从金融数据中提取有预测力的特征（必做基础）/因子（进阶可选）？" | Essential | `weeks/week12/resources.md` |
 | 3.4d | 模型评估与验证 | W15 | "模型训练出来后，如何判断它是否真的有效？交叉验证、过拟合、偏差-方差权衡怎么处理？" | Essential | `weeks/week15/resources.md` |
 | 3.4e | ML产品化架构 | W15 | "ML模型如何嵌入数据分析产品？训练→推理→展示的架构怎么设计？" | Essential | `weeks/week15/resources.md` |
-| 3.4f | 大模型做数据分析（分析引擎） | W14 | "如何让LLM本身成为数据分析/建模引擎——解读数据规律、生成洞察、代码生成做分析？与传统ML如何互补？" | Essential | `weeks/week14/resources.md` |
+| 3.4f | 大模型做数据分析（分析引擎） | W14 | "如何让LLM本身成为数据分析/建模引擎——解读数据规律、生成洞察、代码生成做分析？与传统ML如何互补？" | Essential | `knowledge/phase3-3-4f-llm-data-analysis.md` |
 | 3.5 | Agent驱动高级功能 | W15 | "如何让产品自动监控市场变化、自动生成报告？（进阶可选）" | Recommended | `ai-toolstack/agent/` |
 | 3.6 | Skill封装可复用分析能力 | W15 | "如何把常用的分析流程封装为可复用模块，加速迭代？（进阶可选）" | Recommended | `ai-toolstack/skill/` |
 | 3.7 | UX优化 | W15 | "用户反馈产品不好用，如何改进交互体验？（并入建模产品化）" | Essential | `weeks/week15/resources.md` |
@@ -125,14 +135,14 @@ LLM API(2.13) + RAG(2.14) + Agent(2.15) ─→ 产品AI能力注入
 ### 本阶段知识关系图
 
 ```
-云部署(3.1) ─→ 产品公网可达（含W8 AI功能的MVP）
+云部署(3.1) ─→ 产品公网可达（MVP v0.4含W8 AI功能）+ 第一个基础模型(3.4/3.4a)
     │
 建模增强期(W12-W15):
-  讲1 机器学习建模基础(3.4/3.4a) + 获客准备(3.2/3.3) ─→ 第一个基础模型(回归/分类) + 锁定用户
+  讲1 特征工程与模型选择(3.4c) + 获客渠道设计(3.2) + 进阶可选时间序列(3.4b) ─→ 模型迭代 + 锁定用户
     │
-  讲2 特征工程与模型选择(3.4c) + 用户反馈收集(3.2/3.3) ─→ 模型迭代 + 5-10 用户反馈
+  讲2 用户反馈收集(3.3) + 据反馈迭代 ─→ 5-10 用户反馈 + 模型v1.0
     │
-  讲3 大模型做数据分析(3.4f) + 据反馈迭代 ─→ LLM分析实验 + 模型v1.0
+  讲3 大模型做数据分析(3.4f) ─→ LLM分析实验 + 模型v1.1
     │
   讲4 模型评估(3.4d) + 建模产品化(3.4e) + UX优化(3.7) + AI系统评估(3.8) ─→ 含模型的v1.1 + 文档
     │
@@ -238,18 +248,18 @@ AI辅助ML建模(M.4) ─→ 用AI加速ML全流程
 W1  AI辅助编程 + Prompt ─────────────────────────────── 起步
 W2  金融数据生态 + Prompt探索 + ML应用地图(量化赛道+ML产品) ──── 数据端探索
 W3  用户洞察 + Deep Research + 社区先行 + 项目提案 + 项目筛选 ── 凝练项目
-W4  手动流程先行 + 数据分析思维链 + 批判性思维与判断 + 回测框架(量化赛道) + ML思维(ML产品) ── 验证价值与审视判断
+W4  手动流程先行 + 网页数据采集(1.4b/2.1b, Recommended) + 数据分析思维链 + 批判性思维与判断 + 回测框架(量化赛道) + ML思维(ML产品) ── 验证价值与审视判断
 W5  Pandas + 数据清洗 + EDA多视角 + PromptEDA + 因子挖掘+技术指标(量化赛道) + ML范式(ML产品) ── 处理与洞察
-W6  可视化原则 + 叙事 + 交互式工具 ──────────────────── 视觉传达
-W7  快速原型 + Streamlit/Gradio ──────────────────────── 骨架搭建
-W8  LLM API + RAG + Agent ──────────────────────────── AI能力注入
-W9  产品评审 + 同侪互评 ────────────────────────────── 评价迭代
-W10 上线前准备：服务器基础 + 云资源申请 + 数据库选型 ──── 上线准备
-W11 云部署 ─────────────────────────────────────────── 上线MVP(含W8 AI功能)
-W12 建模讲1: 机器学习建模基础(回归/分类) + 获客准备 ───────────────────────────────────────── 第一个基础模型
-W13 建模讲2: 特征工程与模型选择 + 用户反馈收集(5-10) ── 模型迭代
-W14 建模讲3: 大模型做数据分析 + 据反馈迭代 ────────────────────────────── LLM分析实验 + 模型v1.0
-W15 建模讲4: 模型评估与产品化 + UX优化 + AI系统评估 + 路演准备 ────────────────────────────────────────── 含模型v1.1 + 路演
+W6  可视化原则 + 叙事 + 交互式工具(Plotly/Pyecharts) ────────────────── 视觉传达（Notebook中实现原型）
+W7  快速原型 + Streamlit(必做)/Gradio(可选) + AI加速 ──────────────────── 骨架搭建（进阶：React/Vue+FastAPI）
+W8  LangChain(Chain+PromptTemplate) + LLM API集成 + LLM智能解读 ────── AI能力注入
+W9  RAG构建产品知识库（可选）+ 产品评审 + 同侪互评 + 开始打磨 ────── 评价迭代
+W10 打磨完成(v0.4) + 上线准备 ──────────────────────────── 打磨+部署就绪
+W11 产品部署(轻) + 机器学习建模基础(回归/分类) ──────── 上线MVP + 第一个基础模型
+W12 特征工程与模型优化 + 获客起步 + 进阶可选时间序列 ──── 模型迭代 + 锁定用户
+W13 用户反馈收集(5-10) + 据反馈迭代 ─────────────────── 5-10用户反馈 + 模型v1.0
+W14 大模型做数据分析(必做) + 模型强化 ─────────────────── LLM分析实验 + 模型v1.1
+W15 模型评估与产品化 + UX优化 + 路演准备 ──────────────── 含模型v1.1 + 路演
 W16 路演展示 ────────────────────────────────────────── 公开展示
 W17 反思方法论 + 创业思维 ──────────────────────────── 知识重构
 ```
