@@ -175,10 +175,10 @@ Agent(3.5)/Skill(3.6)（进阶可选）─→ 产品能力深化
 |---|---|---|---|---|---|
 | X.1 | AI辅助编程 | W1 | 全程 | Essential | 每周代码编写的基础工具 |
 | X.2 | Prompt Engineering | W1 | 全程 | Essential | 与LLM交互的基础方法论 |
-| X.3 | Prompt→RAG→Agent→Skill→评估 渐进融入 | W1→W8→W13→W14 | 渐进 | Essential | AI工具栈随项目需求自然深入 |
+| X.3 | Prompt→LLM API→RAG→Agent/Skill→评估 渐进融入 | W1→W8→W9(选做)→W15(进阶)→W15 | 渐进 | Essential | AI工具栈随项目需求自然深入：Prompt+AI辅助编程W1起步，LangChain+LLM API W8必做，RAG W9选做升级，LLM做数据分析W14，Agent/Skill W15进阶可选（Agent认知层W8、Skill产品形式W7可选），评估W15为重心并贯穿全程 |
 | X.4 | 金融领域知识 | W2 | 全程 | Recommended | 具体赛道领域的专业知识，学生在项目中自学 |
 | X.5 | 产品思维 | W4 | W4-15 | Recommended | 从问题到产品的完整链路思维 |
-| X.6 | AI-Native 项目工作流 | W1 | 全程 | Essential | 以 repo 为枢纽，requirements→design→scope（循环）+ AGENTS.md（稳定）管理项目；详见 `teaching-plan.md` AI-Native 项目工作流节 |
+| X.6 | AI-Native 项目工作流 | W2 | 全程 | Essential | 以 repo 为枢纽，requirements→design→scope（循环）+ AGENTS.md（稳定）管理项目；个人仓库与 AGENTS.md 于 W2 随 opencode 课堂首次创建（先创建、再被 opencode 读取）；详见 `teaching-plan.md` AI-Native 项目工作流节 |
 
 ---
 
@@ -246,20 +246,20 @@ AI辅助ML建模(M.4) ─→ 用AI加速ML全流程
 
 ```
 W1  AI辅助编程 + Prompt ─────────────────────────────── 起步
-W2  金融数据生态 + Prompt探索 + ML应用地图(量化赛道+ML产品) ──── 数据端探索
+W2  金融数据生态 + Prompt探索 + 仓库初始化/AGENTS.md(opencode) + ML应用地图(量化赛道+ML产品) ──── 数据端探索
 W3  用户洞察 + Deep Research + 社区先行 + 项目提案 + 项目筛选 ── 凝练项目
 W4  手动流程先行 + 网页数据采集(1.4b/2.1b, Recommended) + 数据分析思维链 + 批判性思维与判断 + 回测框架(量化赛道) + ML思维(ML产品) ── 验证价值与审视判断
-W5  Pandas + 数据清洗 + EDA多视角 + PromptEDA + 因子挖掘+技术指标(量化赛道) + ML范式(ML产品) ── 处理与洞察
-W6  可视化原则 + 叙事 + 交互式工具(Plotly/Pyecharts) ────────────────── 视觉传达（Notebook中实现原型）
-W7  快速原型 + Streamlit(必做)/Gradio(可选) + AI加速 ──────────────────── 骨架搭建（进阶：React/Vue+FastAPI）
-W8  LangChain(Chain+PromptTemplate) + LLM API集成 + LLM智能解读 ────── AI能力注入
+W5  Pandas + 数据清洗 + EDA多视角 + PromptEDA + 手动→自动转化 + 因子挖掘+技术指标(量化赛道) + ML范式(ML产品) ── 处理与洞察
+W6  可视化原则 + 叙事 + 交互式工具(Plotly/Pyecharts) ────────────────── 视觉传达（弹性缓冲周；实现可延至W7迁移）
+W7  快速原型 + Streamlit(必做)/Gradio(可选) + AI加速 ──────────────────── 骨架搭建（进阶：React/Vue+FastAPI；兜底：mvp-template）
+W8  LangChain(Chain+PromptTemplate) + LLM API集成 + LLM智能解读 ────── AI能力注入（Key三路径见 llm-key-guide）
 W9  RAG构建产品知识库（可选）+ 产品评审 + 同侪互评 + 开始打磨 ────── 评价迭代
-W10 打磨完成(v0.4) + 上线准备 ──────────────────────────── 打磨+部署就绪
-W11 产品部署(轻) + 机器学习建模基础(回归/分类) ──────── 上线MVP + 第一个基础模型
-W12 特征工程与模型优化 + 获客起步 + 进阶可选时间序列 ──── 模型迭代 + 锁定用户
-W13 用户反馈收集(5-10) + 据反馈迭代 ─────────────────── 5-10用户反馈 + 模型v1.0
+W10 打磨完成(v0.4) + 上线准备 + 试部署(进阶, 配 deployment-faq) ──── 打磨+部署就绪
+W11 部署验收与排障(轻) + 机器学习建模基础(回归/分类) + 用户触达开始 ──── 上线MVP + 第一个基础模型
+W12 特征工程与模型优化 + 获客渠道复盘深化 + 进阶可选时间序列 ──── 模型迭代 + 触达扩大
+W13 用户反馈集中分析(5-10, W11起滚动收集) + 据反馈迭代 ─── 反馈记录 + 模型v1.0（兜底：互助测试池/3深访）
 W14 大模型做数据分析(必做) + 模型强化 ─────────────────── LLM分析实验 + 模型v1.1
-W15 模型评估与产品化 + UX优化 + 路演准备 ──────────────── 含模型v1.1 + 路演
-W16 路演展示 ────────────────────────────────────────── 公开展示
+W15 模型评估与产品化 + 有效性claim + evals + UX优化 + 路演大纲/脚本 ──── 含模型的v1.1
+W16 路演叙事与制作(课堂) + 路演展示 ───────────────────── 公开展示
 W17 反思方法论 + 创业思维 ──────────────────────────── 知识重构
 ```
