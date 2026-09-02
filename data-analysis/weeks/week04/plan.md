@@ -62,3 +62,4 @@
 - `knowledge/phase2-2-1-manual-flow-first.md`
 - `knowledge/phase2-2-2-thinking-chain.md`
 - `knowledge/phase2-2-2b-critical-thinking.md`
+- 视频资料（超星学习通，详见 `video-resources.md`）：2.1 网络爬虫 + 2.4 BeautifulSoup解析库（网页采集向必看：静态页面解析，与课程 requests 互补）；2.2 HTML网页数据结构、2.3 正则表达式（解析受阻/需正则提取时按需看）

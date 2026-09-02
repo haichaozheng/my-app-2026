@@ -65,3 +65,4 @@
 - `knowledge/phase1-1-7-community-first.md`（自主学习：社区先行方法）
 - `knowledge/phase1-1-6-user-insight.md`（自主学习：用户访谈技巧）
 - `templates/AGENTS.md`、`templates/journal.md`
+- 视频资料（超星学习通，详见 `video-resources.md`）：2.1 网络爬虫（进阶预习：配合网页数据采集提前选修，为 W4 正式引入打底）

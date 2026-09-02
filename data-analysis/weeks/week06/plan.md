@@ -51,3 +51,4 @@
 - `knowledge/phase2-2-7-visualization-principles.md`
 - `knowledge/phase2-2-8-visualization-narrative.md`
 - `knowledge/phase2-2-9-interactive-visualization.md`
+- 视频资料（超星学习通，详见 `video-resources.md`）：7.1-7.4 数据可视化系列（按需参考：本周主体为 Plotly/Pyecharts 交互式，Matplotlib/Pyplot/Pandas可视化仅报告静态图基础参考，不要求观看）

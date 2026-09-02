@@ -54,3 +54,4 @@ RAG构建产品知识库（选做）+ 同侪互评 + 开始打磨迭代
 - `knowledge/phase2-2-16-product-review.md`
 - `knowledge/phase2-2-17-peer-review.md`
 - `templates/peer-review.md`
+- 视频资料（超星学习通，详见 `video-resources.md`）：3.1/3.2 词语切分（分词简介 + jieba）+ 4.1 文本量化 TF-IDF（进阶原理：做 RAG 者理解中文金融文本切分与向量化检索原理）

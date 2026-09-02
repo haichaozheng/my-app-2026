@@ -57,3 +57,4 @@
 - `knowledge/phase2-2-4-data-cleaning.md`
 - `knowledge/phase2-2-5-eda-multiview.md`
 - `knowledge/phase2-2-6-prompt-eda.md`
+- 视频资料（超星学习通，详见 `video-resources.md`）：6.4 Pandas数据清理（推荐：与本周清洗直接对应）；6.1 Pandas基础介绍 / 6.2 数据读取及取值（Pandas 基础弱者补缺）；6.3 数据合并（需多源合并时按需）

@@ -60,3 +60,4 @@
 - `knowledge/phase3-3-8-ai-evaluation.md`（AI系统评估）
 - `knowledge/phase3-3-7-ux-optimization.md`（UX优化）
 - （路演叙事方法论见 W16 学习资料，课上讲授）
+- 视频资料（超星学习通，详见 `video-resources.md`）：9.2 模型评估与选择（未看者补看）；10.1/10.2 朴素贝叶斯、11.1/11.2 SVM（基线模型货架：criterion validity claim 的对比对象备选）

@@ -55,3 +55,4 @@
 ## 学习资料
 - `knowledge/phase3-3-1-cloud-deployment.md`
 - `weeks/week10/deployment-faq.md`（部署排障 FAQ：试部署与 W11 验收随查）
+- 视频资料（超星学习通，详见 `video-resources.md`）：8.1 数据库基础 + 8.2 关系数据库标准语言SQL（推荐：服务本周数据库选型，SQL 通用于首选的 SQLite）；8.3 Python操作MySQL（进阶：课程首选 SQLite，用 MySQL 者再学）

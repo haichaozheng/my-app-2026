@@ -53,3 +53,4 @@
 - `knowledge/phase3-3-4c-feature-engineering.md`（特征工程）
 - `knowledge/phase3-3-4b-time-series.md`（进阶可选：时间序列分析）
 - `knowledge/phase3-3-2-user-acquisition.md`（获客与推广方法论）
+- 视频资料（超星学习通，详见 `video-resources.md`）：9.2 模型评估与选择（推荐观看）；12.1 决策树 / 12.2 随机森林（进阶：基础模型升级备选）；10.1/10.2 朴素贝叶斯 + 4.2 文本量化词袋法情感分析（文本类项目进阶：新闻情感分类）

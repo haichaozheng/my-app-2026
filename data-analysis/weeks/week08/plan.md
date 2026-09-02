@@ -51,3 +51,4 @@ LangChain入门 + 大模型赋能产品
 - `knowledge/phase2-2-13-llm-api.md`（含LangChain Chain + Prompt Template基础）
 - `knowledge/phase2-2-14-rag.md`（提前选修：RAG构建产品知识库，W9正式引入）
 - `weeks/week08/llm-key-guide.md`（API Key 三条获取路径 + 安全红线）
+- 视频资料（超星学习通，详见 `video-resources.md`）：14.3 基于大模型API做开发（课前预习：对应本周 LLM API 集成）+ 14.4 提示词（prompt）设计（课前预习：对应本周 Prompt Template）；14.5 案例分析：基于财经新闻做股价涨跌预测（推荐观看：财经场景的 LLM 分析样例）

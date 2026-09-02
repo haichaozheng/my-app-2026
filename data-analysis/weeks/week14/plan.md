@@ -52,3 +52,4 @@
 ## 学习资料
 - `knowledge/phase3-3-4f-llm-data-analysis.md`（大模型做数据分析）
 - `knowledge/phase2-2-13-llm-api.md`（LangChain回顾：Chain+PromptTemplate基础）
+- 视频资料（超星学习通，详见 `video-resources.md`）：14.1 语言模型 / 14.2 大语言模型（未看者补认知：大模型原理铺垫）；13.1 深度学习介绍 / 13.2 神经网络（可选拓展：对深度学习感兴趣者）
