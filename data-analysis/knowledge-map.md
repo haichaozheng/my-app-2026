@@ -118,14 +118,14 @@ RAG(2.14, 可选) ─→ AI能力升级（检索增强，基于专属知识库�
 |---|---|---|---|---|---|
 | 3.1 | 云部署 | W11 | "产品只能在本地跑，如何让目标用户公网访问？" | Essential | `weeks/week11/resources.md` |
 | 3.2 | 获客与推广方法论 | W12 | "产品上线了但没人用，如何让目标用户知道并愿意尝试？" | Essential | `weeks/week12/resources.md` |
-| 3.3 | Sell to Your First 100 Customers | W13 | "如何找到第一批用户？从哪里触达他们？" | Recommended | `references/The Minimalist Entrepreneur.md` |
+| 3.3 | Sell to Your First 100 Customers | W14 | "如何找到第一批用户？从哪里触达他们？" | Recommended | `references/The Minimalist Entrepreneur.md` |
 | 3.4 | ML基础与模型选择逻辑 | W11 | "想给产品加AI预测功能，但不知道选什么模型——监督/无监督/回归/分类，如何根据问题选模型？模型又是如何从数据中学习的（梯度下降）？" | Essential | `weeks/week11/resources.md`（含梯度下降入门，课堂讲授，视频9.3课后自愿） |
 | 3.4a | 回归与分类模型 | W11 | "用户想知道'这只股票未来会不会涨'或'这个客户违约概率多大'——如何用回归/分类模型做预测？（必做基础）" | Essential | `weeks/week11/resources.md` |
 | 3.4b | 时间序列分析与预测 | W12 | "金融数据天然是时间序列——如何用ARIMA/趋势分解/季节性分析预测市场趋势？（进阶可选）" | Recommended | `weeks/week12/resources.md` |
 | 3.4c | 特征工程与因子构建 | W12 | "ML模型效果不好，可能不是模型问题而是特征问题——如何从金融数据中提取有预测力的特征（必做基础）/因子（进阶可选）？" | Essential | `weeks/week12/resources.md` |
 | 3.4d | 模型评估与验证 | W15 | "模型训练出来后，如何判断它是否真的有效？交叉验证、过拟合、偏差-方差权衡怎么处理？" | Essential | `weeks/week15/resources.md` |
 | 3.4e | ML产品化架构 | W15 | "ML模型如何嵌入数据分析产品？训练→推理→展示的架构怎么设计？" | Essential | `weeks/week15/resources.md` |
-| 3.4f | 大模型做数据分析（分析引擎） | W14 | "如何让LLM本身成为数据分析/建模引擎——解读数据规律、生成洞察、代码生成做分析？与传统ML如何互补？" | Essential | `knowledge/phase3-3-4f-llm-data-analysis.md` |
+| 3.4f | 大模型做数据分析（分析引擎） | W13 | "如何让LLM本身成为数据分析/建模引擎——解读数据规律、生成洞察、代码生成做分析？与传统ML如何互补？" | Essential | `knowledge/phase3-3-4f-llm-data-analysis.md` |
 | 3.5 | Agent驱动高级功能 | W15 | "如何让产品自动监控市场变化、自动生成报告？（进阶可选）" | Recommended | `ai-toolstack/agent/` |
 | 3.6 | Skill封装可复用分析能力 | W15 | "如何把常用的分析流程封装为可复用模块，加速迭代？（进阶可选）" | Recommended | `ai-toolstack/skill/` |
 | 3.7 | UX优化 | W15 | "用户反馈产品不好用，如何改进交互体验？（并入建模产品化）" | Essential | `weeks/week15/resources.md` |
@@ -140,9 +140,9 @@ RAG(2.14, 可选) ─→ AI能力升级（检索增强，基于专属知识库�
 建模增强期(W12-W15):
   讲1 特征工程与模型选择(3.4c) + 获客渠道设计(3.2) + 进阶可选时间序列(3.4b) ─→ 模型迭代 + 锁定用户
     │
-  讲2 用户反馈收集(3.3) + 据反馈迭代 ─→ 5-10 用户反馈 + 模型v1.0
+  讲2 大模型做数据分析(3.4f) ─→ LLM分析实验（对照 W11-W12 传统模型）
     │
-  讲3 大模型做数据分析(3.4f) ─→ LLM分析实验 + 模型v1.1
+  讲3 用户反馈收集(3.3) + 据反馈迭代 ─→ 5-10 用户反馈 + 模型v1.0
     │
   讲4 模型评估(3.4d) + 建模产品化(3.4e) + UX优化(3.7) + AI系统评估(3.8) ─→ 含模型的v1.1 + 文档
     │
@@ -175,7 +175,7 @@ Agent(3.5)/Skill(3.6)（进阶可选）─→ 产品能力深化
 |---|---|---|---|---|---|
 | X.1 | AI辅助编程 | W1 | 全程 | Essential | 每周代码编写的基础工具 |
 | X.2 | Prompt Engineering | W1 | 全程 | Essential | 与LLM交互的基础方法论 |
-| X.3 | Prompt→LLM API→RAG→Agent/Skill→评估 渐进融入 | W1→W8→W9(选做)→W15(进阶)→W15 | 渐进 | Essential | AI工具栈随项目需求自然深入：Prompt+AI辅助编程W1起步，LangChain+LLM API W8必做，RAG W9选做升级，LLM做数据分析W14，Agent/Skill W15进阶可选（Agent认知层W8、Skill产品形式W7可选），评估W15为重心并贯穿全程 |
+| X.3 | Prompt→LLM API→RAG→Agent/Skill→评估 渐进融入 | W1→W8→W9(选做)→W15(进阶)→W15 | 渐进 | Essential | AI工具栈随项目需求自然深入：Prompt+AI辅助编程W1起步，LangChain+LLM API W8必做，RAG W9选做升级，LLM做数据分析W13，Agent/Skill W15进阶可选（Agent认知层W8、Skill产品形式W7可选），评估W15为重心并贯穿全程 |
 | X.4 | 金融领域知识 | W2 | 全程 | Recommended | 具体赛道领域的专业知识，学生在项目中自学 |
 | X.5 | 产品思维 | W4 | W4-15 | Recommended | 从问题到产品的完整链路思维 |
 | X.6 | AI-Native 项目工作流 | W2 | 全程 | Essential | 以 repo 为枢纽，requirements→design→scope（循环）+ AGENTS.md（稳定）管理项目；个人仓库与 AGENTS.md 于 W2 随 opencode 课堂首次创建（先创建、再被 opencode 读取）；详见 `teaching-plan.md` AI-Native 项目工作流节 |
@@ -225,7 +225,7 @@ Agent(3.5)/Skill(3.6)（进阶可选）─→ 产品能力深化
 | M.1 | ML思维：从描述到预测 | W4 | "手动分析只能描述'发生了什么'，用户还想知道'未来会怎样'——ML如何从描述性分析跨越到预测性分析？" | Recommended | Advanced | `weeks/week04/resources.md` |
 | M.2 | 监督学习 vs 无监督学习 | W5 | "EDA发现数据有分组/聚类特征，但不知道如何系统化——聚类/分类等不同ML范式各自解决什么问题？" | Recommended | Advanced | `weeks/week05/resources.md` |
 | M.3 | ML在金融场景的应用地图 | W2 | "ML在金融领域有哪些典型应用？信用评分、风险预测、市场趋势、异常检测——每个场景用什么模型？" | Recommended | Advanced | `weeks/week02/resources.md` |
-| M.4 | AI辅助ML建模全流程 | W13 | "如何用AI辅助编程完成ML建模全流程？数据准备→特征工程→模型训练→评估→部署，每一步LLM如何加速？" | Recommended | Advanced | `ai-toolstack/ai-coding/` |
+| M.4 | AI辅助ML建模全流程 | W14 | "如何用AI辅助编程完成ML建模全流程？数据准备→特征工程→模型训练→评估→部署，每一步LLM如何加速？" | Recommended | Advanced | `ai-toolstack/ai-coding/` |
 
 ### ML应用知识关系图
 
@@ -257,8 +257,8 @@ W9  RAG构建产品知识库（可选）+ 产品评审 + 同侪互评 + 开始�
 W10 打磨完成(v0.4) + 上线准备 + 试部署(进阶, 配 deployment-faq) ──── 打磨+部署就绪
 W11 部署验收与排障(轻) + 机器学习建模基础(回归/分类/梯度下降入门) + 用户触达开始 ──── 上线MVP + 第一个基础模型
 W12 特征工程与模型优化 + 获客渠道复盘深化 + 进阶可选时间序列 ──── 模型迭代 + 触达扩大
-W13 用户反馈集中分析(5-10, W11起滚动收集) + 据反馈迭代 ─── 反馈记录 + 模型v1.0（兜底：互助测试池/3深访）
-W14 大模型做数据分析(必做) + 模型强化 ─────────────────── LLM分析实验 + 模型v1.1
+W13 对照大模型与传统分析(必做) ─────────────────── LLM分析实验（对照 W11-W12）
+W14 用户反馈集中分析(5-10, W11起滚动收集) + 据反馈迭代 ─── 反馈记录 + 模型v1.0（兜底：互助测试池/3深访）
 W15 模型评估与产品化 + 有效性claim + evals + UX优化 + 路演大纲/脚本 ──── 含模型的v1.1
 W16 路演叙事与制作(课堂) + 路演展示 ───────────────────── 公开展示
 W17 反思方法论 + 创业思维 ──────────────────────────── 知识重构
