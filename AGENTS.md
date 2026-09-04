@@ -32,3 +32,14 @@
 - 教学材料应注重实用性，兼顾理论与实践
 - 课程1侧重应用导向和产品思维，课程2侧重科研方法论与AI工具链
 - PBL知识框架有机支撑：知识按项目阶段组织而非学科章节，通过里程碑制造知识缺口在需求时刻引入（Challenge→Gap→Knowledge→Apply），反思重构个人知识框架，交付物锚定核心知识概念
+
+# 本地 Python 环境
+
+本仓库以教学文稿为主，案例脚本（如 `data-analysis/weeks/week01/cases/`）需要 Python。约定如下，避免助手或本机终端误用 Anaconda。
+
+- 解释器：用官网 **Python 3.13**（`py -3.13`）。不要用 Anaconda `base`（本机直接输入 `python` 常落到 3.9）。
+- 虚拟环境目录名统一 **`.venv`**（已在 `.gitignore`）。创建：`py -3.13 -m venv .venv`。不要默认终端会自动激活。
+- **Cursor**：`Ctrl+Shift+P` → **Python: Select Interpreter** → 选项目 `.venv`。这主要管点「运行」用哪个 Python，选一次会记住；日常不必每次 `activate`。
+- **终端**里要自己敲 `python` / `pip` 时，再到仓库根目录执行 `.\.venv\Scripts\activate`（Mac：`source .venv/bin/activate`）。
+- 依赖：根目录 `requirements.txt`。没有该文件时，在已激活的 `.venv` 里 `python -m pip freeze > requirements.txt`。
+- 学生向逐步说明：`data-analysis/weeks/week01/python-setup.md`、`data-analysis/weeks/week02/venv-setup.md`。不要把 conda 写成全班默认路径。

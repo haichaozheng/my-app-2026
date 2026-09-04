@@ -4,7 +4,7 @@
 
 ## 任务
 
-1. **建仓库**：`git init` 个人项目仓库，放入 `AGENTS.md`（复制 `templates/AGENTS.md` 填三行即可：怎么运行、代码约定、一个 AI 易错点）与 `journal.md`，推送到 GitHub/Gitee。
+1. **建仓库**：`git init` 个人项目仓库，放入 `AGENTS.md`（复制 `templates/AGENTS.md` 填三行即可：怎么运行、代码约定、一个 AI 易错点）与 `journal.md`，按 `venv-setup.md` 建 `.venv`（文件夹勿提交），推送到 GitHub/Gitee。
 2. **接管上下文**：在项目目录启动 opencode，问它"我这个项目的运行命令和代码约定是什么？"——回答正确即证明 AGENTS.md 被读取接管。
 3. **故意留错**（可选 2 分钟）：让 AI 写一段违反你 AGENTS.md 约定的代码，纠正后把该纠正写回 AGENTS.md 的"常见错误"——体验机构知识文件的用法。
 4. **一次 Prompt 探索**：用 opencode 让 AI 拉一个 AKShare 接口（如指数日线），输出前 5 行 + 一句话数据说明，把对话记录进赛道意向。
@@ -18,5 +18,5 @@
 ## 自检（达标线）
 
 - [ ] opencode 能正确复述你 AGENTS.md 里的内容
-- [ ] 仓库含 AGENTS.md + journal.md，git log 有首次提交
+- [ ] 仓库含 AGENTS.md + journal.md，git log 有首次提交；本地有 `.venv` 且未提交该文件夹
 - [ ] 数据源拉通与否都记录了结果和原因

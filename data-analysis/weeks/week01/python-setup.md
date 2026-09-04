@@ -19,7 +19,7 @@ Cursor（以及备选 Trae）都是编辑器，**不会自带 Python**。只装 
 | 和本课后期 | `venv` + `requirements.txt`，部署到云/Streamlit Cloud 是同一套 | conda 环境与云端不一致，IDE 也容易选错解释器 |
 
 
-已经装过 Anaconda 的：**不要卸载**。本课请在 IDE 里选官网 3.13，不要用 `base`。W2 仍然用 `python -m venv .venv` 给个人项目单独建环境，不要在 `base` 里 `pip install` 一堆包。电脑上若同时有 Anaconda，见下面「选解释器」一节。
+已经装过 Anaconda 的：**不要卸载**。本课请在 IDE 里选官网 3.13，不要用 `base`。个人项目虚拟环境放到 **W2 建仓库时**再配（见 `weeks/week02/venv-setup.md`），不要在 `base` 里 `pip install` 一堆包。电脑上若同时有 Anaconda，见下面「选解释器」一节。
 
 本课统一口径：**官网 Python + 项目内 `.venv`**，不引入 conda 作为默认路径。
 
@@ -85,28 +85,7 @@ python -m pip install pandas openpyxl
 
 pandas **不能单独读 Excel**：`pd.read_excel()` 要另装引擎。本课财政数据是 `.xlsx`，引擎用 **openpyxl**。旧格式 `.xls` 才需要 `xlrd`，本周不用装。装完让 Cursor（或你装的 Trae）生成脚本：读取数据集、打印行数和列名，**必须点运行且终端无报错**。
 
----
-
-## W2 才做：个人项目虚拟环境
-
-建好个人 repo 之后，在项目根目录（有 `AGENTS.md` 的那一层）执行：
-
-```text
-python -m venv .venv
-```
-
-Windows 激活：
-
-```text
-.\.venv\Scripts\activate
-python -m pip install -r requirements.txt
-```
-
-还没有 `requirements.txt` 时，先 `python -m pip install pandas`，W7 起按产品需要追加（streamlit、plotly 等），并写进 `requirements.txt`。
-
-把 IDE 解释器改为项目里的 `.venv`。把 `.venv/` 写进 `.gitignore`，不要提交虚拟环境文件夹。
-
-此后每个项目只用自己的 `.venv`，不要往「系统 Python」里继续堆包——部署和同学复现都靠 `requirements.txt`。
+个人项目的 `.venv` 不在本周做，步骤见 `weeks/week02/venv-setup.md`。
 
 ---
 
