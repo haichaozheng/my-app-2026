@@ -49,7 +49,7 @@ PBL的核心闭环是Challenge→Gap→Knowledge→Apply→Reflect。没有Refle
 
 ### 学习日志
 
-日常用个人仓库 `journal.md`（复制 `templates/journal.md`；规则见 `templates/journal-rules.md`），按日追加五格：今天做了什么 / 关键决定 / 即时学习 / 卡点 / 互助记录。一周条目合起来就是周反思。期末总反思见 `templates/final-report.md`。
+日常用个人仓库 `journal.md`（复制 `templates/journal.md`；规则见 `templates/journal-rules.md`），按日追加五格：今天做了什么 / 关键决定 / 学习并掌握的新东西 / 卡点 / 互助记录。一周条目合起来就是周反思。期末总反思见 `templates/final-report.md`。
 
 ### 项目级深度反思
 
