@@ -240,7 +240,7 @@ W15 评估环节引入设计科学有效性框架：**全员须 ≥1 条 criteri
 
 | 构成项 | 满分 | 内部构成 | 评分方式 |
 |---|---|---|---|
-| 平时其他条目 | 40分 | 出勤与课堂参与、技能小练、阶段里程碑交付、周反思日志与项目日志(journal.md) | 教师百分制综合评分÷100×40（子项比例不细分） |
+| 平时其他条目 | 40分 | 出勤与课堂参与、技能小练、阶段里程碑交付、项目日志(journal.md) | 教师百分制综合评分÷100×40（子项比例不细分） |
 | 协作互评 | 10分 | 组内其他成员匿名百分制打分算术平均 | 计入平时，期末(W17)一次360°互评，÷100×10 |
 
 **个人项目内部（折算满分50分）**
@@ -277,10 +277,10 @@ W15 评估环节引入设计科学有效性框架：**全员须 ≥1 条 criteri
 6. **公开产品为终点**：路演面向全校/企业合作伙伴，每人产出并可公开访问一个独立产品；路演现场其他人可打开试用
 7. **AI基础工具栈渐进融入**：Prompt+AI辅助编程(W1起步) → LangChain+LLM API(W8必做) → RAG(W9选做升级) → 建模增强(W11-W15：ML基础与模型地图/树模型+特征工程/对照大模型与传统分析+神经网络基础/多模型对比+SVM自学/模型评估产品化) → AI系统评估(嵌入W15建模产品化)；工具随项目需求自然引入，进阶(Agent/Skill/深度模型)可选
 8. **AI赋能个体 / 一人公司（OPC）导向**：在强AI工具加持下，5人互助小组内**每人独立完成并交付一个完整产品**，模拟"一人公司"的真实可行路径；互助小组替代传统分工团队，强调"一人公司的创业生态"——既锻炼独立交付，又通过协作互评（计入平时）激励彼此赋能
-9. **知识框架有机支撑**：知识按项目阶段而非学科章节组织（见`knowledge-map.md`），通过里程碑制造知识缺口在需求时刻引入（Challenge→Gap→Knowledge→Apply节奏），反思环节逼迫学生重构个人知识框架（见`templates/reflection-log.md`），交付物锚定核心知识概念（见`milestones.md`）
+9. **知识框架有机支撑**：知识按项目阶段而非学科章节组织（见`knowledge-map.md`），通过里程碑制造知识缺口在需求时刻引入（Challenge→Gap→Knowledge→Apply节奏），反思写在 `journal.md`（见 `templates/journal.md`、`templates/journal-rules.md`），交付物锚定核心知识概念（见`milestones.md`）
 10. **AI-Native 项目工作流**：以 requirements→design→scope（循环）+ AGENTS.md（稳定）为项目脊柱，repo 为真相源，opencode 读 AGENTS.md 接管项目上下文，git 历史为审计轨迹——不引入额外 PM 工具（详见上文「AI-Native 项目工作流」节）
 11. **设计科学方法论锚定**：以 DSR 三循环（相关性/严谨性/设计）与 DSRM 六步为方法论骨架，使 PBL 项目既具教学真实性又具研究严谨性；产品即 artifact、评估即 evaluation、社区反馈即 relevance cycle——为"公开产品兼产论文"提供学术方法保障（详见上文「设计科学研究方法（DSR）方法论锚定」节）
-12. **反思与日志闭环**：用双层反思+日志养成元认知习惯——`journal.md`（in-action 即时日志，记跨文件决策与学习轨迹，映射 DSR 指导⑥ 搜索过程）+ 周反思日志（on-action 知识重构）+ 阶段边界 DSR 自检（W3/W10/W15/W17）+ `final-report.md` 综合闭环；知识缺口须 feed-forward（追踪是否真补上），形成 Challenge→Gap→Knowledge→Apply 闭环（详见 `templates/journal.md`、`templates/reflection-log.md`）
+12. **反思与日志闭环**：`journal.md` 按学习日追加（决定、学习、卡点、互助），一周条目合起来即周反思；W3 / W10 / W15 / W17 提交全文；期末 `final-report.md` 综合闭环（详见 `templates/journal.md`、`templates/journal-rules.md`）
 13. **课程公约师生共建**：W1 课后填公约问卷，教师收集为数据；W2 课堂一起分析分歧条款，整理成课堂公约，作为课程文化与协作的基础
 14. **周计划透明化与兜底**：每周 plan.md 固定五要素——学习目标（可测量）、预计投入（课外工时预算）、三层任务（必做/进阶/兜底）、评分锚点（挂 milestones §与 rubric 维度 + 提交前自检清单）、求助路径（AI→互助组→课程群 24h→课堂一对一交流）；配套兜底资源：W7 `mvp-template`、W8 `llm-key-guide`（演示 Key）、W10-W11 `deployment-faq`（录屏暂过验收）、W12-W14 `user-test-pool`（互助测试池/转介/3深访替代）——保证任何单点受阻不致掉队
 15. **负荷节奏控制**：W4/W11/W15 三个原"双线程极高周"经再平衡降坡（转化移W5、部署拆W10试-W11验、路演移W16），W6 指定为弹性缓冲周吸收欠账；技能小练仅在负荷可承受周设置（W1/W2/W5-W9/W11/W12/W13 共 10 次，见 rubric 与 `weeks/weekXX/lab.md`）
@@ -319,14 +319,13 @@ data-analysis/
 │   └── ai-evaluation/               # AI系统评估
 ├── templates/                       # 学生模板文件
 │   ├── project-proposal.md          # 项目提案模板（历史，已并入 requirements.md）
-│   ├── reflection-log.md            # 反思日志模板
 │   ├── peer-review.md               # 同侪互评模板
 │   ├── final-report.md              # 最终报告模板
 │   ├── requirements.md              # 产品需求模板（项目工作流，W3提交）
 │   ├── design.md                    # 技术方案设计模板（项目工作流，W4提交）
 │   ├── scope.md                     # 范围与任务模板（项目工作流，W4提交）
-│   ├── reflection-log.md            # 周反思日志模板（on-action，每周提交）
-│   ├── journal.md                   # 项目日志模板（in-action，repo 内随手记）
+│   ├── journal.md                   # 学生复制到仓库后按日填写
+│   ├── journal-rules.md             # 项目日志用途与交法
 │   └── AGENTS.md                    # 产品稳定上下文模板（opencode 读取）
 ├── weeks/                           # 每周教学材料
 │   ├── week01/

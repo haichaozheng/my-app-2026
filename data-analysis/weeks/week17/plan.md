@@ -47,7 +47,7 @@
 
 7. **360° 匿名互评（25 分钟）**：组内填写；如实写「谁帮了你」。
 8. **仓库与链接（10 分钟）**：repo + 产品地址；已下线则附 Demo 视频。
-9. **收束（10 分钟）**：报告截止与自检五问。本周无技能小练、不投影代码。
+9. **收束（10 分钟）**：报告截止与自检五问。本周无技能小练、不投影代码。当日在 `journal.md` 追加 1 条（今天做了什么 / 关键决定 / 即时学习 / 卡点 / 互助记录）。互助记录只写「谁帮了你、对项目有何影响」，没有则写「无」。提醒：本周提交截至今日的 `journal.md` 全文作为作业（与期末报告分开交）。
 
 ## 项目活动
 
@@ -55,7 +55,7 @@
 1. 撰写个人项目最终报告（`templates/final-report.md`，含必做的"DSR 定位"节）
 2. 整理个人产品 repo，给出可公开访问链接（repo + 产品地址；产品已下线则附 Demo 视频）
 3. 课堂完成对组内其他成员的 360° 匿名互评
-4. 提交最终阶段反思（DSR 自检，全程版）
+4. 提交个人仓库 `journal.md`（截至本周的全文，作为作业；DSR 全程定位写在期末报告，不另开反思文件）
 
 **进阶（可选）**
 - 论文轨：完整有效性论证（causal/context validity），把 RAG 流水线/特征方案抽象为 method/model，冲 Level 2 定位
@@ -78,9 +78,11 @@
 ## 课后任务
 1. 完成最终反思报告
 2. 完成仓库整理与链接提交
+3. 提交个人仓库 `journal.md`（截至本周的全文，作为作业）
 
 ## 学习资料
 - `knowledge/phase4-4-2-reflection.md`
 - `knowledge/phase4-4-3-startup-thinking.md`
+- `templates/journal.md`；`templates/journal-rules.md`
 - `templates/final-report.md`
 - `templates/peer-review.md`

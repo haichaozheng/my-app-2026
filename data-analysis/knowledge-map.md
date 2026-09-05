@@ -162,7 +162,7 @@ Agent(3.5)/Skill(3.6)（进阶可选）─→ 产品能力深化
 | # | 知识节点 | 引入时机 | 触发挑战 | 层级 | 参考资源 |
 |---|---|---|---|---|---|
 | 4.1 | 路演展示与Demo | W16 | "如何在公开场合展示产品、说服评委和观众？" | Essential | `weeks/week16/resources.md` |
-| 4.2 | 反思方法论 | W17 | "17周做了很多事，但收获是什么？如何从项目经历中提炼可迁移的知识？" | Essential | `templates/reflection-log.md` |
+| 4.2 | 反思方法论 | W17 | "17周做了很多事，但收获是什么？如何从项目经历中提炼可迁移的知识？" | Essential | `templates/journal-rules.md`、`templates/final-report.md` |
 | 4.3 | 创业思维与Scale | W17 | "产品是否有商业化潜力？下一步是什么？" | Recommended | `references/the-founders-playbook.md` |
 
 ---

@@ -41,10 +41,10 @@
 
 **第1节 · 公约 + 建仓（45 分钟）**
 
-1. **回看 W1 与本周目标（5 分钟）**：仓库本周才建；社区倾听为选题服务，不锁定题目。
+1. **分享上周 journal + 本周目标（5 分钟）**：随机邀请同学分享上周 journal（3 问：补上了哪个缺口 / 哪个判断不稳 / 下周先解哪个卡点）。W1 记在笔记里的迁入 `journal.md`。仓库本周才建；社区倾听为选题服务，不锁定题目。
 2. **课堂公约（10 分钟）**：投影 W1 公约问卷汇总（教师课前收齐）。和同学一起看 1–2 条分歧意见，当场改成课堂公约，记入课程群。问卷即本课「真实数据」的一次练习：先有数据，再一起下判断。
 3. **opencode 安装（10 分钟）**：教师投屏安装；学生跟做。装不上的先用 Trae，周末补齐，报错截图进群。
-4. **初始化个人仓库（20 分钟）**：git 建 repo → 放入 `templates/AGENTS.md` 骨架与 `journal.md` → 按 `weeks/week02/venv-setup.md` 在仓库根目录建 `.venv`（`.gitignore` 写入 `.venv/`）→ 推到远端。教师一步一停，学生同步。解释一句：W1 的系统 Python 只负责「有解释器」；个人项目的包装进 `.venv`，以后部署也靠这份环境。
+4. **初始化个人仓库（20 分钟）**：git 建 repo → 放入 `templates/AGENTS.md` 骨架，并把 `templates/journal.md` 复制到仓库根目录 → 按 `weeks/week02/venv-setup.md` 在仓库根目录建 `.venv`（`.gitignore` 写入 `.venv/`）→ 推到远端。教师一步一停，学生同步。解释一句：W1 的系统 Python 只负责「有解释器」；个人项目的包装进 `.venv`，以后部署也靠这份环境。
 
 **第2节 · 接管与数据全景（45 分钟）**
 
@@ -56,12 +56,12 @@
 
 8. **学生可得性初验（20 分钟）**：对 ≥1 个候选方向实拉数据；不要求锁定选题。
 9. **锁定社区（15 分钟）**：每人选定 1 个用户社区并注册/加入；示范如何记用户原话。
-10. **收束（10 分钟）**：布置 W3 两份预习（社区先行、用户访谈）；技能小练见 `lab.md` 当堂起笔。提醒：本周起项目工作流主工具是 opencode，日常写代码仍用 Cursor（Trae 亦可）。
+10. **收束（10 分钟）**：布置 W3 两份预习（社区先行、用户访谈）；技能小练见 `lab.md` 当堂起笔。提醒：本周起项目工作流主工具是 opencode，日常写代码仍用 Cursor（Trae 亦可）。当日在 `journal.md` 追加 1 条（今天做了什么 / 关键决定 / 即时学习 / 卡点 / 互助记录）。互助记录只写「谁帮了你、对项目有何影响」，没有则写「无」。
 
 ## 项目活动
 
 **必做**
-1. 初始化个人项目仓库：git 建 repo，放入 AGENTS.md 骨架与 journal.md，并按 `weeks/week02/venv-setup.md` 建项目虚拟环境（`.venv/` 勿提交）；随后用 opencode 读取 AGENTS.md 接管项目上下文，完成首次对话并复现课堂案例
+1. 初始化个人项目仓库：git 建 repo，放入 AGENTS.md 骨架，并把 `templates/journal.md` 复制到仓库根目录，按 `weeks/week02/venv-setup.md` 建项目虚拟环境（`.venv/` 勿提交）；随后用 opencode 读取 AGENTS.md 接管项目上下文，完成首次对话并复现课堂案例
 2. 用opencode探索金融数据生态：候选方向可先列出但**不锁定**——对每个候选方向用 Prompt+AI 辅助编程实拉一次数据，验证可得性，聚焦建立数据全景认知
 3. 锁定目标用户聚集的社区并加入、开始倾听记录：入社区本身就是选题探索的一部分——先用社区真实问题反哺选题，W3 收敛方向（社区先行）
 
@@ -99,5 +99,5 @@
 - `knowledge/phase1-1-2-ai-assisted-coding.md`
 - `knowledge/phase1-1-7-community-first.md`（自主学习：社区先行方法）
 - `knowledge/phase1-1-6-user-insight.md`（自主学习：用户访谈技巧）
-- `templates/AGENTS.md`、`templates/journal.md`
+- `templates/AGENTS.md`、`templates/journal.md`（复制到仓库根目录按日填写）、`templates/journal-rules.md`（用途与交法）
 - 视频资料（超星学习通，详见 `video-resources.md`）：2.1 网络爬虫（进阶预习：配合网页数据采集提前选修，为 W4 正式引入打底）
