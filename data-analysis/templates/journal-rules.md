@@ -6,7 +6,7 @@
 
 **作业提交**：W3 / W10 / W15 / W17 提交截至当周的 `journal.md` 全文（仓库链接即可）。其余周课堂上记，不单独交。
 
-W1 仓库未建：五格先记在笔记里，W2 建仓时把 `templates/journal.md` 复制到仓库根目录再迁入。
+W1 仓库未建：当堂打开 `templates/journal.md` 写今天 1 条，文件先留在本地；W2 建仓时复制到仓库根目录。
 
 ---
 
@@ -15,6 +15,7 @@ W1 仓库未建：五格先记在笔记里，W2 建仓时把 `templates/journal.
 | 文件 | 记录什么 | 频率 |
 |---|---|---|
 | **journal.md**（复制 `templates/journal.md`） | 当天做了什么、决定、学习、卡点、互助 | 按学习日追加；课堂每周至少 1 条 |
+| **community.md**（复制 `templates/community.md`） | 场合、怎么进、原话、从中抽出的用户 | W1 交齐调研；W2 迁入仓库后追加；提案引用此文件 |
 | git 提交历史 | 代码「改了什么」 | 每次提交 |
 | `requirements/design/scope.md` 的迭代N节 | 某 artifact 的触发与改动理由 | 每轮迭代 |
 | AGENTS.md | 稳定规则/约定/架构/常见错误 | 原地更新，极少变 |
