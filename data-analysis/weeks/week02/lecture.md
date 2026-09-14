@@ -10,7 +10,7 @@
 问 AI（附报错）→ 互助组（盯着你自己键入，不代跑）→ 课程群（安装问题附截图）
 ```
 
-课程群里已有：`opencode-setup.md`、`opencode-class-norm-case.md`、`venv-setup.md`、`swufe-news.md`。展示站：[https://haichaozheng.github.io/data-analysis-showcase/](https://haichaozheng.github.io/data-analysis-showcase/)  
+课程群里已有：`opencode-setup.md`、`opencode-class-norm-case.md`、`venv-setup.md`、`data-taxonomy.md`。展示站：[https://haichaozheng.github.io/data-analysis-showcase/](https://haichaozheng.github.io/data-analysis-showcase/)  
 新闻页：[数博会一文](https://haichaozheng.github.io/data-analysis-showcase/news.html)　公约页：[rules.html](https://haichaozheng.github.io/data-analysis-showcase/rules.html)
 
 本周起项目工作流主工具是 **opencode**；日常写代码仍用 Cursor（Trae 亦可）。装不上 opencode 先用 Trae，周末补齐。课堂不装 WSL。
@@ -54,7 +54,7 @@
   - **建 `.venv`**：先问 opencode 虚拟环境有什么用，再用 `python -m venv .venv`；`.gitignore` 写入 `.venv/`。W1 的系统 Python 只负责「电脑上有解释器」；个人项目的包装进 `.venv`。
   - **推到远端（选做）**：`git add`（不要加 `.venv`）→ 提交 → 推到 GitHub/Gitee。若做了：链接能打开；根目录有 `journal.md`、`community.md`；远端看不到 `.venv`。
 2. **产业新闻 + 数据从哪来**
-  打开 [产业新闻](https://haichaozheng.github.io/data-analysis-showcase/news.html)，先看 **「数博会探寻数据要素价值释放新路径」**：高质量数据集、数据要素要流通才有用。**不另做幻灯，看白板。**  
+  打开 [产业新闻](https://haichaozheng.github.io/data-analysis-showcase/news.html)，先看 **「数博会探寻数据要素价值释放新路径」**：高质量数据集、数据要素要流通才有用。**不另做幻灯，看白板。** 口述底稿：`weeks/week02/data-taxonomy.md`。  
    同一份数据会落在多条轴上，不是互斥菜单。先问四件事：从哪来、谁能看、花不花钱、怎么拿。
 
   | 轴 | 常见落点 |
@@ -83,7 +83,7 @@
   - 第 5 节用户是否从这些原话里抽出来的
   - 对不上：当场改第 1 节场合或第 5 节用户，约定本周补听，往表里追加一行
 2. **评估数据来源**
-  对照第 1 节的候选方向，用上一节的多维分类问：公开还是要自己采、免费还是付费、网页 / API / 原话本身。**说清来源与拿法即可。** 互助小组不是用户社区。
+  对照第 1 节的候选方向，用上一节的多维分类（`weeks/week02/data-taxonomy.md`）问：公开还是要自己采、免费还是付费、网页 / API / 原话本身。**说清来源与拿法即可。** 互助小组不是用户社区。
 3. **布置课后 + 写当天 `journal.md`（最后一项工作）**
   作业见下。技能小练见 `lab.md`：四份文件与迁入 `community.md` 当堂起笔。拉西财全部要闻是课后作业，必须用 opencode。  
   打开 `journal.md`，按五格追加今天 1 条：今天做了什么 / 关键决定 / 学习并掌握的新东西 / 卡点 / 互助记录。互助只写谁帮了你、对项目有何影响，没有则写「无」。

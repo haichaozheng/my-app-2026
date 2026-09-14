@@ -51,7 +51,7 @@
 
 ## 教学步骤
 
-每周 3 节课，每节 45 分钟（课间另计）。课前：教师机 opencode 可运行，**已在本地打开 `data-analysis-showcase` 仓库根目录**；终端字号放大；课程群发 `weeks/week02/venv-setup.md`、`weeks/week02/opencode-setup.md`、`weeks/week02/opencode-class-norm-case.md` 与 `weeks/week02/swufe-news.md`；**超星学习通已建好课堂活动（选人 / 随机点名），课上直接开**；学生带着 W1 写好的 `journal.md`、`community.md`（仓库本周才建），以及 **W1 打印、全员签字的互助小组协议纸质版**（`templates/group-agreement.md`）；**W1 公约问卷已收齐并做成可粘进 opencode 的汇总**（条数、分歧点即可）；展示站公约页能改；新闻页 [数博会一文](https://haichaozheng.github.io/data-analysis-showcase/news.html) 能打开。
+每周 3 节课，每节 45 分钟（课间另计）。课前：教师机 opencode 可运行，**已在本地打开 `data-analysis-showcase` 仓库根目录**；终端字号放大；课程群发 `weeks/week02/venv-setup.md`、`weeks/week02/opencode-setup.md`、`weeks/week02/opencode-class-norm-case.md`、`weeks/week02/data-taxonomy.md` 与 `weeks/week02/swufe-news.md`；**超星学习通已建好课堂活动（选人 / 随机点名），课上直接开**；学生带着 W1 写好的 `journal.md`、`community.md`（仓库本周才建），以及 **W1 打印、全员签字的互助小组协议纸质版**（`templates/group-agreement.md`）；**W1 公约问卷已收齐并做成可粘进 opencode 的汇总**（条数、分歧点即可）；展示站公约页能改；新闻页 [数博会一文](https://haichaozheng.github.io/data-analysis-showcase/news.html) 能打开。
 
 **第1节 · 交协议 + 分享 journal + 装 opencode（45 分钟）**
 
@@ -75,7 +75,7 @@
 
 **第3节 · 跟做（45 分钟）**
 
-1. **互查 community.md：补调研、评估数据来源（35 分钟）**：两人一组，打开对方已拷进仓库的 `community.md`（W1 未交齐的当场对着模板补）。先互查上周调研：第 4 节是否 ≥3 条原话；第 5 节用户是否从这些原话里抽出来的。对不上的当场改第 1 节场合或第 5 节用户，并约定本周补听、往表里追加一行。接着对照第 1 节的候选方向，用第 2 节的多维分类评估「若做成数据分析产品，数据从哪来」：公开还是要自己采、免费还是付费、网页 / API / 原话本身——说清来源与拿法即可，当堂不要求把数据拉下来，也不锁定选题。
+1. **互查 community.md：补调研、评估数据来源（35 分钟）**：两人一组，打开对方已拷进仓库的 `community.md`（W1 未交齐的当场对着模板补）。先互查上周调研：第 4 节是否 ≥3 条原话；第 5 节用户是否从这些原话里抽出来的。对不上的当场改第 1 节场合或第 5 节用户，并约定本周补听、往表里追加一行。接着对照第 1 节的候选方向，用第 2 节的多维分类（`weeks/week02/data-taxonomy.md`）评估「若做成数据分析产品，数据从哪来」：公开还是要自己采、免费还是付费、网页 / API / 原话本身——说清来源与拿法即可，当堂不要求把数据拉下来，也不锁定选题。
 2. **收束（10 分钟）**：布置本周课后学习（社区先行、用户访谈）和课后作业（用 opencode 拉完全部西财要闻，交代码和数据）。技能小练见 `lab.md`：四份文件与迁入 `community.md` 当堂起笔。提醒：本周起项目工作流主工具是 opencode，日常写代码仍用 Cursor（Trae 亦可）。继续倾听，原话追加到同一份 `community.md`；**下周课堂分享，会查看补充或更新的内容，题目和方向可以换。** 当日在 `journal.md` 追加 1 条（今天做了什么 / 关键决定 / 学习并掌握的新东西 / 卡点 / 互助记录）。互助记录只写「谁帮了你、对项目有何影响」，没有则写「无」。
 
 ## 项目活动
