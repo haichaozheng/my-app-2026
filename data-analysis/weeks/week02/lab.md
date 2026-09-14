@@ -1,22 +1,8 @@
-# Week 02 技能小练 — opencode 初步使用
+# Week 02 技能小练
 
-> 定位：本周里程碑（赛道意向 + 项目仓库）的热身，约 30-45 分钟；计入平时成绩"技能小练"。  
-> 课堂教师案例：`data-analysis-showcase`。你在**自己的项目根目录**跟做。
+按下面四份跟做即可。
 
-## 任务
-
-1. **选模型**：打开 opencode，选一个模型。默认免费模型即可；有付费模型或 token plan 的可接入。
-2. **四份文件**：在项目根目录让 opencode 新建 `AGENTS.md`、`requirements.md`、`design.md`、`scope.md`。对照 `templates/`，骨架即可，不要求写满痛点。
-3. **建仓库**：`git init`，把 `templates/journal.md` 与 W1 已交的 `community.md` 复制到仓库根目录，按 `venv-setup.md` 建 `.venv`（文件夹勿提交）。推送到 GitHub/Gitee 为选做。
-4. **课后作业（不当堂做完）**：用 **opencode** 采集 [西财要闻](https://www.swufe.edu.cn/index/xcyw.htm) **全部**列表和正文，提交代码和数据。对照 `swufe-news.md`。必间隔请求，不要并行。
-
-## 提交
-
-- 根目录四份文件（或仓库链接，推远端为选做）
-- 西财要闻采集：**代码 + 数据文件**（须 opencode 完成）
-
-## 自检（达标线）
-
-- [ ] 能说出自己选的是免费模型还是自备的付费 / token plan
-- [ ] 仓库根目录含 `AGENTS.md` + `requirements.md` + `design.md` + `scope.md` + journal.md + community.md；本地有 `.venv` 且未提交该文件夹
-- [ ] 有采集脚本和数据；是全部要闻，不是当堂那 1 页
+1. 安装 opencode：`weeks/week02/opencode-setup.md`
+2. 初步使用 opencode（选模型、`/init`、四份工作流文件、课堂公约）：`weeks/week02/opencode-class-norm-case.md`
+3. 个人项目建 `.venv`：`weeks/week02/venv-setup.md`
+4. 用 opencode 采集类似 `weeks/week02/swufe_xcyw_demo.jsonl` 的数据集（西财要闻：日期、标题、链接、正文）。当堂一页，课后继续。本周交 **Word 实验报告**，须含：实验目标、opencode 使用过程截图、踩坑记录、解决经验、是否最终完成数据采集（采集多少条，最初 10 条截图）。数据和代码下周课堂展示，本周作业不交这两样。

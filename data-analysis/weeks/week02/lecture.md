@@ -2,18 +2,33 @@
 
 今天怎么走：交互助小组协议纸质签字版 → 抽人分享 `journal.md` → 装 opencode 并生成项目规则与三份工作流文件 → 公约写进课程网站 → 仓库收口（迁入 journal / community，建 `.venv`）→ 数据从哪来 → 示范拉西财要闻 → 互查 `community.md`、评估数据来源 → 写当天日志。
 
-**下课时你应能：** 在项目根目录用 opencode 生成 `AGENTS.md`、`requirements.md`、`design.md`、`scope.md`；根目录有 `journal.md` 和 `community.md`；能用多维分类说清一份数据从哪来、怎么拿；和同学互查过社区调研；见过用 opencode 对话生成并跑通「抓一页西财要闻」的 `.py`。当堂不锁定选题。具体采集代码下节课再学。
+## 本周学习目标
+
+- 会用 opencode：选模型（默认免费即可）、`/init` 生成 `AGENTS.md`，在根目录新建 `requirements.md`、`design.md`、`scope.md`
+- 和全班一起用 opencode 分析 W1 公约问卷，把课堂公约写进课程网站（改文件，不只对话）
+- 初始化个人项目仓库：上述四份文件 + `journal.md` + `community.md`，建好 `.venv`
+- 能从生成、开放、成本、通道说清一份数据，对照 `community.md` 评估数据从哪来、怎么拿；不锁定选题
+- 互查并补充社区调研；用 opencode 拉西财要闻。本周交 Word 实验报告；数据和代码下周课堂展示
+
+## 本周实验
+
+跟做 `weeks/week02/lab.md`：
+
+1. 安装 opencode（`opencode-setup.md`）
+2. 初步使用：选模型、`/init`、四份工作流文件、课堂公约（`opencode-class-norm-case.md`）
+3. 个人项目建 `.venv`（`venv-setup.md`）
+4. 用 opencode 采集类似 `swufe_xcyw_demo.jsonl` 的西财要闻（当堂一页；课后继续）。本周交 Word 实验报告；数据和代码下周展示，不当周交
 
 卡住了：
 
 ```
-问 AI（附报错）→ 互助组（盯着你自己键入，不代跑）→ 课程群（安装问题附截图）
+问 AI（附报错）→ 互助组（盯着你自己键入，不代跑）→ 课程群（附截图）
 ```
 
-课程群里已有：`opencode-setup.md`、`opencode-class-norm-case.md`、`venv-setup.md`、`data-taxonomy.md`。展示站：[https://haichaozheng.github.io/data-analysis-showcase/](https://haichaozheng.github.io/data-analysis-showcase/)  
+课程群里已有：`lab.md`、`opencode-setup.md`、`opencode-class-norm-case.md`、`venv-setup.md`、`data-taxonomy.md`。展示站：[https://haichaozheng.github.io/data-analysis-showcase/](https://haichaozheng.github.io/data-analysis-showcase/)  
 新闻页：[数博会一文](https://haichaozheng.github.io/data-analysis-showcase/news.html)　公约页：[rules.html](https://haichaozheng.github.io/data-analysis-showcase/rules.html)
 
-本周起项目工作流主工具是 **opencode**；日常写代码仍用 Cursor（Trae 亦可）。装不上 opencode 先用 Trae，周末补齐。课堂不装 WSL。
+本周起项目工作流主工具是 **opencode + Cursor**。装不上 opencode 先用 Trae，周末补齐。课堂不装 WSL。
 
 ---
 
@@ -67,7 +82,7 @@
   产品要先找到能拿到、能用、能上线的数据。
 3. **拉一次数据示范**
   不当场拆代码。打开 opencode，对着 [西财要闻](https://www.swufe.edu.cn/index/xcyw.htm) **全程对话**：说清要一页新闻 → 生成 `.py` → 当场跑通。学生跟做同一问话，方便带走这个文件。  
-  **当堂只抓一页。** 具体代码下节课再学。课后作业用同一办法拉全部要闻，交代码和数据；间隔请求，不要并行、不要把学校网站打挂。
+  **当堂只抓一页。** 具体代码下节课再学。课后用同一办法继续拉；本周交 **Word 实验报告**（见课后）。数据和代码下周课堂展示，本周作业不交这两样。间隔请求，不要并行、不要把学校网站打挂。
 
 这一节结束：仓库根目录有 journal 和 community；能说出一份数据落在哪几条轴上；手里有一个 opencode 生成的、能抓一页新闻的 `.py`。
 
@@ -85,14 +100,14 @@
 2. **评估数据来源**
   对照第 1 节的候选方向，用上一节的多维分类（`weeks/week02/data-taxonomy.md`）问：公开还是要自己采、免费还是付费、网页 / API / 原话本身。**说清来源与拿法即可。** 互助小组不是用户社区。
 3. **布置课后 + 写当天 `journal.md`（最后一项工作）**
-  作业见下。技能小练见 `lab.md`：四份文件与迁入 `community.md` 当堂起笔。拉西财全部要闻是课后作业，必须用 opencode。  
+  作业见下。技能小练见 `lab.md`。拉西财要闻：本周交 Word 实验报告；数据和代码下周展示。  
   打开 `journal.md`，按五格追加今天 1 条：今天做了什么 / 关键决定 / 学习并掌握的新东西 / 卡点 / 互助记录。互助只写谁帮了你、对项目有何影响，没有则写「无」。
 
 ---
 
 ## 课后
 
-1. **课后作业 · 拉西财全部要闻**：必须用 **opencode** 写代码并跑通（不要手搓交差）。提交 **代码 + 数据**。范围：[西财要闻](https://www.swufe.edu.cn/index/xcyw.htm) 全部列表和正文，不是当堂那 1 页。可对照 `swufe-news.md`。每请求间隔，不要并行，不要把学校网站打挂。
+1. **课后作业 · 拉西财要闻（交 Word 实验报告）**：必须用 **opencode** 做。范围：[西财要闻](https://www.swufe.edu.cn/index/xcyw.htm)，当堂一页、课后继续拉。**本周交 Word 版实验报告**，须含：实验目标；opencode 使用过程截图；踩坑记录；解决经验；是否最终完成数据采集（采集了多少条，并给出最初 10 条的截图）。**数据和代码下周课堂展示分享，本周作业不交这两样。** 每请求间隔，不要并行，不要把学校网站打挂。
 2. **继续倾听**：原话追加到同一份 `community.md`（W1 未满 3 条的本周补齐）。**下周课堂分享**：会查看你补充或更新的内容；题目和方向可以换。
 3. **本周课后学习**
   - `knowledge/phase1-1-7-community-first.md`（社区先行）
