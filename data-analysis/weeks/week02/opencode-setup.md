@@ -2,7 +2,7 @@
 
 > 给谁：本周第 1 节跟做安装。  
 > 官网：[https://opencode.ai/](https://opencode.ai/)  
-> 装不上：先用 Trae 跟后面的课堂演示，报错截图进课程群，周末按本页补齐。
+> 装不上：先用 Trae 跟后面的课堂演示，报错截图进课程群，周末按本页补齐。采集西财新闻必须用 opencode。
 
 opencode 是命令行里的 AI 编程助手。本周起用它接管个人项目（读取 `AGENTS.md`）。它基于 Node.js，要先有 Node，再全局安装 `opencode-ai`（名字必须带 `-ai`，不要装成 `opencode`）。
 
@@ -136,13 +136,3 @@ Windows 终端要能跑：python hello_viz.py
 ```
 
 点运行玩一遍即可。这只是上手，本周正式练习仍按 `opencode-class-norm-case.md`。老师演示也可用仓库里的 `weeks/week02/hello_viz.py`。
-
----
-
-## 卡住了
-
-- `node` / `npm` 不是内部或外部命令：没关旧终端。重开 PowerShell 再试；仍不行则重装 Node。
-- `npm install -g` 很慢或失败：换校园网 / 手机热点；不要装成 `opencode`（那是另一个包）。
-- `opencode` 不是内部或外部命令：新开终端再试。仍没有，执行 `npm config get prefix`，把输出目录下的 `bin`（Windows 常在 `%APPDATA%\npm`）加到 PATH，再开终端。
-- 权限报错（EACCES / 拒绝访问）：不要用 `sudo`。Windows 用「普通」PowerShell 再装一次；或换 Trae 先跟课。
-- 装不上、电脑带不来：借互助组同学机器看演示，报错截图进课程群；本周数据探索可先用 Trae，仓库与 AGENTS.md 周末补齐。
