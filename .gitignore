@@ -15,3 +15,7 @@ dist/
 build/
 *.egg-info/
 previous/
+.vscode/
+.workbuddy/
+temp/
+download/

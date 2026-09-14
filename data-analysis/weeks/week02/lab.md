@@ -1,22 +1,22 @@
-# Week 02 技能小练 — opencode 与 AGENTS.md 首次连接
+# Week 02 技能小练 — opencode 初步使用
 
-> 定位：本周里程碑（赛道意向 + 项目仓库）的热身，约 30-45 分钟；计入平时成绩"技能小练"。
+> 定位：本周里程碑（赛道意向 + 项目仓库）的热身，约 30-45 分钟；计入平时成绩"技能小练"。  
+> 课堂教师案例：`data-analysis-showcase`。你在**自己的项目根目录**跟做。
 
 ## 任务
 
-1. **建仓库**：`git init` 个人项目仓库，放入 `AGENTS.md`（复制 `templates/AGENTS.md` 填三行即可：怎么运行、代码约定、一个 AI 易错点），并把 `templates/journal.md` 与 W1 已交的 `community.md` 复制到仓库根目录，按 `venv-setup.md` 建 `.venv`（文件夹勿提交），推送到 GitHub/Gitee。
-2. **接管上下文**：在项目目录启动 opencode，问它"我这个项目的运行命令和代码约定是什么？"——回答正确即证明 AGENTS.md 被读取接管。
-3. **故意留错**（可选 2 分钟）：让 AI 写一段违反你 AGENTS.md 约定的代码，纠正后把该纠正写回 AGENTS.md 的"常见错误"——体验机构知识文件的用法。
-4. **一次 Prompt 探索**：用 opencode 让 AI 拉一个 AKShare 接口（如指数日线），输出前 5 行 + 一句话数据说明，把对话记录进赛道意向。
+1. **选模型**：打开 opencode，选一个模型。默认免费模型即可；有付费模型或 token plan 的可接入。
+2. **四份文件**：在项目根目录让 opencode 新建 `AGENTS.md`、`requirements.md`、`design.md`、`scope.md`。对照 `templates/`，骨架即可，不要求写满痛点。
+3. **建仓库**：`git init`，把 `templates/journal.md` 与 W1 已交的 `community.md` 复制到仓库根目录，按 `venv-setup.md` 建 `.venv`（文件夹勿提交）。推送到 GitHub/Gitee 为选做。
+4. **课后作业（不当堂做完）**：用 **opencode** 采集 [西财要闻](https://www.swufe.edu.cn/index/xcyw.htm) **全部**列表和正文，提交代码和数据。对照 `swufe-news.md`。必间隔请求，不要并行。
 
 ## 提交
 
-- 仓库链接（公开可访问）
-- 任务 2 的问答截图一张
-- 任务 4 的 Prompt 记录（并入赛道意向）
+- 根目录四份文件（或仓库链接，推远端为选做）
+- 西财要闻采集：**代码 + 数据文件**（须 opencode 完成）
 
 ## 自检（达标线）
 
-- [ ] opencode 能正确复述你 AGENTS.md 里的内容
-- [ ] 仓库含 AGENTS.md + journal.md + community.md，git log 有首次提交；本地有 `.venv` 且未提交该文件夹
-- [ ] 数据源拉通与否都记录了结果和原因
+- [ ] 能说出自己选的是免费模型还是自备的付费 / token plan
+- [ ] 仓库根目录含 `AGENTS.md` + `requirements.md` + `design.md` + `scope.md` + journal.md + community.md；本地有 `.venv` 且未提交该文件夹
+- [ ] 有采集脚本和数据；是全部要闻，不是当堂那 1 页

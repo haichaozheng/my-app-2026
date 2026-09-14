@@ -56,13 +56,13 @@
 - 候选方向：从三档选题来源（财经新闻/真实需求/个人爱好）列出 2-3 个候选方向但**不锁定**——W3 将用社区真实问题收敛调整（参考菜单见 `project-selection-guide.md`）
 - 对每个候选方向做数据可得性初验（实拉一次数据，确认能跑通），初步调研其数据源和用户群体
 - 将 W1 社区调研迁入仓库并继续倾听——用户须从该社区原话中抽出；原话追加到 `community.md` 第 4 节（W1 已须 ≥3 条，未齐者本周补齐）。入社区本身即选题探索的一部分（社区先行）
-- 初始化个人项目仓库：git 建 repo，放入 AGENTS.md 骨架（`templates/AGENTS.md`）、journal.md 与 `community.md`；用 opencode 读取 AGENTS.md 接管项目上下文并复现课堂案例
+- 初始化个人项目仓库：git 建 repo；用 opencode 在根目录新建 `AGENTS.md`、`requirements.md`、`design.md`、`scope.md` 骨架（对照 `templates/`）；放入 journal.md 与 `community.md`
 
 **知识锚定要求**：
 - 体现金融数据生态知识：至少列出2个可用的金融数据源/API，并说明其覆盖范围和获取方式
 - 体现Prompt驱动的数据探索：展示至少1个用Prompt探索赛道数据的对话记录和发现
 - 体现选题方向探索方法：说明你从哪档来源得到候选方向，以及数据可得性初验的过程
-- 体现 AI-Native 项目工作流起步：仓库链接可访问，AGENTS.md 含命令/约定/架构条目（骨架级即可）
+- 体现 AI-Native 项目工作流起步：仓库链接可访问；根目录有 `AGENTS.md`、`requirements.md`、`design.md`、`scope.md`（骨架级即可）
 
 ---
 
