@@ -25,6 +25,14 @@ npm -v
 
 应看到 `v24.x.x` 和一行 npm 版本。`npm` 是 Node 的包管理器。
 
+Windows PowerShell 若出现「无法加载 `npm.ps1`，因为在此系统上禁止运行脚本」：**Node 已经装好了**（`npm.cmd -v` 能打出版本即可）。任选其一：
+
+```text
+Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+```
+
+输入 `Y`，关掉终端再开，再试 `npm -v`。不必开管理员。或者不改策略，后面一律用 `npm.cmd`（例如 `npm.cmd install -g opencode-ai`）。
+
 已有 Node 18 / 20 且 `npm -v` 能跑的：先试第 1.3 步；装 `opencode-ai` 失败再改装 LTS 24。
 
 ### 方法二：用 nvm（需要并排多个 Node 版本时）
@@ -86,6 +94,12 @@ Node 验收通过后，在同一终端执行：
 
 ```text
 npm install -g opencode-ai
+```
+
+若 PowerShell 仍禁止运行脚本，改用：
+
+```text
+npm.cmd install -g opencode-ai
 ```
 
 验证：

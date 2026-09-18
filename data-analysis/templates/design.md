@@ -1,6 +1,6 @@
 # 技术方案设计（design.md）
 
-> 本文件定义"技术如何实现"——在 requirements.md 之后、scope.md 之前写。
+> 本文件定义"技术如何实现"——在 requirements.md 之后、scope.md 之前写。复制到个人仓库 `docs/design.md`。
 > 架构定了，scope.md 的"如何做"才能填（才知道改哪些文件、什么顺序）。
 
 ## 架构与组件

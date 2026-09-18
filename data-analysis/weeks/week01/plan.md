@@ -29,7 +29,7 @@
    - "一人公司 + 互助小组"模式
    - 课程公约师生共建（W1 课后填问卷；教师收集为数据；W2 课堂一起分析，整理成课堂公约）
 3. AI辅助编程工具实操（鼓励 Cursor；Trae 为登录/网络备选）
-   - **Python 3.13（官网安装，不要 Anaconda，不要点首页的 3.14）**：IDE 都不自带解释器，本周必须先装 Python 才能本地运行。步骤见 `weeks/week01/python-setup.md`。个人项目 `.venv` 留到 W2 建仓时再配（`weeks/week02/venv-setup.md`）
+   - **Python 3.13（官网安装，不要 Anaconda，不要点首页的 3.14）**：IDE 都不自带解释器，本周必须先装 Python 才能本地运行。步骤见 `weeks/week01/python-setup.md`。个人项目 `.venv` 留到 W3 建仓时再配（`weeks/week03/venv-setup.md`）
    - **Cursor**（推荐）：[https://cursor.com/cn](https://cursor.com/cn)，基于 VS Code 的 AI-first IDE；课堂主演示
    - **Trae**（备选）：[https://www.trae.ai](https://www.trae.ai)，登录或网络不顺时可用，课程同样认可
    - **AI办公平台**（课外选做，不计入 IDE 必选）：TraeWork、workbuddy
@@ -84,7 +84,7 @@
 
 9. **探索与排障（20 分钟）**：在第 2 节那一问上再补到 3 个有趣问题（产出仍是个人的）。组内可轮流说自己的问题、互看报错；教师按组巡视，安装问题优先丢回组内已跑通的人。
 10. **社区调研怎么做（17 分钟）**：先给定义（社区 = 经常碰面、反复聊同一类事的人）。白板三种进入方式：线下到场 / 线上可旁听 / 需要才注册。打开 `templates/community.md`，当堂只填第 1 节场合（每人一份）。抽问：「你去听哪一群人？他们在聊什么？」不要先逼学生定产品用户。示范记一条原话进第 4 节；第 5 节「服务谁」课后听完再从原话里抽。**课后须进场听完，交齐全文（含 ≥3 条原话）**。
-11. **收束（8 分钟，当天最后一环）**：先布置三件课后作业——① `templates/group-agreement.md` 打印签字；② 扫 `pic/class-norms.png` 填公约问卷；③ 做完社区调研，提交 `templates/community.md` 全文（第 1–6 节，原话 ≥3 条）。TraeWork 留课外。提醒：课外卡住仍是 AI → 互助组 → 课程群。不在本节改公约措辞。**最后一项工作**：打开 `templates/journal.md`，按五格写今天 1 条（今天做了什么 / 关键决定 / 学习并掌握的新东西 / 卡点 / 互助记录）；互助记录只写「谁帮了你、对项目有何影响」，没有则写「无」。本周不单独交。W2 建仓时把这份文件拷进仓库。
+11. **收束（8 分钟，当天最后一环）**：先布置三件课后作业——① `templates/group-agreement.md` 打印签字；② 扫 `pic/class-norms.png` 填公约问卷；③ 做完社区调研，提交 `templates/community.md` 全文（第 1–6 节，原话 ≥3 条）。TraeWork 留课外。提醒：课外卡住仍是 AI → 互助组 → 课程群。不在本节改公约措辞。**最后一项工作**：打开 `templates/journal.md`，按五格写今天 1 条（今天做了什么 / 关键决定 / 学习并掌握的新东西 / 卡点 / 互助记录）；互助记录只写「谁帮了你、对项目有何影响」，没有则写「无」。本周不单独交。W3 建仓时把这份文件拷到 `docs/journal.md`。
 
 ## 项目活动
 
@@ -127,9 +127,9 @@
 - `weeks/week01/lecture.md`（课堂串讲，可投影；规格与兜底仍以本文件为准）
 - `weeks/week01/python-setup.md`（Python 3.13 官网安装 + Cursor 选解释器；**不要 Anaconda、不要点首页 3.14**）
 - `templates/group-agreement.md`（互助小组协议：名称、成员、约定、处理机制、签字）
-- `templates/community.md`（社区调研记录：W1 交齐全文；W2 拷入仓库后继续追加）
+- `templates/community.md`（社区调研记录：W1 交齐全文；W3 拷入 `docs/community.md` 后继续追加）
 - `pic/class-norms.png`（公约问卷入口，发课程群扫码）
-- `templates/journal.md`（学习日志五格，W2 复制到仓库）；`templates/journal-rules.md`（用途与交法）
+- `templates/journal.md`（学习日志五格，W3 复制到 `docs/journal.md`）；`templates/journal-rules.md`（用途与交法）
 - `weeks/week01/lab.md`（第 2 节开做：课堂实验操作单，本周不当课后任务）
 - `knowledge/phase1-1-1-pbl-learning.md`
 - 课程展示网站：[https://haichaozheng.github.io/data-analysis-showcase/](https://haichaozheng.github.io/data-analysis-showcase/)

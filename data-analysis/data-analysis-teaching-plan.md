@@ -38,7 +38,7 @@
 
 **分阶段底线（过了就算跟上）**
 
-- **W1–W2**：按 `weeks/week01/python-setup.md` 装 **Python 3.13（官网，不要 Anaconda，不要点首页 3.14）** + **Cursor（推荐；登录或网络不顺可用 Trae）**；一句话让 AI 读 xlsx 并打印行数/列名。W2 建仓时按 `weeks/week02/venv-setup.md` 在项目里建 `.venv`。opencode 装不上则全程 Cursor。
+- **W1–W2**：按 `weeks/week01/python-setup.md` 装 **Python 3.13（官网，不要 Anaconda，不要点首页 3.14）** + **Cursor（推荐；登录或网络不顺可用 Trae）**；一句话让 AI 读 xlsx 并打印行数/列名。W3 建仓时按 `weeks/week03/venv-setup.md` 在项目里建 `.venv`。opencode 装不上则全程 Cursor。
 - **W3–W4**：选「数据已有、问题真实」；W4 主战场是 Excel 手动分析（小白优势周）；获取脚本复制课堂成品只改文件名。
 - **W5–W7**：只改课堂上演示过的单元格；W7 **必须**从 mvp-template 起步，禁止空白文件从零建站。
 - **W8–W15**：用课堂模板与演示 Key；sklearn 换模型数行即可，不推公式。
@@ -78,18 +78,20 @@
 
 ## AI-Native 项目工作流
 
-本课程以 **repo 为项目管理中枢**，不引入额外 PM 工具：学生个人产品仓库即项目管理系统，opencode 读取 AGENTS.md 与 artifact thread 接管项目上下文，git 提交历史即审计轨迹。
+本课程以 **repo 为项目管理中枢**，不引入额外 PM 工具：学生个人产品仓库即项目管理系统，opencode 读取根目录 `AGENTS.md` 与 artifact thread 接管项目上下文，git 提交历史即审计轨迹。
+
+学生个人产品仓库约定：**根目录只放 `AGENTS.md`**（opencode / Cursor 会读这一层）；其余项目文档进 `docs/`：`journal.md`、`requirements.md`、`design.md`、`scope.md`、`community.md`。
 
 ### 项目脊柱：requirements → design → scope（+ AGENTS.md 稳定）
 
 每轮迭代产出 / 更新四个版本控制的 markdown：
 
-| 文件 | 内容 | 性质 |
-|---|---|---|
-| requirements.md | ## 问题与用户（强制第一节：痛点/为什么/给谁/社区调研证据）+ ## 需求(Must/Should) + ## 约束与不做 | 问题+需求，per-iteration |
-| design.md | ## 架构/组件/数据流 + ## 数据源与处理 + ## AI功能技术设计(RAG or LLM解读如何解决痛点) + ## 部署方案 | 技术 how，per-iteration |
-| scope.md | ## 本期范围(从需求圈定子集+边界) + ## 任务清单(feature级，每任务含如何做:改哪些文件/工作顺序/测试/风险) + ## 验收标准 | 范围+任务+实现 how，per-iteration |
-| AGENTS.md | 命令/约定/架构/常见错误，一页内 | 产品级稳定，原地更新，不重建 |
+| 文件 | 位置 | 内容 | 性质 |
+|---|---|---|---|
+| requirements.md | `docs/` | ## 问题与用户（强制第一节：痛点/为什么/给谁/社区调研证据）+ ## 需求(Must/Should) + ## 约束与不做 | 问题+需求，per-iteration |
+| design.md | `docs/` | ## 架构/组件/数据流 + ## 数据源与处理 + ## AI功能技术设计(RAG or LLM解读如何解决痛点) + ## 部署方案 | 技术 how，per-iteration |
+| scope.md | `docs/` | ## 本期范围(从需求圈定子集+边界) + ## 任务清单(feature级，每任务含如何做:改哪些文件/工作顺序/测试/风险) + ## 验收标准 | 范围+任务+实现 how，per-iteration |
+| AGENTS.md | 仓库根目录 | 命令/约定/架构/常见错误，一页内 | 产品级稳定，原地更新，不重建 |
 
 ### 顺序
 requirements → design → scope。scope 的"本期范围"可紧跟 requirements 先草拟（圈范围不需技术设计），但"任务清单（含如何做）"须 design 之后填（架构定了才知道改哪些文件）。
@@ -98,7 +100,7 @@ requirements → design → scope。scope 的"本期范围"可紧跟 requirement
 每轮迭代：小改在文件末尾追加 `## 迭代N（触发：W12用户反馈/…）` 节、大改或转向新建 `-v2` 版本；旧内容不删，git 历史即审计轨迹。用户反馈 / 越界触发新一轮 requirements→design→scope 循环。
 
 ### AGENTS.md（稳定上下文）
-每个产品一份 AGENTS.md（opencode 约定，等价于机构知识文件）：命令、约定、架构、常见错误，一页内。opencode 每次会话读取它获取项目上下文。规则：AI 在某处犯同样错误两次，就把纠正写进 AGENTS.md。它随产品演进、原地更新，不随迭代重建。学生填空模板见 `templates/AGENTS.md`。学生于 **W2 随 opencode 课堂首次创建**（初始化个人项目仓库 + AGENTS.md 骨架，先创建、再被 opencode 读取接管），此后全程维护。
+每个产品一份 `AGENTS.md`（必须在仓库根目录；opencode 约定，等价于机构知识文件）：命令、约定、架构、常见错误，一页内。opencode 每次会话读取它获取项目上下文。规则：AI 在某处犯同样错误两次，就把纠正写进 AGENTS.md。它随产品演进、原地更新，不随迭代重建。学生填空模板见 `templates/AGENTS.md`。学生于 **W2 随 opencode 课堂首次创建**（初始化个人项目仓库 + AGENTS.md 骨架，先创建、再被 opencode 读取接管），此后全程维护。`docs/` 下其余文档在 W3 随项目基本文档落地。
 
 ## 设计科学研究方法（DSR）方法论锚定
 
@@ -193,8 +195,8 @@ W15 评估环节引入设计科学有效性框架：**全员须 ≥1 条 criteri
 | 周次 | 主题 | 教学内容 | 项目活动 | 交付物 |
 |---|---|---|---|---|
 | W1 | 课程启动 + PBL方法论 + AI工具栈起步 | PBL理念与 Challenge→Gap→Knowledge→Apply 循环、课程框架与公约共建（课后填问卷，不当场改措辞）、"一人公司+互助小组"模式、AI辅助编程实操（**鼓励 Cursor**；Trae 为登录/网络备选；TraeWork、workbuddy 体验）、国家财政数据案例演示、Prompt三原则实操中体验（不单独讲）、社区调研（人为谁、场合在哪、三种进入方式、原话） | 破冰、组建互助小组（基于工具/方法互助，不限同领域）、安装配置环境并用 AI 辅助完成环境验证、国家财政数据探索（提3个有趣问题）、完成并提交社区调研（`templates/community.md` 全文，含 ≥3 条原话）。**仓库与 AGENTS.md 有意留到 W2 随 opencode 课堂创建** | 互助小组协议 + 社区调研记录（milestones §1.1）+ 公约问卷（`pic/class-norms.png`） |
-| W2 | 金融数据全景 + opencode + 社区倾听延续 | 用 W1 公约问卷数据整理课堂公约、opencode 命令行 AI 助手（安装配置、**初始化个人项目仓库与创建 AGENTS.md 骨架**、读取接管项目上下文、复现课堂案例）、金融数据源与获取（API/Web Scraping）、数据生态概览、自主学习（社区先行 + 用户访谈预习 W3 材料） | 课堂分析公约问卷并定稿课堂公约、初始化仓库（AGENTS.md+journal.md+W1 已交的 community.md）并用 opencode 读取接管上下文、探索金融数据生态：候选方向可列出但**不锁定**，逐方向做数据可得性初验、互查 W1 原话是否人和产品对得上并继续倾听（入社区即选题探索——社区先行） | 个人赛道意向（含候选方向、数据可得性初验；倾听见 `community.md`）+ 个人项目仓库链接（milestones §1.2） |
-| W3 | 问题发现、用户洞察与项目提案 | 社区先行/用户访谈回顾实践（W2 自主学习内容）、Deep Research Prompt 用户洞察调研、从社区调研中发现并验证可产品化痛点、如何写好的项目提案（requirements.md 格式与准入8项）、Andrew Ng 项目筛选框架 | 完成≥1周社区倾听（用户原话/帖子≥3条）、形成或验证选题痛点、Deep Research 交叉验证、筛掉无真实需求选题、完成≥1次用户访谈、以 requirements.md 提交提案并过选题准入清单8项；**本周末做阶段回顾(15min)，产出含 DSR 自检(Idea 阶段)的阶段反思**。兜底：未过审走48h快速重提通道 | 个人问题陈述初稿（附社区调研记录）+ 个人项目提案（requirements.md 形式；milestones §1.3/§1.4） |
+| W2 | 金融数据全景 + opencode + 社区倾听延续 | 用 W1 公约问卷数据整理课堂公约、opencode 命令行 AI 助手（安装配置、**初始化个人项目仓库与创建根目录 AGENTS.md 骨架**、读取接管项目上下文、复现课堂案例）、金融数据源与获取（API/Web Scraping）、数据生态概览、自主学习（社区先行 + 用户访谈预习 W3 材料） | 课堂分析公约问卷并定稿课堂公约、初始化仓库（根目录 `AGENTS.md`）并用 opencode 读取接管上下文、探索金融数据生态：候选方向可列出但**不锁定**，逐方向做数据可得性初验、互查 W1 原话是否人和产品对得上并继续倾听（入社区即选题探索——社区先行）。`docs/` 下其余文档留到 W3 | 个人赛道意向（含候选方向、数据可得性初验；倾听见 `community.md`）+ 个人项目仓库链接（milestones §1.2） |
+| W3 | 问题发现、用户洞察与项目提案 | 项目基本文档落地（根目录 `AGENTS.md`；其余进 `docs/`）、社区先行/用户访谈、Deep Research Prompt 用户洞察调研、从社区调研中发现并验证可产品化痛点、如何写好的项目提案（`docs/requirements.md` 格式与准入8项）、Andrew Ng 项目筛选框架 | 补齐 `docs/`（journal / requirements / design / scope / community）、完成≥1周社区倾听、形成或验证选题痛点、Deep Research 交叉验证、筛掉无真实需求选题、完成≥1次用户访谈、以 `docs/requirements.md` 提交提案并过选题准入清单8项。兜底：未过审走48h快速重提通道 | 个人问题陈述初稿（附 `docs/community.md`）+ 个人项目提案（`docs/requirements.md` 形式；milestones §1.3/§1.4） |
 
 ### Phase 2: MVP Stage（Week 4-10）— 构建最小可用产品（DSR Design Cycle·build；DSRM 步骤 3）
 
@@ -277,10 +279,10 @@ W15 评估环节引入设计科学有效性框架：**全员须 ≥1 条 criteri
 6. **公开产品为终点**：路演面向全校/企业合作伙伴，每人产出并可公开访问一个独立产品；路演现场其他人可打开试用
 7. **AI基础工具栈渐进融入**：Prompt+AI辅助编程(W1起步) → LangChain+LLM API(W8必做) → RAG(W9选做升级) → 建模增强(W11-W15：ML基础与模型地图/树模型+特征工程/对照大模型与传统分析+神经网络基础/多模型对比+SVM自学/模型评估产品化) → AI系统评估(嵌入W15建模产品化)；工具随项目需求自然引入，进阶(Agent/Skill/深度模型)可选
 8. **AI赋能个体 / 一人公司（OPC）导向**：在强AI工具加持下，5人互助小组内**每人独立完成并交付一个完整产品**，模拟"一人公司"的真实可行路径；互助小组替代传统分工团队，强调"一人公司的创业生态"——既锻炼独立交付，又通过协作互评（计入平时）激励彼此赋能
-9. **知识框架有机支撑**：知识按项目阶段而非学科章节组织（见`knowledge-map.md`），通过里程碑制造知识缺口在需求时刻引入（Challenge→Gap→Knowledge→Apply节奏），反思写在 `journal.md`（见 `templates/journal.md`、`templates/journal-rules.md`），交付物锚定核心知识概念（见`milestones.md`）
+9. **知识框架有机支撑**：知识按项目阶段而非学科章节组织（见`knowledge-map.md`），通过里程碑制造知识缺口在需求时刻引入（Challenge→Gap→Knowledge→Apply节奏），反思写在 `docs/journal.md`（见 `templates/journal.md`、`templates/journal-rules.md`），交付物锚定核心知识概念（见`milestones.md`）
 10. **AI-Native 项目工作流**：以 requirements→design→scope（循环）+ AGENTS.md（稳定）为项目脊柱，repo 为真相源，opencode 读 AGENTS.md 接管项目上下文，git 历史为审计轨迹——不引入额外 PM 工具（详见上文「AI-Native 项目工作流」节）
 11. **设计科学方法论锚定**：以 DSR 三循环（相关性/严谨性/设计）与 DSRM 六步为方法论骨架，使 PBL 项目既具教学真实性又具研究严谨性；产品即 artifact、评估即 evaluation、社区反馈即 relevance cycle——为"公开产品兼产论文"提供学术方法保障（详见上文「设计科学研究方法（DSR）方法论锚定」节）
-12. **反思与日志闭环**：`journal.md` 按学习日追加（决定、学习、卡点、互助），一周条目合起来即周反思；W3 / W10 / W15 / W17 提交全文；期末 `final-report.md` 综合闭环（详见 `templates/journal.md`、`templates/journal-rules.md`）
+12. **反思与日志闭环**：`docs/journal.md` 按学习日追加（决定、学习、卡点、互助），一周条目合起来即周反思；W3 交全文选做，W10 / W15 / W17 提交全文；期末 `final-report.md` 综合闭环（详见 `templates/journal.md`、`templates/journal-rules.md`）
 13. **课程公约师生共建**：W1 课后填公约问卷，教师收集为数据；W2 课堂一起分析分歧条款，整理成课堂公约，作为课程文化与协作的基础
 14. **周计划透明化与兜底**：每周 plan.md 固定五要素——学习目标（可测量）、预计投入（课外工时预算）、三层任务（必做/进阶/兜底）、评分锚点（挂 milestones §与 rubric 维度 + 提交前自检清单）、求助路径（AI→互助组→课程群 24h→课堂一对一交流）；配套兜底资源：W7 `mvp-template`、W8 `llm-key-guide`（演示 Key）、W10-W11 `deployment-faq`（录屏暂过验收）、W12-W14 `user-test-pool`（互助测试池/转介/3深访替代）——保证任何单点受阻不致掉队
 15. **负荷节奏控制**：W4/W11/W15 三个原"双线程极高周"经再平衡降坡（转化移W5、部署拆W10试-W11验、路演移W16），W6 指定为弹性缓冲周吸收欠账；技能小练仅在负荷可承受周设置（W1/W2/W5-W9/W11/W12/W13 共 10 次，见 rubric 与 `weeks/weekXX/lab.md`）
@@ -324,9 +326,9 @@ data-analysis/
 │   ├── requirements.md              # 产品需求模板（项目工作流，W3提交）
 │   ├── design.md                    # 技术方案设计模板（项目工作流，W4提交）
 │   ├── scope.md                     # 范围与任务模板（项目工作流，W4提交）
-│   ├── journal.md                   # 学生复制到仓库后按日填写
+│   ├── journal.md                   # 学生复制到 docs/journal.md 后按日填写
 │   ├── journal-rules.md             # 项目日志用途与交法
-│   ├── community.md                 # 社区调研：W1 交齐全文，W2 迁入仓库后续追加
+│   ├── community.md                 # 社区调研：W1 交齐全文，W3 迁入 docs/community.md 后续追加
 │   └── AGENTS.md                    # 产品稳定上下文模板（opencode 读取）
 ├── weeks/                           # 每周教学材料
 │   ├── week01/

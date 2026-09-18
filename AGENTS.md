@@ -42,4 +42,4 @@
 - **Cursor**：`Ctrl+Shift+P` → **Python: Select Interpreter** → 选项目 `.venv`。这主要管点「运行」用哪个 Python，选一次会记住；日常不必每次 `activate`。
 - **终端**里要自己敲 `python` / `pip` 时，再到仓库根目录执行 `.\.venv\Scripts\activate`（Mac：`source .venv/bin/activate`）。
 - 依赖：根目录 `requirements.txt`。没有该文件时，在已激活的 `.venv` 里 `python -m pip freeze > requirements.txt`。
-- 学生向逐步说明：`data-analysis/weeks/week01/python-setup.md`、`data-analysis/weeks/week02/venv-setup.md`。不要把 conda 写成全班默认路径。
+- 学生向逐步说明：`data-analysis/weeks/week01/python-setup.md`、`data-analysis/weeks/week03/venv-setup.md`。不要把 conda 写成全班默认路径。

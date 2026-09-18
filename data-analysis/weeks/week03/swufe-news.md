@@ -1,6 +1,6 @@
 # 课堂教学案例：西财新闻怎么拉下来
 
-> 给谁：W2 第 2 节「拉一次数据」跟做；装不上 opencode 的用 Trae 或自己敲。  
+> 给谁：W3 第 3 节「数据采集：requests + BeautifulSoup」。W2 只跟做对话拉一页、不当场拆代码；本周对照本页看 `requests` 拿、`BeautifulSoup` 拆，并邀请同学展示西财要闻数据和代码。装不上 opencode 的用 Trae 或自己敲。  
 > 数据：[西财要闻](https://www.swufe.edu.cn/index/xcyw.htm)  
 > 工具：`requests` 下载 HTML，`BeautifulSoup` 从 HTML 里取出标题、日期、链接、正文。  
 > 当堂：跑通「列表首页 + 1 篇正文」。翻完全站、下完全文留课后（必须间隔请求，不要把学校网站打挂）。  
@@ -66,6 +66,8 @@ print(resp.text[:400])       # 先看是不是 HTML，不要假设
 ```
 
 `200` 再往下走。不是 200：把状态码记进可得性初验，换源或下课再试。
+
+**encoding ≠ decoding。** encoding 是字→字节（网站按 UTF-8 编好再发出）；decoding 是字节→字（你必须用同一套规则解回来）。`resp.content` 是原始字节；`resp.encoding = "utf-8"` 是告诉 `requests` 按 UTF-8 **解码**。解错（例如 `decode("latin-1")`）就是乱码，`decode("utf-8")` 才是「西财要闻」。口诀：怎么 encode 的，就怎么 decode。
 
 ---
 

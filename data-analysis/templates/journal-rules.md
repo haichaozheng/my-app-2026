@@ -1,12 +1,12 @@
 # 项目日志说明 — 数据分析与可视化
 
-> 本文件说明用途与交法。学生往仓库里写的是另一份：复制 `templates/journal.md` 到个人仓库根目录，按日追加。
+> 本文件说明用途与交法。学生往仓库里写的是另一份：复制 `templates/journal.md` 到个人仓库 `docs/journal.md`，按日追加。根目录只留 `AGENTS.md`。
 
-个人产品仓库里**全学期共用一份** `journal.md`。按学习日追加，旧条目不删。课堂收束写 1 条；课外做项目的日子也可再记。一周里的若干条合起来就是周反思。
+个人产品仓库里**全学期共用一份** `docs/journal.md`。按学习日追加，旧条目不删。课堂收束写 1 条；课外做项目的日子也可再记。一周里的若干条合起来就是周反思。
 
-**作业提交**：W3 / W10 / W15 / W17 提交截至当周的 `journal.md` 全文（仓库链接即可）。其余周课堂上记，不单独交。
+**作业提交**：W10 / W15 / W17 提交截至当周的 `docs/journal.md` 全文（仓库链接即可）。W3 交全文为**选做**（仓库里仍按日写，课堂收束仍记 1 条）。其余周课堂上记，不单独交。
 
-W1 仓库未建：当堂打开 `templates/journal.md` 写今天 1 条，文件先留在本地；W2 建仓时复制到仓库根目录。
+W1 仓库未建：当堂打开 `templates/journal.md` 写今天 1 条，文件先留在本地；W3 建仓时复制到 `docs/journal.md`。
 
 ---
 
@@ -14,11 +14,11 @@ W1 仓库未建：当堂打开 `templates/journal.md` 写今天 1 条，文件�
 
 | 文件 | 记录什么 | 频率 |
 |---|---|---|
-| **journal.md**（复制 `templates/journal.md`） | 当天做了什么、决定、学习、卡点、互助 | 按学习日追加；课堂每周至少 1 条 |
-| **community.md**（复制 `templates/community.md`） | 场合、怎么进、原话、从中抽出的用户 | W1 交齐调研；W2 迁入仓库后追加；提案引用此文件 |
+| **`docs/journal.md`**（复制 `templates/journal.md`） | 当天做了什么、决定、学习、卡点、互助 | 按学习日追加；课堂每周至少 1 条 |
+| **`docs/community.md`**（复制 `templates/community.md`） | 场合、怎么进、原话、从中抽出的用户 | W1 交齐调研；W3 迁入 `docs/` 后追加；提案引用此文件 |
 | git 提交历史 | 代码「改了什么」 | 每次提交 |
-| `requirements/design/scope.md` 的迭代N节 | 某 artifact 的触发与改动理由 | 每轮迭代 |
-| AGENTS.md | 稳定规则/约定/架构/常见错误 | 原地更新，极少变 |
+| `docs/requirements.md` / `docs/design.md` / `docs/scope.md` 的迭代N节 | 某 artifact 的触发与改动理由 | 每轮迭代 |
+| `AGENTS.md`（仓库根目录） | 稳定规则/约定/架构/常见错误 | 原地更新，极少变 |
 
 ---
 
@@ -50,4 +50,4 @@ W1 仓库未建：当堂打开 `templates/journal.md` 写今天 1 条，文件�
 
 ## DSR 关联提示
 
-「关键决定」（含备选与理由）对应设计科学研究 Hevner 指导⑥：在约束下搜索有效解、记录 why-A-not-B。阶段周提交 `journal.md` 时，可把反复出现的卡点多写一两行，不必另开文档。
+「关键决定」（含备选与理由）对应设计科学研究 Hevner 指导⑥：在约束下搜索有效解、记录 why-A-not-B。阶段周提交 `docs/journal.md` 时，可把反复出现的卡点多写一两行，不必另开文档。

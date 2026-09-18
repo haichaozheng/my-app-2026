@@ -1,6 +1,6 @@
-# W2 个人项目虚拟环境
+# W3 个人项目虚拟环境
 
-> 给谁：本周建好个人项目仓库之后。  
+> 给谁：第 1 节当场跟做。基本文档已落地（根目录 `AGENTS.md`，其余在 `docs/`）之后，单独建环境，不和写文档混在一轮对话里。  
 > 前提：已按 `weeks/week01/python-setup.md` 装好 **Python 3.13**；opencode 能在**项目根目录**打开（装不上用 Trae 问同一句话）。  
 > 本课约定：用 `python -m venv .venv`，不要用 Anaconda / conda 当项目环境。
 
@@ -70,9 +70,9 @@ source .venv/bin/activate
 
 ## 4. 装本课起步包
 
-在**已经出现 `(.venv)` 的终端**里装。也可以问 opencode：
+在**已经出现 `(.venv)` 的终端**里装。W1 的财政表要 `pandas` + `openpyxl`；第 3 节西财要闻要 `requests` + `beautifulsoup4`（代码里是 `from bs4 import BeautifulSoup`，**pip 包名是 `beautifulsoup4`**，不要写成 BeautifulSoup）。也可以问 opencode：
 
-> 环境已经激活。请帮我安装 pandas 和 openpyxl，并生成 `requirements.txt`。不要提交 `.venv` 文件夹。
+> 环境已经激活。请帮我安装 pandas、openpyxl、requests、beautifulsoup4，并生成 `requirements.txt`。不要提交 `.venv` 文件夹。
 
 已有 `requirements.txt` 时：
 
@@ -83,7 +83,7 @@ python -m pip install -r requirements.txt
 还没有该文件时：
 
 ```text
-python -m pip install pandas openpyxl
+python -m pip install pandas openpyxl requests beautifulsoup4
 python -m pip freeze > requirements.txt
 ```
 
