@@ -115,23 +115,28 @@ print(rows[0])
 列表页只有摘要。正文在 `https://www.swufe.edu.cn/info/1048/xxxxx.htm`，正文容器是 `.v_news_content`。
 
 ```python
-import time
+import time  # 当堂只拉 1 篇，这里不用 sleep；翻很多页时再间隔请求
 
 def fetch_article(url):
+    # 列表页已经拿过 HTML；正文是另一个网址，再 requests 一次
     r = requests.get(url, headers=headers, timeout=15)
-    r.encoding = "utf-8"
+    r.encoding = "utf-8"  # 和列表页一样，按 UTF-8 做 decoding
     s = BeautifulSoup(r.text, "html.parser")
+    # select() 返回一串匹配；select_one() 只要第一个，找不到就是 None
+    # .art-tit h3 = class="art-tit" 里面的 h3（正文页标题）
     h = s.select_one(".art-tit h3")
+    # .v_news_content = class="v_news_content" 的正文容器
     body = s.select_one(".v_news_content")
     return {
         "url": url,
-        "title": h.get_text(strip=True) if h else "",
+        "title": h.get_text(strip=True) if h else "",  # None 就不能 .get_text
+        # 第一个参数是片段之间的分隔符：用换行把段落拼起来
         "text": body.get_text("\n", strip=True) if body else "",
     }
 
-sample = fetch_article(rows[0]["url"])
+sample = fetch_article(rows[0]["url"])  # 用列表里第一条的链接
 print(sample["title"])
-print(sample["text"][:200])
+print(sample["text"][:200])  # 先看前 200 字，确认有完整段落
 ```
 
 当堂只拉 **1 篇**。确认有完整段落，再谈翻页。
