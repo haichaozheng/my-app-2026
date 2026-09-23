@@ -6,7 +6,7 @@
 ## 本周学习目标
 
 - 能补交 W2 未交的互助小组协议；能在个人仓库备齐基本文档：根目录 `AGENTS.md`，其余进 `docs/`（`docs/journal.md`、`docs/requirements.md`、`docs/design.md`、`docs/scope.md`，并迁入 `docs/community.md`）；能按本课约定建 `.venv`（写入 `.gitignore`，勿提交该文件夹）
-- 能自读社区先行与用户访谈，互查 `community.md`（原话、用户是否对得上），并评估数据从哪来
+- 能读《A社警告：AI催生GDP暴涨32%，美国白领却或被斩杀》，分清三种情景里的数字和判断；能在项目 `.venv` 里打开 Jupyter，并确认内核路径含 `.venv`
 - 能对照西财要闻采集，说出 `requests` 拿 HTML、`BeautifulSoup` 拆字段；能当场展示或对照跑通自己的脚本
 - 能用社区倾听记录与 ≥1 次用户访谈区分"假设的问题"与"验证的问题"，说清痛点发现路径
 - 能用 Deep Research 对痛点真实性做交叉验证，筛掉无真实需求的方向
@@ -23,7 +23,7 @@
 3. 项目基本文档落地：根目录只放 `AGENTS.md`；`docs/` 备齐 `journal.md`、`requirements.md`、`design.md`、`scope.md`；鼓励对照 `references/The Founder's Playbook.pdf`（持久上下文、规格与范围）
 4. 迁入 `docs/community.md`
 5. 个人项目建 `.venv`（第 1 节；跟做 `weeks/week03/venv-setup.md`）
-6. 当堂自读 `knowledge/phase1-1-7-community-first.md`（社区先行）与 `knowledge/phase1-1-6-user-insight.md`（用户访谈），再筛痛点、Deep Research、对照准入清单写 `requirements.md` 第一节（第 2 节）
+6. 新闻解读与 Jupyter 准备（第 2 节）：读展示站《A社警告：AI催生GDP暴涨32%，美国白领却或被斩杀》，分清三种情景里的数字和判断；在第 1 节的 `.venv` 里装好内核并打开一个笔记本
 7. 数据采集：`requests` + `BeautifulSoup`（第 3 节开篇：Coding AI Is the New Literacy；西财要闻同学展示运行，对照 `weeks/week03/swufe-news.md`）
 
 ## 课堂演示工具
@@ -34,17 +34,16 @@
 | 开场抽人 | 超星学习通课堂活动（选人 / 随机点名） | 第 1 节抽人分享 `journal.md` |
 | 项目基本文档 | opencode + 个人仓库根目录 | 第 1 节：根目录 `AGENTS.md`；`docs/` 备齐 `journal.md`、`requirements.md`、`design.md`、`scope.md`，迁入 `community.md`；已有的不重做。对照 `references/The Founder's Playbook.pdf` |
 | 虚拟环境 | 个人项目根目录 + `.venv` | 第 1 节按 `weeks/week03/venv-setup.md` 建环境；`.gitignore` 写入 `.venv/` |
-| 自读 | `knowledge/phase1-1-7-community-first.md`、`knowledge/phase1-1-6-user-insight.md` | 第 2 节学生自己先读，不讲幻灯 |
-| 痛点与提案 | `docs/community.md` + `project-selection-guide.md` §8 + workbuddy **产品战略团队** + `templates/requirements.md` | 第 2 节：邻座判验证/假设 → 投影 Ng 五步与准入 8 项 → 教师用 workbuddy「产品战略团队」演示交叉验证 → 收束同一轮改 `docs/` 下 community / journal / requirements |
-| 数据采集 | Andrew Ng 导论 + 学生西财要闻脚本 + `weeks/week03/swufe-news.md` | 第 3 节开篇投影 *Coding AI Is the New Literacy*；再邀请同学展示运行；点明 `requests` 拿 HTML、`BeautifulSoup` 拆字段 |
-| 辅 | Trae / TraeWork | 只示范如何把访谈记录与社区原话写进提案；TraeWork 可作 workbuddy 的备选调研工具，不新开编程课 |
-| 不做 | 全班开 Jupyter / Streamlit | 第 3 节只展示采集脚本，不要求每人打开笔记本；本周无新的代码作业 |
+| 新闻解读 | 展示站产业新闻 + 腾讯新闻原文 | 第 2 节读《A社警告：AI催生GDP暴涨32%，美国白领却或被斩杀》，只抓三种情景里的数字和谁受损 |
+| Jupyter | 个人项目 `.venv` + Cursor 笔记本 | 第 2 节装 `ipykernel`，选中项目解释器，新建笔记本跑通 1 个单元格。第 3 节展示采集脚本，不要求全班打开笔记本跟爬 |
+| 辅 | Trae / TraeWork | Jupyter 装不上时用 Trae 打开同一笔记本；不新开编程课 |
+| 不做 | 全班在第 3 节开 Jupyter 跟爬 / 本周开 Streamlit | 第 3 节只展示采集脚本；本周无新的代码作业 |
 
 ## 教学步骤
 
 每周 3 节课，每节 45 分钟（课间另计）。
 
-课前：教师机 opencode、workbuddy「产品战略团队」可打开（否则 TraeWork）；超星抽人已建；带着 W2 未交协议名单；合格/不合格提案各 1 份（隐去姓名）。学生带 `journal.md`、`community.md`（第 1 节拷进 `docs/`）、西财要闻代码和数据。其余材料见文末「学习资料」。
+课前：教师机 opencode 可打开；超星抽人已建；带着 W2 未交协议名单。展示站新闻页能打开《A社警告：AI催生GDP暴涨32%，美国白领却或被斩杀》。学生带 `journal.md`、`community.md`（第 1 节拷进 `docs/`）、西财要闻代码和数据。第 1 节的 `.venv` 留给第 2 节装 Jupyter。其余材料见文末「学习资料」。
 
 **第1节 · 项目基本文档与虚拟环境（45 分钟）**
 
@@ -59,25 +58,18 @@
 4. **迁入 community.md（7 分钟）**：让 opencode 把已填的 `community.md` 放到 `docs/community.md`（没有 `docs/` 就先建），仍是这一份。推远端为选做（不要加 `.venv`）。
 5. **建 `.venv`（10 分钟）**：独立一块，不和第 1 节文档混在一起。第 1 节文档落地后，按 `weeks/week03/venv-setup.md` 在项目根目录建 `.venv`；`.gitignore` 写入 `.venv/`。装不上的记下，周末补。推远端不要加 `.venv`。
 
-**第2节 · 用户需求痛点分析（45 分钟）**
+**第2节 · 新闻解读与 Jupyter 使用准备（45 分钟）**
 
-读完社区先行 / 用户访谈，立刻筛痛点；接着用 Ng 五步对照准入 8 项，再用 workbuddy「产品战略团队」做可行性与价值的交叉验证；收束时同一轮改 `docs/` 下三份：`community.md`、`journal.md`、`requirements.md`。互查并入痛点筛选（对照 `docs/community.md` 原话），不另开一块。
+材料是展示站产业新闻第一条：[A社警告：AI催生GDP暴涨32%，美国白领却或被斩杀](https://haichaozheng.github.io/data-analysis-showcase/news.html)（原文：[腾讯新闻](https://news.qq.com/rain/a/20260920A07QYQ00)）。不从这篇新闻里直接选题。先把报道里的数字和判断拆开，再用第 1 节建好的 `.venv` 把 Jupyter 打开，第 3 节才对照西财要闻代码。
 
-1. **自己先读（8 分钟）**：每人打开 `knowledge/phase1-1-7-community-first.md`（社区先行）和 `knowledge/phase1-1-6-user-insight.md`（用户访谈）。教师不讲幻灯。读完能说出：为什么先听社区再写产品；访谈不要问「你要不要这个功能」。点一句：倾听已经听到原话；访谈是课后补充调研，用来加深、拓展，不当堂另开一份。没读完的课后看完。
-2. **痛点筛选（8 分钟）**：打开自己的 `docs/community.md`（W1 未交齐的当场对着模板补）。每人用一句话写当前痛点（谁、在什么场合、卡在哪；不要写产品名）。邻座对照刚读材料和对方原话判断：验证的 / 仍是假设。对不上的当场改句子或记下本周补听。顺带看数据从哪来（`weeks/week02/data-taxonomy.md`：公开还是要自己采），说清来源即可。互助小组不是用户社区。
-3. **准入清单 + Andrew Ng 五步（8 分钟）**：本课过审看 `project-selection-guide.md` 第 8 节 8 项；怎么把想法收小看 Andrew Ng *How to Build Your Career in AI* 第 4 章（摘录 `references/build-career-in-ai-era.md`，PDF 文件名 `references/build caree in AI era.pdf`）。先点明：Ng 给的是**界定范围的五步**，不是打分表；8 项是本课硬门槛，缺一项须调整或重选。投影时按五步讲，每步立刻对上 8 项里相关的几条。
-  - **① 先找业务问题，不是 AI 问题**：问「谁、哪三件事变好、现在为什么不行」。对清单 **2 用户、3 痛点**。痛点须来自 `docs/community.md` 原话，不要先写「我要做 RAG」。
-  - **② 再头脑风暴多种方案**：不要一兴奋就做第一个功能；有时没有合适的 AI 方案也可以接受。对清单 **4 AI 功能**：RAG 或 LLM 解读必须扛痛点，不是套壳。
-  - **③ 评估可行性（feasibility）和价值（value）**：可行性看能否免费拿到数据、12 周一人能否做完、技术是否现学现用；价值问领域里的人（本课即社区用户）。提案里**至少就可行性、价值这两项写出论证**（不要空喊「很有意义」）。对清单 **1 数据源、2–3 用户与痛点**。下一格用 workbuddy **产品战略团队** 做这一步的网上旁证。
-  - **④ 定里程碑**：既要有产品能不能用的标准，也要有「谁会反复打开」。定不出来说明对问题还不熟。当堂只要求写清「问题与用户」第一节；其余 8 项课后补。
-  - **⑤ 做资源预算**：数据、时间、就你一个人。某一步走不通就退回前面一步。对清单 **6 范围**：MVP 12 周一人可完，**「不做」清单必写**；另点 **5 可视化骨架、7 部署、8 合规** 各一句（3–5 张图、免费部署、不涉交易/不泄个人数据）。
-  - **收束对照**：打开 1 份合格、1 份不合格提案（隐去姓名），只看「问题与用户」第一节——合格稿能看到痛点、给谁、社区证据；不合格稿是假设痛点或一上来写功能。点明下一格：先写这一节，8 项其余课后补全。
-4. **Deep Research 演示（10 分钟）**：对应刚讲的第 ③ 步（可行性与价值）。教师机打开 **workbuddy**，建议走 **「产品战略团队」**（不要用默认闲聊；该团队面向用户痛点、替代方案与市场旁证，正好交叉验证选题）。登不上改用 TraeWork。挑一句刚筛出来的课堂痛点交给产品战略团队，只问真实性：这类人是不是真的反复遇到这件事、有没有公开讨论或替代做法、请给来源。10 分钟够用执行摘要，不必等完整长报告。示范把检索结论收成提案里的一两句，而不是粘贴长文。网上对不上的标成待验证或换方向；检索不替代社区原话。学生课后用同一入口（workbuddy → 产品战略团队）对自己的痛点再跑一遍。
-5. **收束（11 分钟）**：同一轮打开 `docs/` 下三份已有文件，不要另开。`docs/community.md`：继续倾听，原话追加到同一份（最好补到 10 条），题目和方向可以换。`docs/journal.md`：当日追加 1 条（今天做了什么 / 关键决定 / 学习并掌握的新东西 / 卡点 / 互助记录；互助只写「谁帮了你、对项目有何影响」，没有则写「无」）。`docs/requirements.md`：把「问题与用户」（痛点、给谁、社区证据、为什么现在做）、workbuddy 的一两句、准入 8 项缺口（含「不做」清单）写进同一份；第 1 节骨架不够就覆盖改。教师巡视，拿不准的当场问。
+1. **读新闻（10 分钟）**：打开展示站该条，需要时再开原文。只抓三件事：Anthropic 与麻省理工、斯坦福推演的是 **2030 年三种情景**，不是已经发生的统计；极端情景里美国经济额外增长约 **32%**，知识工作者失业率可至 **17.9%**；纯认知、信息处理的岗位更易被接管，现场服务暂时更难替代。读完能用自己的话重述这三句。
+2. **解读（15 分钟）**：邻座各写一句：这篇报道里哪句是数字、哪句是判断。再问两个问题，不写产品名——若极端情景靠近，财经专业学生自己的哪类作业最容易被模型接走；若要核对这些数字，数据应从报告原文来，还是从新闻转述来。点明：新闻给的是话题，不是已经验证的用户痛点。痛点筛选与 Ng 五步在 W4 补课。
+3. **准备 Jupyter（15 分钟）**：必须用第 1 节的项目 `.venv`，不要装到系统 Python 或 Anaconda `base`。终端出现 `(.venv)` 后执行 `python -m pip install ipykernel`，再 `python -m pip freeze > requirements.txt`。Cursor 里 **Python: Select Interpreter** 选这个 `.venv`。新建一个 `.ipynb`，第一个单元格只跑 `import sys; print(sys.executable)`，路径里应有 `.venv`。跑通即停，不写爬虫。
+4. **收束（5 分钟）**：每人确认内核是项目 `.venv`。装不上的记下报错，周末补；第 3 节仍可看教师或同学的脚本，不卡住采集展示。
 
 **第3节 · 数据采集：requests + BeautifulSoup（45 分钟）**
 
-W2 说「具体代码下节课再学」，本节兑现。提案主线已在第 2 节做完，不再重复。不做访谈复盘（多数人尚未访谈）。
+W2 说「具体代码下节课再学」，本节兑现。痛点分析改在 W4 补课，本节不重复。不做访谈复盘（多数人尚未访谈）。
 
 1. **开篇：Coding AI Is the New Literacy（5 分钟）**：投影 Andrew Ng *How to Build Your Career in AI* 导论（`references/build-career-in-ai-era.md` 开头；PDF：`references/build caree in AI era.pdf`）。不要通读全文。点三句，再落到今天的采集：
   - 几百年前识字只是少数人的事，后来读写成为常识，社会因此更富。他希望写代码（尤其为 AI 写）有一天也像识字一样普遍。
@@ -86,7 +78,7 @@ W2 说「具体代码下节课再学」，本节兑现。提案主线已在第 2
   - 落到本节：西财要闻不是为了交爬虫作业，而是第一次用代码跟网页这台「机器」把数据拿下来。`requests` 拿 HTML，`BeautifulSoup` 拆字段——这就是今天的识字练习。鼓励课外把导论读完。
 2. **同学展示（10 分钟）**：邀请同学展示西财要闻数据和代码（W2 作业不交这两样，本周当场跑）。能跑通的投屏；跑不通的说卡在哪。全班不要求打开 Jupyter。
 3. **对照拆代码（22 分钟）**：打开 `weeks/week03/swufe-news.md`。口诀：**requests 负责拿，BeautifulSoup 负责拆**。点明列表页字段（日期、标题、链接）和正文页怎么拆。学生对照自己的脚本看这两步在哪；缺的当场补或课后按该页补。当堂目标：说清拿 / 拆，能指到自己代码里的对应位置。
-4. **收束（8 分钟）**：每人确定本周**补充调研**的访谈对象（约不到走互助池/家人补位）：不是另做一份调研，而是把第 2 节那句痛点加深、拓展，写回同一份 `docs/community.md`。过审规则与 48h 重提通道。技能小练见 `lab.md`。提醒：本周 `docs/journal.md` 全文**选做**（仓库里继续写；W10 / W15 / W17 再必交）。第 2 节已写过日志的，补一句采集上的决定即可。`docs/requirements.md` 也继续改同一份：采集能说明数据从哪来的，写进清单第 1 项（数据源）；仍空的 8 项课后补。
+4. **收束（8 分钟）**：每人确定本周**补充调研**的访谈对象（约不到走互助池/家人补位）：不是另做一份调研，而是把已有痛点加深、拓展，写回同一份 `docs/community.md`。过审规则与 48h 重提通道。技能小练见 `lab.md`。提醒：本周 `docs/journal.md` 全文**选做**（仓库里继续写；W10 / W15 / W17 再必交）。补一句采集上的决定即可。`docs/requirements.md` 也继续改同一份：采集能说明数据从哪来的，写进清单第 1 项（数据源）；仍空的 8 项课后补。痛点筛选与 Ng 五步改在 W4 补课。
 
 ## 项目活动
 
@@ -136,14 +128,15 @@ W2 说「具体代码下节课再学」，本节兑现。提案主线已在第 2
 - `weeks/week03/opencode-workflow-files.md`（第 1 节：根目录 `AGENTS.md`；`docs/` 下其余基本文档）
 - `weeks/week03/venv-setup.md`（第 1 节建 `.venv`）
 - `weeks/week03/swufe-news.md`（第 3 节：`requests` + `BeautifulSoup` 采集西财要闻）
-- `knowledge/phase1-1-7-community-first.md`（第 2 节当堂自读：社区先行）
-- `knowledge/phase1-1-6-user-insight.md`（第 2 节当堂自读：用户访谈技巧）
-- `weeks/week02/data-taxonomy.md`（第 2 节评估数据来源时对照）
-- `knowledge/phase1-1-10-project-screening.md`（第 2 节：Ng 五步的教学改写，课堂以原文第 4 章为准）
-- `references/build-career-in-ai-era.md`（第 2 节投影 Chapter 4 五步；第 3 节开篇导论 *Coding AI Is the New Literacy*；PDF `references/build caree in AI era.pdf`）
-- `knowledge/phase1-1-8-deep-research.md`（第 2 节 Deep Research 演示）
-- `knowledge/phase1-1-9-project-proposal.md`（第 2 节写提案第一节）
+- [A社警告：AI催生GDP暴涨32%，美国白领却或被斩杀](https://haichaozheng.github.io/data-analysis-showcase/news.html)（第 2 节新闻解读；原文 [腾讯新闻](https://news.qq.com/rain/a/20260920A07QYQ00)）
+- `knowledge/phase1-1-7-community-first.md`（W4 补课自读：社区先行）
+- `knowledge/phase1-1-6-user-insight.md`（W4 补课自读：用户访谈技巧）
+- `weeks/week02/data-taxonomy.md`（W4 补课评估数据来源时对照）
+- `knowledge/phase1-1-10-project-screening.md`（W4 补课：Ng 五步的教学改写，课堂以原文第 4 章为准）
+- `references/build-career-in-ai-era.md`（W4 补课投影 Chapter 4 五步；第 3 节开篇导论 *Coding AI Is the New Literacy*；PDF `references/build caree in AI era.pdf`）
+- `knowledge/phase1-1-8-deep-research.md`（W4 补课 Deep Research 演示）
+- `knowledge/phase1-1-9-project-proposal.md`（W4 补课写提案第一节）
 - `templates/journal.md`（本周交 `docs/journal.md` 全文为选做）；`templates/journal-rules.md`（交法）
 - `templates/requirements.md`
 - `templates/community.md`（W3 提案「真实性证据」引用本文件，不另写调研报告）
-- `project-selection-guide.md`（第 2 节投影第 8 节准入清单 8 项）
+- `project-selection-guide.md`（W4 补课投影第 8 节准入清单 8 项）
