@@ -48,9 +48,10 @@
 
 要用 Jupyter，就选 W3 建好的项目虚拟环境。建议在这个环境里安装 `ipykernel`：Cursor 里选中 `.venv` 之后，单元格才能把代码交给这个 Python 执行。没装进 `.venv` 时，笔记本打得开，单元格跑不了，或跑到系统 Python / Anaconda `base` 上。
 
-1. **激活** `.venv`：在项目根目录打开终端。Windows PowerShell：`.\.venv\Scripts\activate`。Mac：`source .venv/bin/activate`。提示符前出现 `(.venv)` 再往下做。
-2. **安装** `ipykernel`：在已经出现 `(.venv)` 的终端里执行 `python -m pip install ipykernel`。装完可再执行一次 `python -m pip freeze > requirements.txt`。
-3. **选解释器再跑一格**：Cursor 里 `Ctrl+Shift+P` → **Python: Select Interpreter** → 选路径中有 `.venv` 的那一个。打开 `weeks/week04/structured_data.ipynb`，单元格运行 `import sys; print(sys.executable)`，输出路径里应有 `.venv`。对上即停。
+1. **开场·先安心态（约 3 分钟）**：本周是全课程工程时间最长的一周，限流、复权、反爬都可能卡人。任何人多少都有焦虑和压力，不否认它。办法是用价值观与人生观来引导自己：想清楚这门课与这个项目对自己意味着什么，从意义里长出无视困难的勇气；注意力放回「下一步具体做什么」，焦虑就不再困扰自己。点到即止，进入技术环节。
+2. **激活** `.venv`：在项目根目录打开终端。Windows PowerShell：`.\.venv\Scripts\activate`。Mac：`source .venv/bin/activate`。提示符前出现 `(.venv)` 再往下做。
+3. **安装** `ipykernel`：在已经出现 `(.venv)` 的终端里执行 `python -m pip install ipykernel`。装完可再执行一次 `python -m pip freeze > requirements.txt`。
+4. **选解释器再跑一格**：Cursor 里 `Ctrl+Shift+P` → **Python: Select Interpreter** → 选路径中有 `.venv` 的那一个。打开 `weeks/week04/structured_data.ipynb`，单元格运行 `import sys; print(sys.executable)`，输出路径里应有 `.venv`。对上即停。
 
 内核确认后，按该笔记本的教学内容往下做：
 
