@@ -54,10 +54,10 @@
 
 ### 第6步：互查
 
-17. 组内互查：每人机器跑通 `wb_explore.py`
-18. 卡住先问同组（对方口述步骤、盯着自己键入）；两分钟仍卡再举手
+17. 同学互助解答：每人机器跑通 `wb_explore.py`
+18. 卡住先问同学（对方口述步骤、盯着自己键入）；两分钟仍卡再举手
 
-## 实验交付
+## 实验交付（当堂自查留存，本周不提交）
 
 - `wb_explore.py`（代码 + 运行截图）
 - `AGENTS.md`（最简版）
@@ -72,4 +72,4 @@
 - PowerShell 禁止 npm：用 `npm.cmd` 或 `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`
 - opencode 装不上：确认 `node -v` 能跑；仍失败带报错截图进课程群
 - wbgapi 调不通：确认 `pip install wbgapi` 成功；网络问题换热点重试
-- 卡住 → 问 AI（附报错）→ 同组互查 → 举手教师
+- 卡住 → 问 AI（附报错）→ 同学互助解答 → 举手教师
