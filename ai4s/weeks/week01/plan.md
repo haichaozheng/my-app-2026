@@ -9,8 +9,10 @@
 ## 学习目标
 
 - 能用自己的话说明 AI4S 范式：AI 贯穿科研全流程，是"研究伙伴"而非工具箱
-- 能配置好 AI 工作环境（opencode/cursor）、Python 环境、API key、文献管理工具
-- 能写第一个 Prompt 驱动的小脚本（如调用 LLM API 总结一段文本），验证环境可用
+- 能配置好 AI 工作环境：Python 3.13 + Cursor（选中解释器）+ opencode（项目根目录打开、选模型、基础命令）
+- 能说明 opencode 的工作模式：**对话→改文件→运行**，区别于网页版 Chat 只停在对话
+- 能写最简版 `AGENTS.md`，让 opencode 读取作为项目上下文
+- 能用 wbgapi 拉取世界银行数据，完成第一个 Prompt 驱动的科研脚本，验证环境可用
 - 能说明社科科研全流程的五个环节，并把 AI4S 工具栈映射到每个环节
 
 ## 教学步骤（3节课）
@@ -24,41 +26,54 @@
 
 **第2节 · 工具环境搭建（45 分钟）**
 
-5. opencode/cursor 配置演示（15 分钟）：安装、登录、API key 配置、Python 解释器选择
-6. Python 环境配置（10 分钟）：`.venv` 虚拟环境、核心依赖库安装
-7. 文献管理工具安装（5 分钟）：Zotero 或同类工具
-8. 第一个 Prompt 驱动脚本（15 分钟）：用 opencode/cursor 调用 LLM API 总结一段文本，验证环境可用
+> 课前把 `weeks/week01/setup.md` 发到课程群，要求带电脑当堂跟装。白板先写课上求助顺序：**卡住 → 问 AI（附报错）→ 同组互查 → 举手教师**。安装类问题优先留在组内已跑通的人。
+
+5. **Python 3.13 + Cursor 安装与选解释器（15 分钟）**：按 `weeks/week01/setup.md` 第一、二部分。全班终端跑 `python --version`（须为 3.13.x）；在 Cursor 里 `Ctrl+Shift+P → Python: Select Interpreter` 选路径里有 `Python313` 的，不要选 Anaconda、不要选 WindowsApps 商店别名。先装 `wbgapi pandas` 两个包（世界银行数据 API 客户端 + 数据分析库）。**不装 Anaconda、不点官网首页 3.14**。
+6. **opencode 安装与基础用法（15 分钟）**：按 `weeks/week01/setup.md` 第三部分。官网 LTS Node.js（24.x）→ `npm install -g opencode-ai` → `opencode --version`。在项目根目录输入 `opencode` 启动 TUI；选模型（默认免费可跟课）；练 `/connect` `/model` `/session` `/compact` 四条命令。点明 opencode 的工作模式：**对话→改文件→运行**，不是网页版 Chat 那样只停在对话。
+7. **文献管理工具安装（5 分钟）**：Zotero 或同类工具，本周装好即可，W2/W3 用到。
+8. **第一个 Prompt 驱动脚本（10 分钟）**：用 opencode 在项目根目录生成 `wb_explore.py`——用 wbgapi 拉取世界银行数据（如中国近 10 年人均 GDP 与增长率），打印 DataFrame。**必须点运行且终端无报错**。世界银行有 1400+ 指标覆盖 19 个主题（经济/教育/健康/性别/贫困/科技等），学生可换成自己研究方向的指标。AGENTS.md 先写一个最简版（3-5 行：项目目标、技术栈、目录约定），opencode 打开时自动读取作为上下文。
 
 **第3节 · Prompt 初体验与下周铺垫（45 分钟）**
 
-9. Prompt 三原则在实操中自然体验（15 分钟）：清晰性、上下文、约束
-10. 个人脚本调试与互查（15 分钟）：每人跑通自己的脚本，组内互查
-11. 下周铺垫（10 分钟）：文献检索是方法论（PRISMA 流程），不是"搜一下"；预告 W2 检索式与 API
-12. 收束（5 分钟）：布置课后自学与作业
+9. **Prompt 三原则在实操中自然体验（10 分钟）**：清晰性、上下文、约束。拿第2节那个 `wb_explore.py` 当例子——对比"拉点经济数据"和"用 wbgapi 拉取中国（CHN）近 10 年的人均 GDP（NY.GDP.PCAP.CD）和 GDP 增长率（NY.GDP.MKTP.KD.ZG），输出 pandas DataFrame，年份作为行"两种问法的输出差异。
+10. **opencode 工作模式深化（10 分钟）**：演示"对话→改文件→运行"闭环——让 opencode 把 `wb_explore.py` 改成拉取多个国家（如 CHN、USA、IND、BRA）的同一组指标、输出对比表，并简单标注最高增长率的国家。强调 opencode 直接改磁盘文件、可运行，这是它区别于网页 Chat 的核心，也是后续科研编程（W2 检索脚本、W6 数据清洗、W8 论文起草）的工作模式底座。
+11. **个人脚本调试与互查（15 分钟）**：每人跑通自己的脚本，组内互查。AGENTS.md 至少写好项目目标与技术栈两行。卡住先问同组（对方口述步骤、盯着自己键入）；两分钟仍卡再举手。
+12. **下周铺垫（8 分钟）**：文献检索是方法论（PRISMA 流程），不是"搜一下"；预告 W2 检索式与学术 API。本周的 opencode 工作模式就是下周写检索脚本的基础。
+13. **收束（2 分钟）**：布置课后自学与作业。
 
 ## 交付物
 
 - **工具环境就绪**（评分锚点，对应 milestones §1.1）
-  - opencode/cursor 可正常运行
-  - Python 环境配置完成（解释器、虚拟环境、核心依赖库）
-  - API key 配置完成（至少一个 LLM API 可用）
-  - 文献管理工具安装完成
-  - 至少一个 Prompt 驱动的小脚本
-- 方法论锚定：体现 AI4S 范式理解、Prompt Engineering 初步应用、工具选择意识
+  - opencode/cursor 可正常运行（`opencode --version` 截图 + Cursor 选中 Python313 截图）
+  - Python 环境配置完成（`python --version` 为 3.13.x）
+  - wbgapi + pandas 安装成功（`pip install wbgapi pandas` 无报错）
+  - API key 配置完成（opencode 至少能连一个模型；默认免费模型也算）
+  - 文献管理工具安装完成（Zotero 或同类）
+  - 至少一个 Prompt 驱动的小脚本（`wb_explore.py`，用 wbgapi 拉取世界银行数据，能运行、终端无报错）
+  - 最简版 `AGENTS.md`（项目目标 + 技术栈 + 目录约定，3-5 行起步）
+- 方法论锚定：体现 AI4S 范式理解、Prompt Engineering 初步应用、工具选择意识（说明选择了 opencode/cursor 还是其他、为什么）
 
 ## 课后自学
 
+- **环境安装**：`weeks/week01/setup.md`（Python 3.13 + Cursor + opencode，当堂没装完的课后补齐）
 - Prompt Engineering 方法论：`knowledge/m1-3-prompt-engineering.md`
 - AI4S 范式与方法论：`knowledge/m1-1-ai4s-paradigm.md`
 - 社科科研全流程映射：`knowledge/m1-4-research-workflow-mapping.md`
 - AI 辅助编程（opencode/cursor）：`knowledge/m1-2-ai-coding.md`
+- opencode 规则：[AGENTS.md 与 `/init`](https://opencode.ai/docs/zh-cn/rules/#%E5%88%9D%E5%A7%8B%E5%8C%96)
 
 ## 课后作业
 
-用 opencode/cursor 完成一个 Prompt 驱动的小脚本（如调用 LLM API 总结一段文本），验证环境可用，为 W2 文献检索脚本做技术热身。提交脚本与运行截图。
+1. 按 `weeks/week01/setup.md` 补齐环境（当堂未装完的部分），验收六步截图（见 setup.md 末尾"安装顺序速查"）
+2. 用 opencode 在项目根目录完成 `wb_explore.py`：用 wbgapi 拉取世界银行数据（自己选择国家与指标，至少 2 个指标、近 10 年），终端能跑通
+3. 浏览 [世界银行指标](https://data.worldbank.org/indicator)，选出 3-5 个与你自己研究方向相关的指标，记录指标代码
+4. 写最简版 `AGENTS.md`（项目目标 + 技术栈 + 目录约定），后续随项目演进逐步完善
+5. 提交：脚本代码 + 运行截图 + `AGENTS.md` + 环境验收截图 + 选定指标列表
 
 ## 参考资料
 
 - 理念：Wang, H. et al. (2023). "Scientific discovery in the age of artificial intelligence." *Nature*, 620, 47-60
-- 工具：[opencode 文档](https://opencode.ai/docs/)、[Cursor 文档](https://docs.cursor.com/)
+- 工具：[opencode 文档](https://opencode.ai/docs/)、[Cursor 文档](https://docs.cursor.com/)、[AGENTS.md 规则](https://opencode.ai/docs/zh-cn/rules/)
+- 数据：[wbgapi PyPI](https://pypi.org/project/wbgapi/)、[世界银行指标浏览](https://data.worldbank.org/indicator)、[世界银行开发者文档](https://datahelpdesk.worldbank.org/knowledgebase/articles/889386)
+- 安装指南：`weeks/week01/setup.md`（Python 3.13 + Cursor + opencode 全流程，含排障）
 - `weeks/week01/lecture.md`、`weeks/week01/lab.md`
