@@ -19,8 +19,8 @@
 
 1. 文献检索为什么是方法论（10 分钟）：不是"搜一下"，而是系统性检索
 2. PRISMA 流程讲解（15 分钟）：检索式构建、数据库选择、纳入排除标准
-3. 检索工具盘点（10 分钟）：Google Scholar / Web of Science / CNKI / Semantic Scholar / Crossref
-4. 个人研究领域检索式初稿（10 分钟）：每位博士生草拟自己领域的检索式
+3. 检索工具盘点（10 分钟）：检索数据库（Google Scholar / Web of Science / CNKI / Semantic Scholar / Crossref）、第三方文献平台（AMiner）、个人文献管理数据库（Zotero）
+4. 个人研究领域检索式初稿（10 分钟）：每位博士生草拟自己领域的检索式。💡 课堂互动：完成后与邻座交换检索式，互相指出遗漏关键词或冗余条件（3 分钟）
 
 **第2节 · API 检索脚本实操（45 分钟）**
 
@@ -55,4 +55,5 @@
 
 - 理念：Page, M.J. et al. (2021). "The PRISMA 2020 statement: an updated guideline for reporting systematic reviews." *BMJ*, 372, n71
 - 工具：[Semantic Scholar API](https://api.semanticscholar.org/)、[Crossref REST API](https://www.crossref.org/services/metadata-delivery/rest-api/)
+- 文献平台与管理：[AMiner](https://www.aminer.cn/)、[Zotero](https://www.zotero.org/)
 - `weeks/week02/lecture.md`、`weeks/week02/lab.md`

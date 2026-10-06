@@ -20,7 +20,7 @@
 
 1. 选题是 gap-driven 而非兴趣-driven（10 分钟）
 2. Gap 类型讲解（15 分钟）：方法论空白、理论空白、数据空白、情境空白
-3. Sandberg & Alvesson 的 gap-spotting vs problematization（10 分钟）
+3. Sandberg & Alvesson 的 gap-spotting vs problematization（10 分钟）：💡 课堂互动：教师展示 3 个研究问题实例，全班快速判断各属于哪种 gap 类型（方法论/理论/数据/情境空白），3 分钟抢答
 4. 从 W3 综述中初步定位 gap（10 分钟）
 
 **第2节 · Prompt 与 Agent 驱动的 gap 发现（45 分钟）**
