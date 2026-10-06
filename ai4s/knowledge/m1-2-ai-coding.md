@@ -1,4 +1,4 @@
-# AI辅助编程（opencode/Cursor/Trae）与智能体运行框架（DeepSeek Harness）
+# AI辅助编程（opencode/Cursor）与智能体运行框架（DeepSeek Harness）
 
 > **引入时机**：W1 | **核心挑战**："科研编程效率低，如何用AI加速Python/R/Stata代码编写？" | **层级**：Essential
 
@@ -8,7 +8,7 @@
 
 AI编程工具的根本价值在于：它把"怎么实现"的门槛大幅降低，让你把精力集中在"做什么"和"为什么这样做"上。当你想做一个固定效应面板回归，你不需要记住Stata的`xtreg`语法细节，只需要告诉AI"对这份面板数据做固定效应回归"——AI生成代码，你审查逻辑。但这里有一个关键前提：你必须具备判断AI代码"对不对"的方法论素养。AI能帮你"做出来"，但只有你能判断是否"做对了"。
 
-在本课程中，你将使用三类AI编程工具：Cursor/Trae（AI-first IDE，适合交互式开发）、opencode（命令行AI助手，适合项目级代码操作）。掌握它们的正确使用方式，你的科研编程效率可以提升3-5倍，同时保持对代码质量的严格把控。
+在本课程中，你将使用两类AI编程工具：Cursor（AI-first IDE，适合交互式开发）、opencode（命令行AI助手，适合项目级代码操作）。掌握它们的正确使用方式，你的科研编程效率可以提升3-5倍，同时保持对代码质量的严格把控。
 
 ## 这个知识点的核心内容
 
@@ -19,14 +19,13 @@ AI编程工具的根本价值在于：它把"怎么实现"的门槛大幅降低�
 | 工具 | 类型 | 核心优势 | 科研适用场景 |
 |------|------|---------|------------|
 | Cursor | AI-first IDE | 基于VS Code生态，深度AI集成 | 数据分析脚本、可视化开发 |
-| Trae | AI-first IDE | 字节跳动出品，中文优化好 | 中文社科场景、快速原型 |
 | opencode | 命令行AI助手 | 终端内操作，项目级上下文理解 | 项目级代码生成与重构 |
 | ChatGPT/Claude | 通用LLM | 灵活、知识面广 | 独立代码问答、方案讨论 |
 
 **智能体运行框架 / Agent Harness（进阶）**：除 IDE 类工具外，DeepSeek Harness（`dsh`）是开源的智能体运行框架，理念为"一切皆插件"（基于 Cordis）。它把模型接入文件系统、终端、网页、工具与子 Agent，并以 Trajectory 轨迹记录每一次工具调用、思维链与上下文注入，支持恢复、分叉与回放，天然满足科研所需的**可复现、可验证、可审计**。其插件架构让你把研究流程固化为可复用的 Tool / Skill，模型路由又支持 DeepSeek、OpenAI 兼容及自定义 Provider 自由切换，避免厂商锁定。适合用来搭建可审计、可复现的科研 Agent 与 AI4S 工具栈（开发者预览版，需 Node.js 环境与一定插件概念基础）。
 
 工具选择建议：
-- 日常开发：Cursor或Trae作为主力IDE
+- 日常开发：Cursor作为主力IDE
 - 项目级操作：opencode处理多文件修改和项目级重构
 - 快速问答：通用LLM做方案讨论和代码审查
 
@@ -42,7 +41,7 @@ AI编程工具的进化经历了三个阶段，理解这个进化有助于你正
 
 **阶段二：指令式生成（Instruction-based）**——你用自然语言描述需求，AI生成代码块
 
-特点：主动生成，支持多行代码、跨文件编辑。代表：Cursor的Composer、Trae的Builder。
+特点：主动生成，支持多行代码、跨文件编辑。代表：Cursor的Composer。
 
 适用：生成完整函数、实现分析逻辑、创建可视化代码。
 
@@ -231,7 +230,6 @@ AI不仅能生成代码，也是强大的调试和审查工具：
 
 - https://docs.cursor.com/ — Cursor编辑器官方文档
 - https://opencode.ai — opencode命令行AI编程助手
-- https://docs.trae.ai — Trae AI IDE文档
 - https://deepseek-harness.github.io/deepseek-harness/ — DeepSeek Harness 文档
 - https://github.com/deepseek-ai/deepseek-harness — DeepSeek Harness 源码仓库
 - https://software-carpentry.org/ — 科研编程技能培训

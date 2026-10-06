@@ -1,6 +1,6 @@
 # Prompt驱动的Gap Analysis对话
 
-> **引入时机**：W3 | **核心挑战**："如何用LLM对话式地探索文献空白？Deep Research + 多轮对话如何辅助选题？" | **层级**：Essential
+> **引入时机**：W4 | **核心挑战**："如何用LLM对话式地探索文献空白？Deep Research + 多轮对话如何辅助选题？" | **层级**：Essential
 
 ## 为什么要在项目阶段学习这个知识点？
 

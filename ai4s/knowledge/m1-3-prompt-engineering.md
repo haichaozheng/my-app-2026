@@ -1,6 +1,6 @@
 # Prompt Engineering方法论
 
-> **引入时机**：W1 | **核心挑战**："如何与LLM有效交互？系统Prompt、多轮对话、Deep Research等方法如何用于科研？" | **层级**：Essential
+> **引入时机**：自学（W1起，贯穿全程） | **核心挑战**："如何与LLM有效交互？系统Prompt、多轮对话、Deep Research等方法如何用于科研？" | **层级**：Essential
 
 ## 为什么要在项目阶段学习这个知识点？
 
