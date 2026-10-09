@@ -58,9 +58,9 @@
 | Agent | 产品自动化与智能交互 | 金融数据监控Agent、自动化报告Agent |
 | Skill | 可复用的AI能力模块 | 数据分析skill、可视化skill、报告生成skill |
 
-> **AI系统评估是横切实践，不是独立工具**：它不单列为一行，因为它没有专属工具——评估 RAG/Agent/Skill/LLM 功能靠的是 Prompt（构造 evals 集、做可信度提问）与 Skill（封装可复用的回归测试）。评估是"验证搭出来的东西靠不靠谱"的贯穿能力，应用于所有 AI 功能：对 AI 输出做可信度判断（反思日志 4.3）、用 10-20 条"问题—预期答案"做 evals 回归测试（W15）、按设计科学有效性（Larsen，criterion/causal/context validity）严格评估（见「设计科学研究方法（DSR）方法论锚定」节）、并计入 rubric「AI功能价值」的"对AI输出有可信度判断"维度。
+> **AI系统评估是横切实践，不是独立工具**：它不单列为一行，因为它没有专属工具——评估 RAG/Agent/Skill/LLM 功能靠的是 Prompt（构造 evals 集、做可信度提问）与 Skill（封装可复用的回归测试）。评估是"验证搭出来的东西靠不靠谱"的贯穿能力，应用于所有 AI 功能：对 AI 输出做可信度判断（反思日志 4.3）、W14 策略回测中 ML 信号 vs SMA 基线即一条 criterion validity claim（产品效能 vs 参考实体）、按设计科学有效性（Larsen，criterion/causal/context validity）严格评估（见「设计科学研究方法（DSR）方法论锚定」节）、并计入 rubric「AI功能价值」的"对AI输出有可信度判断"维度。
 
-**渐进融入节奏**：Prompt+AI辅助编程(W1起步) → **LLM API 初尝(W6课后自学 `llm_api.ipynb`，W7 起在产品内使用)** → RAG(W9选做升级) → 建模增强(W11-W15：ML基础与基础模型地图/决策树与随机森林+特征工程+朴素贝叶斯自学/对照大模型与传统分析+神经网络基础/多模型对比+SVM自学/模型评估与产品化，必做基础+进阶可选) → **LangChain重构(W15必做：Chain+Prompt Template，把裸API调用升级为可维护的智能解读链)** → **评估贯穿全阶段**（对 RAG/Agent/Skill/LLM 功能做可信度判断与 evals，重点嵌入 W15 建模产品化）
+**渐进融入节奏**：Prompt+AI辅助编程(W1起步) → **LLM API 初尝(W6课后自学 `llm_api.ipynb`，W7 起在产品内使用)** → Skills开发(W9：OpenCode Skill 封装可复用 AI 工作流) → 建模增强(W11-W15：线性回归+梯度下降/KNN+特征工程/决策树·随机森林/量化交易基础·ML信号+策略回测/多模型信号融合+路演准备) → **评估贯穿全阶段**（对 AI 输出做可信度判断，反思日志记录；W14 策略回测中 ML 信号 vs SMA 基线对比即一条 criterion validity claim；期末报告含 DSR 定位）
 
 ## 课堂演示工具约定
 
@@ -112,9 +112,9 @@ requirements → design → scope。scope 的"本期范围"可紧跟 requirement
 
 | DSR Cycle | 含义 | 课程对应 |
 |---|---|---|
-| Relevance Cycle（相关性循环） | 环境（问题空间）↔ 研究，确保解决真实且重要的问题 | W1-W3 社区倾听 + 用户访谈；W10 部署成功当天起滚动触达（W10-W14）与 5-10 位用户反馈；W16 路演面向真实受众 |
+| Relevance Cycle（相关性循环） | 环境（问题空间）↔ 研究，确保解决真实且重要的问题 | W1-W3 社区倾听 + 用户访谈；W11 部署成功当天起滚动触达（W11-W14）与 5-10 位用户反馈（W15 整理为路演素材）；W16 路演面向真实受众 |
 | Rigor Cycle（严谨性循环） | 知识库（基础与方法论）↔ 研究，确保方法严谨 | `knowledge-map.md` + 共同 AI 基础工具栈；引用金融/统计/CS 既有方法 |
-| Design Cycle（设计循环，中心） | build & evaluate 反复迭代 | `requirements→design→scope` 循环；MVP v0.1→v0.3→v0.4→v1.0→v1.1；W9 互评打磨 |
+| Design Cycle（设计循环，中心） | build & evaluate 反复迭代 | `requirements→design→scope` 循环；MVP v0.1→v0.3→v0.4→模型增强（W11-W15）→路演就绪；W9 互评打磨 |
 
 ### DSRM 六步 ↔ 课程阶段映射（Peffers et al. 2007）
 
@@ -124,7 +124,7 @@ requirements → design → scope。scope 的"本期范围"可紧跟 requirement
 | 2. 定义解决方案目标（Define the objectives for a solution） | W3 | `requirements.md`（Must/Should 需求即目标） |
 | 3. 设计与开发（Design and development） | W4-W10 MVP Stage | 手动流程→EDA→可视化→原型→AI 功能→打磨 |
 | 4. 演示（Demonstration） | W9 互评 / W10 上线（当堂部署） / W16 路演 | MVP v0.4 演示 + 公网可访问产品 + 路演 Demo |
-| 5. 评估（Evaluation） | W9 互评 + W12-W15 模型评估 + W14 用户反馈 | 同侪互评 + eval 指标/交叉验证 + Larsen 有效性 |
+| 5. 评估（Evaluation） | W9 互评 + W11-W14 模型建模与回测评估 + W15 路演呈现 | 同侪互评 + 模型评估指标/回测评估 + Larsen 有效性 |
 | 6. 沟通（Communication） | W16 路演 + W17 报告 | 路演（技术 + 管理双重受众）+ `final-report.md` 含 DSR 定位 |
 
 ### artifact 四类型与个人产品（Hevner et al. 2004）
@@ -144,7 +144,7 @@ DSR 的 artifact = constructs（构念）/ models（模型）/ methods（方法�
 
 ### 评估有效性（Larsen et al. 2025）
 
-W15 评估环节引入设计科学有效性框架：**全员须 ≥1 条 criterion validity claim**——把产品效能与一个**参考实体**比较（如基线模型、手动分析、既有工具、空 RAG 模块等）。可选论文轨可加：
+W14 回测评估引入设计科学有效性框架：**全员须 ≥1 条 criterion validity claim**——把产品效能与一个**参考实体**比较（如 ML 信号 vs SMA 基线、模型 vs 买入持有、手动分析 vs 自动化等）。可选论文轨可加：
 
 - **Causal validity（因果效度）**：消融实验（去掉某模块如 RAG，对比是否仍有效）
 - **Context validity（情境效度）**：外部效度（多用户/多场景）+ 生态效度（W11-W14 的 5-10 真实用户触达与反馈即生态效度证据）
@@ -161,7 +161,7 @@ W15 评估环节引入设计科学有效性框架：**全员须 ≥1 条 criteri
 
 | PBL要素 | 课程实现 | DSR 咬合（方法论层） |
 |---|---|---|
-| Authentic Problem | 金融领域的真实数据与用户需求 | Relevance Cycle：W1-W3 社区倾听 + W14 用户反馈确保问题真实重要（Hevner 指导②） |
+| Authentic Problem | 金融领域的真实数据与用户需求 | Relevance Cycle：W1-W3 社区倾听 + W11-W14 用户触达与反馈确保问题真实重要（Hevner 指导②） |
 | Sustained Inquiry | 17周持续迭代，从选题到上线 | Design Cycle：build & evaluate 反复迭代（DSRM 步骤3→5 循环） |
 | Student Voice & Choice | 学生在赛道中自选具体方向和切入点（包括个人产品方向） | Design as a Search Process：学生在约束下自主搜索解（Hevner 指导⑥） |
 | Reflection | 每阶段提交反思日志 | 七指导原则自检透镜 + DSR 定位重构 |
@@ -207,18 +207,18 @@ W15 评估环节引入设计科学有效性框架：**全员须 ≥1 条 criteri
 | W6 | NumPy/Pandas 进阶与 Matplotlib 静态可视化（**工具基础周**） | NumPy 基础（ndarray vs list、数组属性与布尔索引、矩阵乘法——神经网络全连接层视角、切片步长）、pandas 数据预处理（类型转换/排序/删列删行、Timestamp/Timedelta 与 apply）、groupby（单列/多列）+ unstack/MultiIndex、matplotlib 与 pandas.plot 静态图；**课后自学 `llm_api.ipynb`**（DeepSeek API 接入：密钥管理、openai SDK 对接、封装 `deepseek_chat`，为 W7 产品接入大模型能力铺垫） | 项目数据聚合与静态图 Notebook（≥1 个 groupby 聚合 + ≥2 张静态图，每图配一句"回答什么问题"，图之间不要求叙事）；课后跑通 DeepSeek API 并完成新闻关键词提取/一句话摘要练习（自备 API key，LOGO 生成选学） | 项目数据聚合与静态图 Notebook（milestones §2.3 的图表素材储备）+ 技能小练 |
 | W7 | 产品原型搭建 + AI辅助编程加速原型 | Streamlit 快速原型（必做）、Gradio（可选）、AI辅助编程加速、Skill作为可选产品形式；进阶自学 React/Vue+FastAPI | 将 W5 EDA 发现与 W6 静态图迁移进产品框架，搭建个人 MVP 原型（产品内 LLM 能力用 W6 自学的 DeepSeek API）；**课后提交个人项目选题报告**（`docs/requirements.md` 更新版「选题报告 v2」：整合 W1-W6 痛点验证、数据落地、EDA 发现与图表储备，作为迭代至路演的锚与教师深评点）；兜底：`weeks/week07/mvp-template/` 最小骨架起步，底线=能打开+展示一个核心分析 | 个人MVP v0.1（可运行；milestones §2.4）+ 个人项目选题报告（milestones §1.4 的期中定稿版） |
 | W8 | 可视化设计（**弹性缓冲周**）+ 文本分析入门 | 可视化设计原则（好图/坏图对照、叙事序列）、传统分词 vs 大模型 tokenization、情感分析（词典/分类器 vs 大模型——均已是基本解决的任务，重在核对结果可信度）、Plotly/Pyecharts 交互式可视化（承载主体 Jupyter Notebook，当周或随后迁入产品）、故事化叙事 | 设计核心可视化方案+图表设计说明（必做）；交互式图表实现可当周迁入产品或随后合并完成；本周同时用于吸收 W4-W7 欠账 | 个人可视化方案（设计说明必做；milestones §2.3） |
-| W9 | RAG构建产品知识库（选做）+ 同侪互评 + 开始打磨 | RAG选做升级（素材复用W4采集与W5结果）、产品评审标准、同侪互评方法（`templates/peer-review.md` Part A）、定向打磨与技术债清理 | 组内MVP互评（每人≥3条"情境-现象-建议"结构化反馈）、据反馈产出采纳/不采纳理由并迭代 v0.3；选做RAG | 组内互评反馈 + 个人MVP v0.3（milestones §2.6） |
+| W9 | LLM 原理与 OpenCode Skills 开发 + 同侪互评 + 开始打磨 | LLM 原理回顾（N-gram→RNN→GPT→Attention/Transformer）、向量与余弦相似度、OpenCode 工具体系与 Skill 基础（SKILL.md 结构、按需加载、tushare/gstack Skill）、Skill 开发实践（创建最简 Skill、为自己的项目封装可复用指令）、产品评审标准、同侪互评方法（`templates/peer-review.md` Part A）、定向打磨与技术债清理；进阶自学 MCP/Agent/协同架构 | 组内MVP互评（每人≥3条"情境-现象-建议"结构化反馈）、据反馈产出采纳/不采纳理由并迭代 v0.3、为自己的项目创建 ≥1 个 OpenCode Skill（SKILL.md） | 组内互评反馈 + 个人MVP v0.3 + OpenCode Skill（milestones §2.6） |
 | W10 | 打磨迭代 + 上线部署（**首选 Streamlit Cloud，当堂部署**） | 据反馈定向打磨与技术债清理、Streamlit Cloud 部署五步（GitHub 仓库 → `requirements.txt` 冻结依赖 → streamlit.io 平台配置 → Secrets 管理密钥（`st.secrets`）→ 验证公网 URL）、部署三件事（依赖/密钥/数据）与平台三约束（休眠冷启动、资源限额、临时文件系统——SQLite 只读可用、写入会丢）、进阶自建路线（腾讯云轻量/CloudBase，校园免费额度**审核有等待期，周初申请**，适合需数据库写入/常驻进程/自定义域名者）、DSR 自检方法（写入本周提交的 `journal.md`，不另开反思文件；排障随查 `weeks/week10/deployment-faq.md`） | 完成打磨产出 v0.4（可演示）、**部署 v0.4 到 Streamlit Cloud 公网可访问（当堂人人出 URL，课后手机/异地网络各验证一次）**、撰写部署方案（路线理由+密钥管理+数据方案+升级触发条件）；进阶：腾讯云自建两路线对比/自定义域名/UptimeRobot 监控；兜底：当堂未出 URL 课后 48h 对照 FAQ 排障，仍不通先用 `mvp-template` 部署占位 URL 保底；**本周末做阶段回顾，DSR 自检(MVP 阶段)写入 `journal.md` 全文提交** | 个人MVP v0.4 + 公网可访问的部署 URL（首选 Streamlit Cloud）+ 个人上线部署方案（milestones §2.7） |
 
-### Phase 3: Launch Stage（Week 11-15）— 上线与迭代（DSRM 步骤 4 演示 + 步骤 5 评估；Larsen 有效性：W15 须 ≥1 条 criterion validity claim）
+### Phase 3: Launch Stage（Week 11-15）— 上线与迭代（DSRM 步骤 4 演示 + 步骤 5 评估；Larsen 有效性：W14 回测中 ML 信号 vs SMA 基线即 ≥1 条 criterion validity claim）
 
 | 周次 | 主题 | 教学内容 | 项目活动 | 交付物 |
 |---|---|---|---|---|
-| W11 | 产品部署（验收）+ 机器学习建模基础 | 部署验收与排障工作坊（10min，对照 `weeks/week10/deployment-faq.md`，W10 已当堂部署出 URL，本周只验收补齐不新做）、ML范式与基础模型地图（五类基础模型一句话直觉与本学期学习路径）、梯度下降入门（课堂讲授；配套视频 9.3 课后自愿）、训练/测试划分、过拟合初识、AI辅助构建第一个基础模型（线性回归/逻辑回归） | 部署验收与补齐（未通走录屏兜底+补齐计划）；建立第一个基础模型（线性回归/逻辑回归）+划分+初步评估；**部署成功当天即发产品链接开始用户触达**（班级群/朋友圈/已加入社区，滚动至W14） | 个人产品公网可访问（MVP v0.4）+ 基础模型（回归/分类）（milestones §3.1） |
-| W12 | 特征工程与模型优化 + 获客深化 | 特征工程、决策树与随机森林（课堂讲授：分裂直觉/bagging/特征重要性，与特征工程互为印证）、评估指标初步（准确率/MSE）、避免数据泄漏、朴素贝叶斯（自学视频10.1/10.2，约1h）、进阶可选：时间序列/因子/无监督、获客渠道复盘与深化（触达自W11已开始） | 用决策树/随机森林升级或对比基础模型、结合特征重要性完善特征、过拟合自检；自学朴素贝叶斯；复盘W11以来触达进展、调整扩大渠道（目标W14收口5-10条反馈）；兜底：互助测试池（`weeks/week13/user-test-pool.md`）+教师转介 | 模型迭代版 + 获客进展记录（milestones §3.2） |
-| W13 | 对照大模型与传统分析（适用边界 + 神经网络基础） | LLM作为分析引擎（解读规律/生成洞察/代码生成做分析）、神经网络基础串讲（神经元/层/激活/梯度下降复用→LLM即超大规模神经网络；自学视频13.1/13.2配套）、LLM vs 传统ML适用边界与互补、实验设计与执行 | 完成1个LLM分析实验（解读ML结果/LLM辅助特征探索/LLM提取文档洞察，三选一）+实验报告；说明适用边界（结合自身实验，对照W11-W12传统模型）；进阶：sklearn MLP试跑神经网络与W12树模型对比；兜底：不理想结果同样是合格报告（失败记录即W15有效性claim素材） | LLM分析实验（milestones §3.3） |
-| W14 | 用反馈迭代模型（多模型对比 + 交叉验证） | 用户反馈分类分析（功能需求vs体验问题）、多模型对比方法（同划分/同指标/交叉验证）+朴素贝叶斯/SVM自学串讲答疑、SVM（自学视频11.1/11.2）、据反馈调整模型与产品、获客方法论回顾（诊断前期受阻渠道） | 集中收口W11-W14滚动收集的反馈（5-10条）、分类排优先级、多模型对比实验（≥2个不同原理模型在同一划分与指标下对比）并结合反馈产出模型v1.0；兜底：互助测试池/转介补足，确不足以3位深度访谈替代（评估看深度不看数量）；模型对比受阻从简为两两对比 | 个人用户反馈记录(5-10) + 模型v1.0（milestones §3.4） |
-| W15 | 模型评估与建模产品化 + LangChain重构（必做） | 评估指标深入（MSE/R²/准确率/F1/混淆矩阵）+交叉验证+偏差-方差、**设计科学有效性白话版（≥1条 criterion validity claim：产品效能vs明确参考实体——首选复用W14多模型对比基线，课上给2个示例；论文轨加causal/context）**、**LangChain入门（Chain+Prompt Template）：把 W6 课后自学、W7 起就在用的裸 API LLM 调用重构为可维护的智能解读链**、模型嵌入产品（训练→推理→展示）、evals回归测试（10-20条写入repo，覆盖重构后的LLM功能）、UX优化；进阶可选：Agent/Skill封装/AB测试。**路演叙事移至W16课上** | 评估模型+写有效性claim、LangChain重构LLM智能解读并测试≥2个边界问题记录可信度评估、模型嵌入+使用文档、evals写入repo、据反馈完成UX打磨；仅交路演PPT大纲+Demo脚本（完整材料W16课上做）；**本周末做阶段回顾，产出含 DSR 自检(Launch 阶段)与有效性 claim 草稿的阶段反思** | 个人产品v1.1（含模型+评估+LangChain重构的LLM智能解读+文档+evals）+ 路演PPT大纲与Demo脚本（milestones §3.5） |
+| W11 | 机器学习建模基础 | 训练/测试划分直觉（全量fit vs 划分后测试分对比）、预测任务与ML范式（分类/回归、监督/无监督/强化学习）、梯度下降（f(x)=x² 可视化学习率过大/过小）、线性回归（sklearn LinearRegression + 手写SGD填空，gdp_satisfaction.csv）、接到自己的数据（三步改法） | 部署验收为课后事项（提交URL即可，未通者按W10兜底执行）；建立第一个基础模型（线性回归）+划分+初步评估；**部署成功当天即发产品链接开始用户触达**（班级群/朋友圈/已加入社区，滚动至W14） | 个人产品公网可访问（MVP v0.4）+ 基础模型（线性回归）（milestones §3.1） |
+| W12 | KNN + 特征工程与模型优化 + 获客深化 | KNN分类（课堂手算K值、sklearn KNeighborsClassifier、投票一致性——与W11线性回归对比"回归学规律 vs KNN找邻居"）、特征工程（选择/构造/转换）、评估指标初步（准确率/MSE）、避免数据泄漏、朴素贝叶斯（自学视频10.1/10.2，约1h）、进阶可选：时间序列/因子/无监督、获客渠道复盘与深化（触达自W11已开始） | 用KNN升级或对比W11基础模型、结合特征工程完善特征、过拟合自检；自学朴素贝叶斯；复盘W11以来触达进展、调整扩大渠道（目标W14收口5-10条反馈）；兜底：互助测试池（`weeks/week13/user-test-pool.md`）+教师转介 | 模型迭代版（KNN或改进特征的W11模型）+ 获客进展记录（milestones §3.2） |
+| W13 | 决策树与随机森林 | 决策树（分裂直觉：信息增益/基尼系数、过拟合倾向、剪枝一句话带过）、随机森林（bagging+随机特征→为何比单树稳、特征重要性反哺W12特征工程）、三种模型对比（线性回归学规律/KNN找邻居/决策树学规则——思路差异与适用场景） | 用决策树/随机森林升级或对比W11-W12模型、结合特征重要性完善特征；进阶：调max_depth/n_estimators观察过拟合、四模型同数据同指标对比 | 决策树/随机森林模型（含特征重要性）（milestones §3.3） |
+| W14 | 量化交易基础：从SMA到ML信号 + 策略回测评估 | 量化交易流程（数据→信号生成→回测→评估）、SMA策略回测入门（`Trading strategy evaluation - sma.ipynb`）、ML信号生成（用RF/KNN/线性回归预测涨跌→买卖信号）、多模型融合思路引入（投票法/加权法）、策略回测评估（收益曲线、夏普比率、最大回撤、胜率）、训练集vs测试集在量化中的应用（W11 train/test split的复用） | 用≥1种已学模型从金融数据生成交易信号、完成策略回测、与SMA基线或买入持有对比；进阶：用≥2种模型生成信号对比效果 | ML信号生成+策略回测报告（含评估指标、与基线对比、训练/测试划分说明）（milestones §3.4） |
+| W15 | 多模型信号融合 + 路演准备 | 多模型信号融合实践（≥2种模型生成信号→投票/加权融合→回测对比单一模型）、课程总结（W11-W15完整路径：三种模型+量化交易+Skills开发）、路演叙事方法论（故事线"问题→方案→产品(含模型)→价值"、Demo设计原则）、PPT大纲制作与Demo脚本设计 | 多模型信号融合实践；路演PPT大纲（≤8页）+Demo脚本（≤3步）；用户反馈整理为路演"价值与数据"页素材 | 多模型信号融合结果 + 路演PPT大纲与Demo脚本（milestones §3.5） |
 
 ### Phase 4: Scale Stage（Week 16-17）— 展示与反思（DSRM 步骤 6 沟通；全员 DSR 定位写入 `final-report.md`）
 
@@ -246,7 +246,7 @@ W15 评估环节引入设计科学有效性框架：**全员须 ≥1 条 criteri
 | 协作互评 | 10分 | 组内其他成员匿名百分制打分算术平均 | 计入平时，期末(W17)一次360°互评，÷100×10 |
 
 **个人项目内部（折算满分50分）**
-- **产品质量（占个人项目0.6）**：百分制评分。最终产品v1.1（功能完整度、分析深度、AI功能价值）+ 公开路演Demo
+- **产品质量（占个人项目0.6）**：百分制评分。最终产品（含模型与路演 Demo）+ 公开路演Demo
 - **项目报告（占个人项目0.4）**：百分制评分。一份综合文档，含产品论证与设计资料、组内协作贡献记录、用户反馈与获客、最终反思、**DSR 定位（全员必做：artifact 类型 + 知识贡献定位 + ≥1 条 criterion validity claim + 参考实体 + relevance/rigor 证据）**（模板见`templates/final-report.md`）
 
 **协作互评（折算满分10分，计入平时，期末评定）**：期末(W17)一次360°匿名互评，每人给组内其他成员打0-100分，算术平均÷100×10折算。依据为各人报告中的"协作贡献"记录 + 亲历。
@@ -277,7 +277,7 @@ W15 评估环节引入设计科学有效性框架：**全员须 ≥1 条 criteri
 4. **社区驱动选题**：Inspired by Minimalist Entrepreneur——从金融社区中发现问题
 5. **财经新闻 + 真实需求 + 个人爱好驱动选题**：从财经新闻观察、身边真实需求或自身兴趣出发提炼选题，并经用户访谈验证真实性——避免选题偏离真实需求
 6. **公开产品为终点**：路演面向全校/企业合作伙伴，每人产出并可公开访问一个独立产品；路演现场其他人可打开试用
-7. **AI基础工具栈渐进融入**：Prompt+AI辅助编程(W1起步) → LLM API初尝(W6课后自学、W7产品内使用) → RAG(W9选做升级) → 建模增强(W11-W15：ML基础与模型地图/树模型+特征工程/对照大模型与传统分析+神经网络基础/多模型对比+SVM自学/模型评估产品化) → LangChain重构(W15必做) → AI系统评估(嵌入W15建模产品化)；工具随项目需求自然引入，进阶(Agent/Skill/深度模型)可选
+7. **AI基础工具栈渐进融入**：Prompt+AI辅助编程(W1起步) → LLM API初尝(W6课后自学、W7产品内使用) → Skills开发(W9：OpenCode Skill 封装可复用 AI 工作流) → 建模增强(W11-W15：线性回归+梯度下降/KNN+特征工程/决策树·随机森林/量化交易基础/多模型信号融合+路演准备) → 评估贯穿（W14 回测即 criterion validity claim）；工具随项目需求自然引入，进阶(Agent/MCP/RAG/时间序列)可选
 8. **AI赋能个体 / 一人公司（OPC）导向**：在强AI工具加持下，5人互助小组内**每人独立完成并交付一个完整产品**，模拟"一人公司"的真实可行路径；互助小组替代传统分工团队，强调"一人公司的创业生态"——既锻炼独立交付，又通过协作互评（计入平时）激励彼此赋能
 9. **知识框架有机支撑**：知识按项目阶段而非学科章节组织（见`knowledge-map.md`），通过里程碑制造知识缺口在需求时刻引入（Challenge→Gap→Knowledge→Apply节奏），反思写在 `docs/journal.md`（见 `templates/journal.md`、`templates/journal-rules.md`），交付物锚定核心知识概念（见`milestones.md`）
 10. **AI-Native 项目工作流**：以 requirements→design→scope（循环）+ AGENTS.md（稳定）为项目脊柱，repo 为真相源，opencode 读 AGENTS.md 接管项目上下文，git 历史为审计轨迹——不引入额外 PM 工具（详见上文「AI-Native 项目工作流」节）
@@ -285,7 +285,7 @@ W15 评估环节引入设计科学有效性框架：**全员须 ≥1 条 criteri
 12. **反思与日志闭环**：`docs/journal.md` 按学习日追加（决定、学习、卡点、互助），一周条目合起来即周反思；W3 交全文选做，W10 / W15 / W17 提交全文；期末 `final-report.md` 综合闭环（详见 `templates/journal.md`、`templates/journal-rules.md`）
 13. **课程公约师生共建**：W1 课后填公约问卷，教师收集为数据；W2 课堂一起分析分歧条款，整理成课堂公约，作为课程文化与协作的基础
 14. **周计划透明化与兜底**：每周 plan.md 固定五要素——学习目标（可测量）、预计投入（课外工时预算）、三层任务（必做/进阶/兜底）、评分锚点（挂 milestones §与 rubric 维度 + 提交前自检清单）、求助路径（AI→互助组→课程群 24h→课堂一对一交流）；配套兜底资源：W7 `mvp-template`、W10-W11 `deployment-faq`（W10 当堂部署/W11 验收随查，录屏暂过）、W12-W14 `user-test-pool`（互助测试池/转介/3深访替代）——保证任何单点受阻不致掉队
-15. **负荷节奏控制**：W4/W11/W15 三个原"双线程极高周"经再平衡降坡（转化移W5、部署改W10当堂部署-W11验收、路演移W16），W6 插入工具基础周补齐 NumPy/Pandas/静态可视化底子，W8 指定为弹性缓冲周吸收欠账；技能小练仅在负荷可承受周设置（W1/W2/W5-W9/W11/W12/W13 共 10 次，见 rubric 与 `weeks/weekXX/lab.md`）
+15. **负荷节奏控制**：W4 为全课程工程最重周（课外12-15h，提示错峰）；W11 部署验收改课后不占课堂；W15 路演准备较轻（课外4-6h）；W6 插入工具基础周补齐 NumPy/Pandas/静态可视化底子，W8 指定为弹性缓冲周吸收欠账；技能小练仅在负荷可承受周设置（W1/W2/W5-W9/W11/W12/W13 共 10 次，见 rubric 与 `weeks/weekXX/lab.md`）
 
 ## 参考资料
 
