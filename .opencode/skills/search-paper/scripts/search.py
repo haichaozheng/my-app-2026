@@ -7,24 +7,40 @@ import time
 from typing import Iterable, List, Optional, Tuple, Union
 
 from arxiv_client import search_arxiv
+from common import load_env, normalize_doi
 from crossref_client import search_crossref
 from openalex_client import search_openalex
+from serpapi_client import SerpApiKeyMissing, search_serpapi
 from s2_client import search_s2
 
-ALL_SOURCES = ["arxiv", "crossref", "s2", "openalex"]
+# Load .env (S2_API_KEY / Serp_API_KEY / CONTACT_EMAIL) exactly once, before
+# any client reads os.environ. Clients no longer load_dotenv themselves.
+load_env()
+
+ALL_SOURCES = ["arxiv", "crossref", "s2", "openalex", "scholar"]
 
 # Polite request interval (seconds) between consecutive queries to the same
 # source. arXiv asks for >=3s between requests; anonymous S2 has a tiny
-# per-IP budget, so we pace it too. OpenAlex/CrossRef are generous.
-QUERY_INTERVAL = {"arxiv": 3.0, "s2": 1.5, "crossref": 0.2, "openalex": 0.2}
+# per-IP budget, so we pace it too. OpenAlex/CrossRef are generous. SerpAPI
+# is a paid aggregator with no per-request courtesy budget, 1s is enough.
+QUERY_INTERVAL = {"arxiv": 3.0, "s2": 1.5, "crossref": 0.2, "openalex": 0.2, "scholar": 1.0}
 
 RATE_LIMIT_HINT = (
     "rate limited (匿名额度低). 其他来源不受影响；S2 与 OpenAlex 覆盖大量重叠，"
     "结果完整性基本不受损。免费申请 Key: https://www.semanticscholar.org/product/api#api-key-form"
 )
 
+SCHOLAR_QUOTA_HINT = (
+    "rate limited (SerpAPI 限流或额度用尽). 其他来源不受影响。免费计划约 100 次/月，"
+    "同参数 1 小时内命中缓存不计费；查看额度: https://serpapi.com/manage-api-key"
+)
+
+DEGRADED_HINTS = {"s2": RATE_LIMIT_HINT, "scholar": SCHOLAR_QUOTA_HINT}
+
 # Fields used to fill gaps when merging duplicate records across sources.
-MERGE_FIELDS = ("doi", "arxiv_id", "year", "date", "venue", "abstract", "pdf_url", "url", "open_access", "authors")
+# cited_by comes from Google Scholar only and is merged into records from
+# other sources when titles match.
+MERGE_FIELDS = ("doi", "arxiv_id", "year", "date", "venue", "abstract", "pdf_url", "url", "open_access", "authors", "cited_by")
 
 FUZZY_TITLE_THRESHOLD = 0.95
 FUZZY_YEAR_TOLERANCE = 1  # arXiv preprint vs. published version may differ by a year
@@ -37,9 +53,7 @@ def _norm_title(title: str) -> str:
 
 
 def _norm_doi(doi: str) -> str:
-    doi = (doi or "").strip().lower()
-    doi = re.sub(r"^(https?://(dx\.)?doi\.org/)", "", doi)
-    return doi
+    return normalize_doi(doi) or ""
 
 
 def _norm_arxiv(arxiv_id: str) -> str:
@@ -129,6 +143,11 @@ def search(
     are retried once after all other requests finish — by then the rate-limit
     window has often reset — and only reported in ``degraded`` (informational)
     instead of ``errors`` if they still fail.
+
+    Google Scholar via SerpAPI is billed per search: it only searches the
+    first query variant (same-parameter repeats within 1h hit SerpAPI's cache
+    for free) and degrades into ``degraded`` instead of failing the search
+    when the key is missing or the quota is exhausted.
     """
     queries = [query] if isinstance(query, str) else list(query)
     queries = [q for q in queries if q and q.strip()]
@@ -145,6 +164,7 @@ def search(
         "crossref": lambda q, limit, from_year: search_crossref(q, rows=limit, from_year=from_year),
         "s2": search_s2,
         "openalex": search_openalex,
+        "scholar": search_serpapi,
     }
 
     def run_one(source: str, q: str) -> List[dict]:
@@ -161,10 +181,20 @@ def search(
     for source in sources:
         interval = QUERY_INTERVAL.get(source, 0)
         for qi, q in enumerate(queries):
+            if source == "scholar" and qi > 0:
+                # SerpAPI charges per search (same-parameter repeats within
+                # 1h hit their cache for free), so the scholar source only
+                # fans out the first query variant.
+                break
             if qi > 0 and interval:
                 time.sleep(interval)
             try:
                 pooled.extend(run_one(source, q))
+            except SerpApiKeyMissing as exc:
+                # Informational, mirrors anonymous-S2 degradation: the whole
+                # search still succeeds with the other sources.
+                degraded["scholar"] = str(exc)
+                break
             except Exception as exc:
                 if _status_code(exc) == 429:
                     pending_retry.append((source, q))
@@ -178,9 +208,9 @@ def search(
         try:
             time.sleep(2)
             pooled.extend(run_one(source, q))
-        except Exception:
+        except Exception as exc:
             key = f"{source}" if len(queries) == 1 else f"{source} [query: {q[:50]}]"
-            degraded[key] = RATE_LIMIT_HINT
+            degraded[key] = DEGRADED_HINTS.get(source, str(exc))
 
     records = dedupe(pooled)
     records.sort(key=lambda r: (r.get("best_rank", 999), -(r.get("year") or 0)))
@@ -203,7 +233,7 @@ def main():
     # non-ASCII author names/abstracts don't crash json.dump.
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-    parser = argparse.ArgumentParser(description="Search papers from arXiv, CrossRef, Semantic Scholar, OpenAlex")
+    parser = argparse.ArgumentParser(description="Search papers from arXiv, CrossRef, Semantic Scholar, OpenAlex, Google Scholar (SerpAPI)")
     parser.add_argument(
         "--query",
         action="append",
@@ -212,7 +242,11 @@ def main():
     )
     parser.add_argument("--limit", type=int, default=20)
     parser.add_argument("--from-year", type=int, default=None)
-    parser.add_argument("--sources", default="arxiv,crossref,s2,openalex")
+    parser.add_argument(
+        "--sources",
+        default="arxiv,crossref,s2,openalex,scholar",
+        help="逗号分隔的来源列表，默认全部。scholar 经 SerpAPI 按次计费（多变体只扇出第一个）且需要 .env 中的 Serp_API_KEY；不想要就把它从列表里去掉",
+    )
     args = parser.parse_args()
     sources = [s.strip() for s in args.sources.split(",") if s.strip()]
     result = search(args.query, limit=args.limit, from_year=args.from_year, sources=sources)

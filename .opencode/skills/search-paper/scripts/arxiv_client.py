@@ -83,31 +83,52 @@ def _entry_to_record(e) -> dict:
     }
 
 
+ARXIV_API = "http://export.arxiv.org/api/query"
+
+
+def _get(params: dict) -> httpx.Response:
+    last_error = None
+    for _ in range(3):
+        try:
+            resp = httpx.get(
+                ARXIV_API,
+                params=params,
+                timeout=30,
+                follow_redirects=True,
+                headers={"User-Agent": "search-paper-skill/1.1 (teaching; contact via repo)"},
+            )
+        except httpx.TransportError as exc:
+            # Connection / timeout failures are worth retrying, not just 5xx.
+            last_error = exc
+            time.sleep(3)  # arXiv asks for >=3s between retries
+            continue
+        if resp.status_code == 200:
+            return resp
+        if resp.status_code in (429, 500, 502, 503):
+            last_error = resp
+            time.sleep(3)
+            continue
+        # Other 4xx (e.g. a malformed search_query) won't improve on retry:
+        # return it and let raise_for_status report the bad request.
+        return resp
+    if isinstance(last_error, Exception):
+        raise last_error
+    if last_error is not None:
+        last_error.raise_for_status()
+    raise RuntimeError("arXiv request failed")
+
+
 def search_arxiv(query: str, max_results: int = 20, from_year: Optional[int] = None) -> List[dict]:
     search_query = build_search_query(query, from_year=from_year)
-    last_error = None
-    for attempt in range(3):
-        resp = httpx.get(
-            "http://export.arxiv.org/api/query",
-            params={
-                "search_query": search_query,
-                "start": 0,
-                "max_results": max_results,
-                "sortBy": "relevance",
-                "sortOrder": "descending",
-            },
-            timeout=30,
-            follow_redirects=True,
-            headers={"User-Agent": "search-paper-skill/1.1 (teaching; contact via repo)"},
-        )
-        if resp.status_code == 200:
-            break
-        last_error = resp
-        time.sleep(3)  # arXiv asks for >=3s between retries
-    else:
-        if last_error is not None:
-            last_error.raise_for_status()
-
+    resp = _get(
+        {
+            "search_query": search_query,
+            "start": 0,
+            "max_results": max_results,
+            "sortBy": "relevance",
+            "sortOrder": "descending",
+        }
+    )
     resp.raise_for_status()
     root = ET.fromstring(resp.text)
     return [_entry_to_record(e) for e in root.findall("atom:entry", ARXIV_NS)]

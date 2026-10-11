@@ -1,9 +1,12 @@
+import html
 import os
 import re
 import time
 from typing import List, Optional
 
 import httpx
+
+from common import normalize_doi
 
 CROSSREF_API = "https://api.crossref.org/works"
 
@@ -15,17 +18,25 @@ def _mailto() -> Optional[str]:
 def _get(params: dict) -> httpx.Response:
     last_error = None
     for attempt in range(3):
-        resp = httpx.get(
-            CROSSREF_API,
-            params=params,
-            timeout=30,
-            follow_redirects=True,
-            headers={"User-Agent": "search-paper-skill/1.1 (teaching; contact via repo)"},
-        )
+        try:
+            resp = httpx.get(
+                CROSSREF_API,
+                params=params,
+                timeout=30,
+                follow_redirects=True,
+                headers={"User-Agent": "search-paper-skill/1.1 (teaching; contact via repo)"},
+            )
+        except httpx.TransportError as exc:
+            # Connection / timeout failures are worth retrying, not just 5xx.
+            last_error = exc
+            time.sleep(2 ** attempt)
+            continue
         if resp.status_code not in (429, 500, 502, 503):
             return resp
         last_error = resp
         time.sleep(float(resp.headers.get("Retry-After", 2 ** attempt)))
+    if isinstance(last_error, Exception):
+        raise last_error
     if last_error is not None:
         last_error.raise_for_status()
     raise RuntimeError("CrossRef request failed")
@@ -39,19 +50,32 @@ def _year_from_item(item: dict) -> Optional[int]:
     return None
 
 
-def _normalize_doi(doi: Optional[str]) -> Optional[str]:
-    if not doi:
-        return None
-    doi = doi.strip().lower()
-    doi = re.sub(r"^(https?://(dx\.)?doi\.org/)", "", doi)
-    return doi or None
+def _is_oa(item: dict) -> bool:
+    # CrossRef's `link` field appears for most records (text-and-data-mining
+    # links) and does not imply open access. Only a CC / public-domain license
+    # is a reliable OA signal; OpenAlex's `is_oa` fills the gap at merge time.
+    for lic in item.get("license") or []:
+        url = (lic.get("URL") or "").lower()
+        if "creativecommons" in url or "publicdomain" in url:
+            return True
+    return False
 
 
 def _normalize(item: dict) -> dict:
     abstract = item.get("abstract") or ""
     if abstract:
         abstract = re.sub(r"<[^>]+>", "", abstract)
+        abstract = html.unescape(abstract)
         abstract = " ".join(abstract.split())
+
+    title = " ".join(item.get("title") or [])
+    if title:
+        # CrossRef titles may carry double-escaped HTML entities
+        # ("Simulation&amp;nbsp;") which would pollute display and
+        # title-based dedupe matching.
+        title = re.sub(r"<[^>]+>", "", title)
+        title = html.unescape(html.unescape(title))
+        title = title.replace("\xa0", " ").strip()
 
     authors = []
     for a in item.get("author", []) or []:
@@ -67,12 +91,10 @@ def _normalize(item: dict) -> dict:
         venue = ct[0]
 
     year = _year_from_item(item)
-    doi = _normalize_doi(item.get("DOI"))
-    license_ok = bool(item.get("license"))
-    oa = bool((item.get("link") or [])) or license_ok
+    doi = normalize_doi(item.get("DOI"))
 
     return {
-        "title": " ".join(item.get("title") or []),
+        "title": title,
         "authors": authors,
         "year": year,
         "date": str(year) if year else None,
@@ -82,7 +104,7 @@ def _normalize(item: dict) -> dict:
         "url": f"https://doi.org/{doi}" if doi else None,
         "source": "crossref",
         "abstract": abstract or None,
-        "open_access": oa,
+        "open_access": _is_oa(item),
         "pdf_url": None,
     }
 
@@ -93,7 +115,7 @@ def search_crossref(query: str, rows: int = 20, from_year: Optional[int] = None)
     params = {
         "query.bibliographic": query,
         "rows": rows,
-        "select": "DOI,title,author,published-print,published-online,issued,container-title,abstract,URL,license,link",
+        "select": "DOI,title,author,published-print,published-online,issued,container-title,abstract,license",
     }
     if from_year:
         params["filter"] = f"from-pub-date:{from_year}-01-01"

@@ -4,11 +4,8 @@ from typing import List, Optional
 
 import httpx
 
-try:
-    from dotenv import load_dotenv
-    load_dotenv()
-except ImportError:
-    pass
+# .env is loaded centrally by search.py via common.load_env(); keys are read
+# from os.environ at call time.
 
 S2_API = "https://api.semanticscholar.org/graph/v1/paper/search"
 FIELDS = "title,authors,year,venue,externalIds,url,abstract,openAccessPdf,isOpenAccess"
@@ -17,12 +14,20 @@ FIELDS = "title,authors,year,venue,externalIds,url,abstract,openAccessPdf,isOpen
 def _get(params: dict, headers: dict) -> httpx.Response:
     last_error = None
     for attempt in range(4):
-        resp = httpx.get(S2_API, params=params, headers=headers, timeout=30, follow_redirects=True)
+        try:
+            resp = httpx.get(S2_API, params=params, headers=headers, timeout=30, follow_redirects=True)
+        except httpx.TransportError as exc:
+            # Connection / timeout failures are worth retrying, not just 429.
+            last_error = exc
+            time.sleep(2 ** attempt)
+            continue
         if resp.status_code != 429:
             return resp
+        last_error = resp
         wait = float(resp.headers.get("Retry-After", 2 ** attempt))
         time.sleep(wait)
-        last_error = resp
+    if isinstance(last_error, Exception):
+        raise last_error
     if last_error is not None:
         last_error.raise_for_status()
     raise RuntimeError("Semantic Scholar request failed")

@@ -5,6 +5,8 @@ from typing import List, Optional
 
 import httpx
 
+from common import normalize_doi
+
 OPENALEX_API = "https://api.openalex.org/works"
 
 ARXIV_URL_RE = re.compile(
@@ -25,17 +27,25 @@ def _mailto() -> Optional[str]:
 def _get(params: dict) -> httpx.Response:
     last_error = None
     for attempt in range(4):
-        resp = httpx.get(
-            OPENALEX_API,
-            params=params,
-            timeout=30,
-            follow_redirects=True,
-            headers={"User-Agent": "search-paper-skill/1.1 (teaching; contact via repo)"},
-        )
+        try:
+            resp = httpx.get(
+                OPENALEX_API,
+                params=params,
+                timeout=30,
+                follow_redirects=True,
+                headers={"User-Agent": "search-paper-skill/1.1 (teaching; contact via repo)"},
+            )
+        except httpx.TransportError as exc:
+            # Connection / timeout failures are worth retrying, not just 5xx.
+            last_error = exc
+            time.sleep(2 ** attempt)
+            continue
         if resp.status_code not in (429, 500, 502, 503):
             return resp
         last_error = resp
         time.sleep(float(resp.headers.get("Retry-After", 2 ** attempt)))
+    if isinstance(last_error, Exception):
+        raise last_error
     if last_error is not None:
         last_error.raise_for_status()
     raise RuntimeError("OpenAlex request failed")
@@ -61,14 +71,6 @@ def _arxiv_id_from_locations(work: dict) -> Optional[str]:
     return None
 
 
-def _normalize_doi(doi: Optional[str]) -> Optional[str]:
-    if not doi:
-        return None
-    doi = doi.strip().lower()
-    doi = re.sub(r"^(https?://(dx\.)?doi\.org/)", "", doi)
-    return doi or None
-
-
 def _normalize(work: dict) -> dict:
     authorships = work.get("authorships") or []
     authors = [
@@ -90,7 +92,7 @@ def _normalize(work: dict) -> dict:
         "year": work.get("publication_year"),
         "date": str(work.get("publication_year")) if work.get("publication_year") else None,
         "venue": venue,
-        "doi": _normalize_doi(work.get("doi")),
+        "doi": normalize_doi(work.get("doi")),
         "arxiv_id": _arxiv_id_from_locations(work),
         "url": (work.get("doi") or (primary.get("landing_page_url") if primary else None)),
         "source": "openalex",
