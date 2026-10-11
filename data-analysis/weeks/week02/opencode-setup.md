@@ -1,10 +1,10 @@
 # W2 安装 opencode
 
 > 给谁：本周第 1 节跟做安装。  
-> 官网：[https://opencode.ai/](https://opencode.ai/)  
+> 官网：[https://opencode.ai/](https://opencode.ai/)　文档（v2）：[https://opencode.ai/v2/docs](https://opencode.ai/v2/docs)  
 > 装不上：先用 Trae 跟后面的课堂演示，报错截图进课程群，周末按本页补齐。采集西财新闻必须用 opencode。
 
-opencode 是命令行里的 AI 编程助手。本周起用它接管个人项目（读取 `AGENTS.md`）。它基于 Node.js，要先有 Node，再全局安装 `opencode-ai`（名字必须带 `-ai`，不要装成 `opencode`）。
+opencode 是命令行里的 AI 编程助手（当前是 v2 版本）。本周起用它接管个人项目（读取 `AGENTS.md`）。它基于 Node.js，要先有 Node，再全局安装 `@opencode/cli`。
 
 课堂默认：**Windows 直接装 Node.js（不要先装 WSL）**，在 PowerShell 里验收。Mac 同样装官网 LTS，再用下面的 `npm` 命令。
 
@@ -31,9 +31,9 @@ Windows PowerShell 若出现「无法加载 `npm.ps1`，因为在此系统上禁
 Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 ```
 
-输入 `Y`，关掉终端再开，再试 `npm -v`。不必开管理员。或者不改策略，后面一律用 `npm.cmd`（例如 `npm.cmd install -g opencode-ai`）。
+输入 `Y`，关掉终端再开，再试 `npm -v`。不必开管理员。或者不改策略，后面一律用 `npm.cmd`（例如 `npm.cmd install -g @opencode/cli`）。
 
-已有 Node 18 / 20 且 `npm -v` 能跑的：先试第 1.3 步；装 `opencode-ai` 失败再改装 LTS 24。
+已有 Node 18 / 20 且 `npm -v` 能跑的：先试第 1.3 步；装 `@opencode/cli` 失败再改装 LTS 24。
 
 ### 方法二：用 nvm（需要并排多个 Node 版本时）
 
@@ -90,17 +90,25 @@ wsl --install -d Ubuntu-22.04
 
 ## 1.3 安装 opencode
 
-Node 验收通过后，在同一终端执行：
+Node 验收通过后，在同一终端执行（**课堂默认用 npm**）：
 
 ```text
-npm install -g opencode-ai
+npm install -g @opencode/cli
 ```
 
 若 PowerShell 仍禁止运行脚本，改用：
 
 ```text
-npm.cmd install -g opencode-ai
+npm.cmd install -g @opencode/cli
 ```
+
+Mac / Linux（或 WSL）里也可以不依赖 npm，用官方脚本直接装，效果一样：
+
+```text
+curl -fsSL https://opencode.ai/v2/install | bash
+```
+
+注意这条 curl 命令只在 bash（Mac/Linux/WSL 终端）里能用，Windows PowerShell 下不要用，走上面的 npm 即可。
 
 验证：
 
@@ -123,14 +131,14 @@ opencode
 
 ## 1.4 装好后练几条命令
 
-界面打开后，输入框里先打 `/`，再试下面几条（完整名是 `/models`、`/sessions`，打 `/model`、`/session` 一般也能对上）：
+界面打开后，输入框里先打 `/` 会列出所有命令，继续打字可过滤筛选。试下面几条（完整名是 `/models`、`/sessions`，打 `/model`、`/session` 过滤一下也能对上）：
 
 | 命令 | 做什么 |
 |---|---|
 | `/connect` | 接入模型服务商（登录或填 API key / token plan）。默认免费模型可以先不连 |
-| `/model` | 查看并切换模型（默认免费模型可以跟课） |
-| `/session` | 查看、切换对话；一次课里换话题可以用它，不必退出 |
-| `/compact` | 把当前对话压短，腾出上下文。聊久了变慢或提示太长时用 |
+| `/models` | 查看并切换模型（默认免费模型可以跟课） |
+| `/sessions` | 查看、切换对话；一次课里换话题可以用它，不必退出 |
+| `/new` | 开一个新会话。一节课做完一件事、要换下一件事时用它，旧对话还在 `/sessions` 里 |
 
 然后直接输入下面这段提示词（不是斜杠命令），让它写小游戏。不要只画几根随机柱子。
 
