@@ -26,7 +26,7 @@ NumPy/Pandas 进阶与 Matplotlib 静态可视化（工具基础周）
 
 | 环节 | 工具 | 用法 |
 |---|---|---|
-| 概念 | 薄幻灯（≤6页） | 数组 vs list 内存示意；groupby 的 split-apply-combine 图；静态图与"回答什么问题"的绑定 |
+| 概念 | 薄幻灯（≤6页） | 第 1 节开篇 DSRM 六步图（Peffers et al. 2007）；数组 vs list 内存示意；groupby 的 split-apply-combine 图；静态图与"回答什么问题"的绑定 |
 | 现场主演示 | Jupyter Notebook | `numpy_pandas_plt.ipynb` 一份到底：NumPy → pandas 预处理 → groupby/可视化，同一份股吧数据从原始清洗到出图贯穿全程 |
 | 学生跟做 | Jupyter | 关键格学生自己敲，每格停问"这格得到了什么"（同 W5 手敲要求） |
 
@@ -36,32 +36,33 @@ NumPy/Pandas 进阶与 Matplotlib 静态可视化（工具基础周）
 
 **第 1 节 · NumPy：数组为什么快、怎么用（45 分钟）**
 
-1. **list vs ndarray（10 分钟）**：百万元素各自乘 2，`%time` 计时对比；先看 `my_list * 2` 是"复制两份"不是逐元素运算，列表推导才是正确姿势。追问"为什么数组快"（连续内存 + 向量化，不用 Python 循环），顺带区分 CPU time 与 wall time。
-2. **Titanic 数组案例（15 分钟）**：`np.loadtxt` 读入（`dtype=str`、`skiprows=1`）；用 Q1–Q4 问 `shape`/`dtype`/`size`/`ndim`；Q5 布尔索引切出男女乘客算生还率——女 0.74 / 男 0.19，一张"问出来的图"就有了。
-3. **矩阵乘法一图（10 分钟）**：`np.dot`、`x @ W`、ReLU 激活，手算一个 3 维例子。点一句"神经网络全连接层就是这一步"（d2l 链接见学习资料），作为 LLM 原理的前瞻。
-4. **图形变形（10 分钟）**：`plt.imread` 读入 `swufeLogo.png`（三维数组：高×宽×通道）；剪切左上角 `im[:h//2, :w//2]`、右下角 `im[h//2:, w//2:]`；负步长 `im[::-1]` 上下翻转。一句收束："切片与步长就是数组的坐标系。"
+1. **开篇：DSRM 六步——把产品当研究做（5 分钟）**：投影 Peffers et al. (2007) 的 DSRM 流程图，六步各一句带过：①问题识别与动机 → ②定义解决方案目标 → ③设计与开发 → ④演示 → ⑤评估 → ⑥沟通。对照课程进度定位：W1-W3 选题过审 = 步骤 1-2 已完成；W4-W10 MVP 阶段正在步骤 3——本周的 NumPy/Pandas/Matplotlib 就是给自己的 artifact 造零件；步骤 4-5 自 W9 互评、W10 上线开始（W14 回测是评估的核心一环）；步骤 6 = W16 路演 + W17 报告。收一句再进正题：**"做出来"只是六步的第三步，"演示—评估—沟通"决定产品算不算好成果**——路演和最终报告都按这个骨架组织。参考文献：Peffers, Tuunanen, Rothenberger & Chatterjee (2007), *Journal of Management Information Systems*, 24(3), 45-77（原文摘录见 `references/design-science/`）。
+2. **list vs ndarray（8 分钟）**：百万元素各自乘 2，`%time` 计时对比（一组演示即可，不重复跑）；先看 `my_list * 2` 是"复制两份"不是逐元素运算，列表推导才是正确姿势。追问"为什么数组快"（连续内存 + 向量化，不用 Python 循环），顺带区分 CPU time 与 wall time。
+3. **Titanic 数组案例（15 分钟）**：`np.loadtxt` 读入（`dtype=str`、`skiprows=1`）；用 Q1–Q4 问 `shape`/`dtype`/`size`/`ndim`；Q5 布尔索引切出男女乘客算生还率——女 0.74 / 男 0.19，一张"问出来的图"就有了。
+4. **矩阵乘法一图（10 分钟）**：`np.dot`、`x @ W`、ReLU 激活，手算一个 3 维例子。点一句"神经网络全连接层就是这一步"（d2l 链接见学习资料），作为 LLM 原理的前瞻。
+5. **图形变形（7 分钟）**：`plt.imread` 读入 `swufeLogo.png`（三维数组：高×宽×通道）；剪切左上角 `im[:h//2, :w//2]`、右下角 `im[h//2:, w//2:]`；负步长 `im[::-1]` 上下翻转（三连演，不展开原理）。一句收束："切片与步长就是数组的坐标系。"
 
 **第 2 节 · pandas 预处理：从原始数据到干净数据（45 分钟）**
 
-5. **DataFrame 构建（5 分钟）**：三个 Series 拼 `pd.DataFrame`——列是序列、表是字典。
-6. **读原始数据（5 分钟）**：`300251.csv`（股吧原始评论，12.9 万行），`encoding="gbk"`、`names` 指定列名；`head`；`unique` 数独立作者。配 garbage in, garbage out 图。
-7. **五步清洗（15 分钟）**：①`to_datetime` 转日期类型；②`sort_values` 与 `inplace=True` 三格连演（不接返回值=白排 → 接返回值 → 原地改，学生自己看出"pandas 多数操作返回新表"）；③`drop("url", axis=1)`；④布尔索引删官发"光线传媒资讯"；⑤`str.len() <= 1000` 删超长评论。全程 129856 → 124525。
-8. **日期修正（10 分钟）**：`Timestamp`/`Timedelta` 预备知识；`modify_date` 函数（15 点停盘，之后的评论划到次日）；`apply` 沿列应用，得 `modified_date`。
-9. **提取时间特征并保存（10 分钟）**：`dt.hour`（发帖时刻）、`modified_date.dt.dayofweek + 1`（周一=1...周日=7）、`dt.month`；切片选列存成 `cleaned_300251_comments.csv`——第 3 节从这份干净数据出发。
+6. **DataFrame 构建（5 分钟）**：三个 Series 拼 `pd.DataFrame`——列是序列、表是字典。
+7. **读原始数据（5 分钟）**：`300251.csv`（股吧原始评论，12.9 万行），`encoding="gbk"`、`names` 指定列名；`head`；`unique` 数独立作者。配 garbage in, garbage out 图。
+8. **五步清洗（15 分钟）**：①`to_datetime` 转日期类型；②`sort_values` 与 `inplace=True` 三格连演（不接返回值=白排 → 接返回值 → 原地改，学生自己看出"pandas 多数操作返回新表"）；③`drop("url", axis=1)`；④布尔索引删官发"光线传媒资讯"；⑤`str.len() <= 1000` 删超长评论。全程 129856 → 124525。
+9. **日期修正（10 分钟）**：`Timestamp`/`Timedelta` 预备知识；`modify_date` 函数（15 点停盘，之后的评论划到次日）；`apply` 沿列应用，得 `modified_date`。
+10. **提取时间特征并保存（10 分钟）**：`dt.hour`（发帖时刻）、`modified_date.dt.dayofweek + 1`（周一=1...周日=7）、`dt.month`；切片选列存成 `cleaned_300251_comments.csv`——第 3 节从这份干净数据出发。
 
 **第 3 节 · groupby 聚合与可视化（45 分钟）**
 
-10. **回读干净数据（5 分钟）**：`index_col`/`parse_dates`/`usecols` 复习。
-11. **value_counts 一问一图（7 分钟）**：`hour_counts` 柱状图。哪小时最活跃？10 点（18776 条），前五 10/14/13/11/9——高峰在开盘后与尾盘前，学生自己把评论行为和交易时间挂上钩。
-12. **groupby 引入：Titanic 分舱位（10 分钟）**：`titanic.groupby("Pclass")["Survived"].mean().plot(kind="bar")`；`for` 循环看每组是一个子 DataFrame；split-apply-combine 图。
-13. **按小时分组（8 分钟）**：`groupby(["hour"])`、`aggregate(np.count_nonzero)` 计数、`grouped_hour.comment.plot(kind="bar")`；对照另一种一行写法 `groupby(["hour"])["hour"].count()`——两种等价，选顺手的。
-14. **双列分组与 unstack（10 分钟）**：`groupby(["dayofweek","hour"])`，看 MultiIndex；`unstack()` 转宽表（7 天 × 24 小时）；`.T.plot(kind="bar")` 对比周内各天。
-15. **多子图收束（5 分钟）**：`fig, ax = plt.subplots(4, 1, sharex=True)` 循环画每天 24 小时分布（数据有 7 组，改 4→7 看全周）。思考题收问："交易日和周末是不是同一套作息？"（开盘前后凸起 vs 夜间尖峰）。当日 `journal.md` 追加 1 条（今天做了什么 / 关键决定 / 学习并掌握的新东西 / 卡点 / 互助记录；互助记录只写"谁帮了你、对项目有何影响"，没有则写"无"）。收集卡点（多数预计在时间列解析与 MultiIndex）。本周不讲 Streamlit，产品化留到 W7。
+11. **回读干净数据（5 分钟）**：`index_col`/`parse_dates`/`usecols` 复习。
+12. **value_counts 一问一图（7 分钟）**：`hour_counts` 柱状图。哪小时最活跃？10 点（18776 条），前五 10/14/13/11/9——高峰在开盘后与尾盘前，学生自己把评论行为和交易时间挂上钩。
+13. **groupby 引入：Titanic 分舱位（10 分钟）**：`titanic.groupby("Pclass")["Survived"].mean().plot(kind="bar")`；`for` 循环看每组是一个子 DataFrame；split-apply-combine 图。
+14. **按小时分组（8 分钟）**：`groupby(["hour"])`、`aggregate(np.count_nonzero)` 计数、`grouped_hour.comment.plot(kind="bar")`；对照另一种一行写法 `groupby(["hour"])["hour"].count()`——两种等价，选顺手的。
+15. **双列分组与 unstack（10 分钟）**：`groupby(["dayofweek","hour"])`，看 MultiIndex；`unstack()` 转宽表（7 天 × 24 小时）；`.T.plot(kind="bar")` 对比周内各天。
+16. **多子图收束（5 分钟）**：`fig, ax = plt.subplots(4, 1, sharex=True)` 循环画每天 24 小时分布（数据有 7 组，改 4→7 看全周）。思考题收问："交易日和周末是不是同一套作息？"（开盘前后凸起 vs 夜间尖峰）。当日 `journal.md` 追加 1 条（今天做了什么 / 关键决定 / 学习并掌握的新东西 / 卡点 / 互助记录；互助记录只写"谁帮了你、对项目有何影响"，没有则写"无"）。收集卡点（多数预计在时间列解析与 MultiIndex）。本周不讲 Streamlit，产品化留到 W7。
 
 **课后自学 · 大模型 API（不在课堂展开）**
 
-- `llm_api.ipynb`（大模型API接入）留作课后自学：大模型辅助企业降本增效的应用场景、DeepSeek API 的获取与调用（API 密钥管理、`openai` SDK 对接 deepseek、封装 `deepseek_chat` 函数），以及"品牌起名"实战——把课程一直强调的"需求 → 提示词 → 输出"闭环迁移到 LLM 场景，为 W7 产品原型中接入大模型能力做铺垫。
-- 自学要求：课前准备好自己的 DeepSeek API key，跑通"保存密钥（推荐 `.env` 方式）→ 调用 API → 完成课堂练习（新闻关键词提取 + 一句话摘要）"；LOGO 生成为选学。
+- `llm_api.ipynb`（大模型API接入）留作课后自学：DeepSeek API 的获取与调用（API 密钥管理、`openai` SDK 对接 deepseek、封装 `deepseek_chat` 函数），为 W7 产品原型中接入大模型能力做铺垫。
+- 自学要求：课前准备好自己的 DeepSeek API key，跑通"保存密钥（推荐 `.env` 方式，模板见本文件夹 `.env.example`，复制为 `.env` 后填入）→ 调用 API → 完成课堂练习（新闻关键词提取 + 一句话摘要）"。
 - 卡点按"卡住了找谁"流程处理，AI 使用与密钥安全问题（不要把密钥硬编码提交到仓库）随 W7 一并强调。
 
 ## 项目活动
@@ -97,4 +98,5 @@ NumPy/Pandas 进阶与 Matplotlib 静态可视化（工具基础周）
 - `knowledge/phase2-2-3-pandas-advanced.md`
 - `knowledge/phase2-2-7-visualization-principles.md`（图表类型选择）
 - 视频资料（超星学习通，详见 `video-resources.md`）：系列 5 Numpy（5.1-5.4）、系列 6 Pandas（6.1-6.2）、系列 7 数据可视化（7.1-7.3）——本周均为按需补缺
+- Peffers, K., Tuunanen, T., Rothenberger, M. A., & Chatterjee, S. (2007). A Design Science Research Methodology for Information Systems Research. *Journal of Management Information Systems*, 24(3), 45-77（第 1 节开篇 DSRM 六步；原文摘录 `references/design-science/Peffers 等 - 2007 - A Design Science Research Methodology for Information Systems Research.md`；课程级 DSRM↔阶段映射见 `data-analysis-teaching-plan.md`）
 - 动手学深度学习·多层感知机（仅第 1 节矩阵乘法延伸，选看）：<https://zh.d2l.ai/chapter_multilayer-perceptrons/mlp.html>
