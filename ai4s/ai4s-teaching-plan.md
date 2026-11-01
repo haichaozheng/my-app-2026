@@ -38,7 +38,7 @@
 
 | 工具 | 在课程中的角色 | 主要应用场景 |
 |---|---|---|
-| AI辅助编程(opencode/cursor) | 科研编程生产力工具 | Python/R/Stata代码生成、调试、迭代 |
+| AI辅助编程(opencode/cursor；W7增补DeepSeek Harness) | 科研编程生产力工具 | Python/R/Stata代码生成、调试、迭代；W7以Mesa模型开发为案例体验第二harness |
 | Prompt Engineering | 与LLM交互的基础方法论 | 文献综述、选题对话、研究设计、学术写作 |
 | RAG | 文献智能与知识管理核心技术 | 个人文献知识库、科研知识检索 |
 | Agent | 科研自动化与流程编排 | gap分析多智能体（W4）、研究设计生成-审计多智能体（W5）、调研数据生成Agent（W6）、分析Agent（W7）、写作-审计双Agent（W8） |
@@ -67,7 +67,7 @@
 | 1. 文献智能 | 文献检索→阅读→综述 | LLM辅助检索筛选、RAG构建个人知识库、AI综述生成 | RAG(知识库构建) + Prompt(综述生成) + Agent(文献搜索) | RAG+LLM、向量数据库、文献API |
 | 2. 研究选题 | 发现空白→凝练问题 | 多智能体gap分析流水线（抽取→标注→核验→侦察→凝练→留痕），产出带证据锚点的Gap证据表 | Prompt(gap analysis) + Agent(主Agent+六子智能体) | gap analysis多智能体系统（opencode agents） |
 | 3. 研究设计 | 方法选择→框架搭建→假设推导 | 学生为自己的研究方法构建可被智能体加载、可随研究修订的**审计配置**；"生成草案→审计追问→学生裁决→定稿"循环 | Agent(五层五角色设计-审计架构) + Skill(方法审计配置) | 方法条目路由、检索型审计、置信度标注、修订痕迹 |
-| 4. 研究实施 | 数据集构建→实证估计→仿真 | 数据来源三路径（第三方数据集/自采实验/智能体辅助调研生成类人数据）；AI辅助编程(Python/R/Stata)、agent-native计量（StatsPAI）、基于Mesa的智能体仿真（规则驱动基线 + LLM智能体仿真）、质量控制嵌入各步验证 | AI辅助编程(代码生成) + Agent(调研数据生成、流程编排) + Skill(能力封装) | StatsPAI（因果推断与计量）、LLM代码生成、AI数据分析、Mesa（ABM仿真）、Mesa-LLM（LLM智能体仿真） |
+| 4. 研究实施 | 数据集构建→实证估计→仿真 | 数据来源三路径（第三方数据集/自采实验/智能体辅助调研生成类人数据）；AI辅助编程(Python/R/Stata)、agent-native计量（StatsPAI）、基于Mesa的智能体仿真（规则驱动基线 + LLM智能体仿真）、质量控制嵌入各步验证 | AI辅助编程(代码生成) + Agent(调研数据生成、流程编排) + Skill(能力封装) | StatsPAI（因果推断与计量）、LLM代码生成、AI数据分析、Mesa（ABM仿真）、Mesa-LLM（LLM智能体仿真）、DeepSeek Harness（dsh，W7引入的第二编程智能体harness） |
 | 5. 论文写作 | 结构规划→撰写修订→格式发表 | 写作-审计双Agent（生成与核验分离）、LLM辅助各章节起草、学术润色、引用核验与文献管理、模拟评审 | Prompt(学术写作) + Agent(写作Generator + 引用/复现性Auditor) + Skill(写作skill、论文评审skill) | LLM学术写作、LaTeX+AI（texai类工作流）、Zotero MCP、格式化工具 |
 | — | 全流程质量保障 | — | AI系统评估(结果验证、偏见检测、稳健性验证)，嵌入研究实施各步而非独立环节 | — |
 
@@ -111,7 +111,7 @@
 | 理念 | RAG改变文献管理范式：从"读完记住"到"检索即用"；综述是结构化综合而非摘抄堆砌 |
 | 工具 | RAG（向量库/切分/检索）、AI综述生成 |
 | 操作 | 构建个人文献知识库、AI辅助阅读与综述生成 |
-| 交付成果 | **文献综述**（知识库代码 + 综述文稿） |
+| 交付成果 | **文献综述**（文献知识库——主线为第三方工具（Kimi/智谱清言/Coze等）配置，进阶轨为手写最小RAG代码（加分，见`weeks/week03/RAG-lab.md`）+ 综述文稿 + 阶段反思日志） |
 | 课后自学 | RAG原理与实践（`knowledge/m1-5-rag.md`）、AI辅助文献综述（`knowledge/m1-7-ai-literature-review.md`）、综述写作规范（`knowledge/m1-8-review-writing.md`） |
 | 课后作业 | 构建RAG知识库（至少20篇文献），生成AI辅助综述初稿 |
 | 参考资源 | 理念：Lewis, P. et al. (2020). "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks." *NeurIPS 2020*；工具：[LangChain文档](https://python.langchain.com/docs/)、[FAISS文档](https://faiss.ai/) |
@@ -212,27 +212,34 @@ W4 输入（问题陈述 + 协变量结构 + Gap 证据表）
 - **与学生W5产出的衔接**：实证方法以研究设计中经审计确认的方法条目为准，用StatsPAI对应估计器实施；每个估计器带`validation_status`（是否与Stata/R数值对齐），呼应W5的可审计姿态——哪个数字可信、凭什么可信，须可查证
 - **agent-native用法**：每个公开函数有机器可读schema（`sp.list_functions()`/`sp.describe_function()`），自带`statspai-mcp`服务器，让opencode/cursor中的智能体直接调用估计器（detect→estimate→audit循环）；自带的14个经典数据集（Card 1995、LaLonde/NSW、mpdta等）可作课堂锚定练习
 
-#### W7 研究实施（下）— 仿真（Mesa + LLM智能体）
+#### W7 研究实施（下）— 仿真（DeepSeek Harness + Mesa + LLM智能体）
 
 | 要点 | 内容 |
 |---|---|
 | 科研步骤 | 研究实施（下）：仿真 |
-| 理念 | 仿真是用模型做反事实实验：先跑通规则驱动的基线模型，再把LLM嵌入决策环节，从"if-then规则智能体"走向"语言推理智能体"，观察智能体行为与涌现结果有何不同；每一次LLM调用都须记录（谁在什么状态下说了什么、做了什么），可审计性是科研诚信底线；本周不单独教经济学建模，理论抽象体现在模型的规则与交互设计中 |
-| 工具 | **Mesa**（Python智能体建模ABM框架：核心组件、Solara浏览器可视化、内置数据采集与分析）、**Mesa-LLM**（把LLM直接接入Mesa智能体的决策与通信）、Skill（分析skill） |
-| 操作 | 模块一：跑通规则驱动的Mesa基线模型（智能体行为用显式规则实现，理解Model/Agent/AgentSet/DataCollector基本盘）；模块二：接入Mesa-LLM，把LLM嵌入智能体决策环节，运行仿真并记录每一次LLM调用；对比规则驱动与LLM驱动两种实现的涌现结果，做模型验证与稳健性检验 |
-| 交付成果 | **研究实施结果**（Mesa基线模型 + Mesa-LLM仿真结果 + LLM调用日志 + 验证报告 + 分析Skill） |
-| 课后自学 | AI系统评估方法（`knowledge/m4-10-ai-evaluation.md`）、稳健性检验（`knowledge/m4-11-robustness-check.md`）、效度验证（`knowledge/m4-12-validity.md`） |
-| 课后作业 | 完成Mesa基线模型与Mesa-LLM接入两种实现，提交LLM调用日志与对比分析、验证报告，封装分析Skill |
-| 参考资源 | 理念：Epstein, J.M. (2008). "Why Model?" *Journal of Artificial Societies and Social Simulation*, 11(4)；工具：[Mesa文档](https://mesa.readthedocs.io/latest/)、[Mesa-LLM](https://github.com/mesa/mesa-llm)、[Mesa-LLM文档](https://mesa-llm.readthedocs.io/) |
+| 理念 | 仿真是用模型做反事实实验：先跑通规则驱动的基线模型，再把LLM嵌入决策环节，从"if-then规则智能体"走向"语言推理智能体"，观察智能体行为与涌现结果有何不同；每一次LLM调用都须记录（谁在什么状态下说了什么、做了什么），可审计性是科研诚信底线；本周同时引入第二个编程智能体harness——DeepSeek Harness（dsh），与opencode形成双harness对比，让学生体会harness是**可替换的类别而非单一产品**（model-agnostic、"一切皆插件"），其Trajectory逐步留痕正是"每次LLM调用可审计"的现成教具；本周不单独教经济学建模，理论抽象体现在模型的规则与交互设计中 |
+| 工具 | **DeepSeek Harness（dsh）**（DeepSeek开源的编程智能体harness："一切皆插件"架构、Web UI、Trajectory调用留痕；本周以Mesa基线模型开发为案例学会使用，详见下"W7 DeepSeek Harness接入"）、**Mesa**（Python智能体建模ABM框架：核心组件、Solara浏览器可视化、内置数据采集与分析）、**Mesa-LLM**（把LLM直接接入Mesa智能体的决策与通信）、Skill（分析skill） |
+| 操作 | 模块一：安装配置dsh（推荐Python SDK路径，无需Node.js），以dsh为AI辅助编程工具开发规则驱动的Mesa基线模型（智能体行为用显式规则实现，理解Model/Agent/AgentSet/DataCollector基本盘），并用Trajectory视图检视开发过程中的每次模型请求与工具执行；模块二：接入Mesa-LLM，把LLM嵌入智能体决策环节（推荐DeepSeek API为默认后端），运行仿真并记录每一次LLM调用；对比规则驱动与LLM驱动两种实现的涌现结果，做模型验证与稳健性检验 |
+| 交付成果 | **研究实施结果**（Mesa基线模型 + Mesa-LLM仿真结果 + LLM调用日志 + 验证报告 + 分析Skill + dsh使用记录：版本号与Trajectory留痕摘要） |
+| 课后自学 | DeepSeek Harness使用指南（`knowledge/m4-13-deepseek-harness.md`）、AI系统评估方法（`knowledge/m4-10-ai-evaluation.md`）、稳健性检验（`knowledge/m4-11-robustness-check.md`）、效度验证（`knowledge/m4-12-validity.md`） |
+| 课后作业 | 用dsh完成Mesa基线模型开发（附dsh版本号与Trajectory留痕摘要），完成Mesa-LLM接入实现，提交LLM调用日志与对比分析、验证报告，封装分析Skill |
+| 参考资源 | 理念：Epstein, J.M. (2008). "Why Model?" *Journal of Artificial Societies and Social Simulation*, 11(4)；工具：[DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)、[dsh文档](https://deepseek-harness.github.io/deepseek-harness/)、[Mesa文档](https://mesa.readthedocs.io/latest/)、[Mesa-LLM](https://github.com/mesa/mesa-llm)、[Mesa-LLM文档](https://mesa-llm.readthedocs.io/) |
 
 **W7 仿真两模块路线**（先基线后LLM，两步都围绕学生的研究问题）：
 
 | 模块 | 定位 | 关键内容 |
 |---|---|---|
-| 模块一：Mesa基线 | 先跑通一个**规则驱动**的模型，建立ABM基本盘 | 按研究问题定义智能体类型、状态与交互规则；用Mesa 3核心组件（Agent/Model/AgentSet调度、空间网格）搭建模型；DataCollector采集指标，Solara浏览器可视化；以基线涌现结果为后续对照 |
-| 模块二：Mesa-LLM接入 | 把LLM嵌入智能体的**决策环节**，并记录每一次调用 | 用Mesa-LLM把LLM接入智能体决策与智能体间通信（支持OpenAI/Anthropic/Gemini/Ollama等provider）；替换或混合规则决策与LLM决策；对每次LLM调用留痕（时间步、智能体状态、prompt、回复、行动），调用日志与仿真数据一并交付，支撑复现与审计 |
+| 模块一：Mesa基线 | 先跑通一个**规则驱动**的模型，建立ABM基本盘；同时以本模块为案例载体学会使用dsh | 按研究问题定义智能体类型、状态与交互规则；用Mesa 3核心组件（Agent/Model/AgentSet调度、空间网格）搭建模型；DataCollector采集指标，Solara浏览器可视化；开发过程用dsh作AI辅助编程工具，Trajectory留痕开发过程；以基线涌现结果为后续对照 |
+| 模块二：Mesa-LLM接入 | 把LLM嵌入智能体的**决策环节**，并记录每一次调用 | 用Mesa-LLM把LLM接入智能体决策与智能体间通信（支持OpenAI/Anthropic/Gemini/Ollama等provider，课程推荐DeepSeek API为默认后端）；替换或混合规则决策与LLM决策；对每次LLM调用留痕（时间步、智能体状态、prompt、回复、行动），调用日志与仿真数据一并交付，支撑复现与审计 |
 
-> 注：Mesa-LLM仍处于活跃开发期（API可能变动），课程统一固定版本（`pip install -U mesa-llm`后锁定版本号）并在实验报告中记录所用版本，本身即是可复现性训练的一环。
+> 注：Mesa-LLM仍处于活跃开发期（API可能变动），课程统一固定版本（`pip install -U mesa-llm`后锁定版本号）并在实验报告中记录所用版本，本身即是可复现性训练的一环。dsh同理（见下）。
+
+**W7 DeepSeek Harness接入**（以Mesa基线模型开发为案例，"会用"级）：
+
+- **定位**：DeepSeek开源的编程智能体harness（MIT协议，2026-08公测）。核心主张"一切皆插件"——模型、工具、界面、会话、agent loop本身都是可热替换的插件，model-agnostic（任何OpenAI兼容provider均可接入）。与W1起使用的opencode构成双harness对比，让学生体会harness是可替换的类别而非单一产品
+- **学会什么**：安装与启动（推荐Python SDK路径`pip install deepseek-harness-sdk`，自带运行时、无需Node.js；或`npx @deepseek-ai/dsh web`启动Web UI）；配置DeepSeek API key；用对话完成一个完整编程任务（本周即Mesa基线模型开发）；用**Trajectory视图**逐步检视模型响应、工具调用、嵌套活动、token用量与耗时——它是"每一次LLM调用可审计"理念的现成教具，与仿真LLM调用日志互相印证；了解四种agent模式（Standard/Code/Minimal/Creator）与subagent概念，为理解W4/W5多智能体架构提供第二参照系
+- **纪律**：dsh处于developer preview（官方明示会有兼容性破坏变更），与Mesa-LLM同一纪律——课程统一固定版本并在实验报告中记录；在一次性工作区/容器中使用，注意其安全须知；**dsh不作为W4/W5/W8多智能体的实现载体**，课程多智能体主线仍基于opencode agents，不迁移
+- **配套（工具链一致）**：Mesa-LLM的LLM后端推荐默认DeepSeek API（OpenAI兼容端点：`ModuleLLM(llm_model="openai/deepseek-chat", api_base="https://api.deepseek.com/v1")`），与dsh共用同一API key——国内访问稳定，且W7仿真调用量大时成本可控
 
 ### Phase 4: Writing & Integration（W8-9）— 论文写作 + 整合展示
 

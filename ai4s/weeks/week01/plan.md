@@ -61,6 +61,7 @@
 - 社科科研全流程映射：`knowledge/m1-4-research-workflow-mapping.md`
 - AI 辅助编程（opencode/cursor）：`knowledge/m1-2-ai-coding.md`
 - opencode 规则：[AGENTS.md 与 `/init`](https://opencode.ai/docs/zh-cn/rules/#%E5%88%9D%E5%A7%8B%E5%8C%96)
+- **方法论阅读（反思日志须回应）**：罗家德等（2026）《社会计算方法论》第1-2章（范式又一次转移 / 一切以理论为基础，锚定课程的人机交互姿态）；Lazer, D. et al. (2009). "Computational Social Science." *Science*, 323(5915), 721-723（计算社会科学的诞生宣言：新数据、新工具、新问题）
 
 ## 课后作业
 
@@ -70,11 +71,13 @@
 2. 用 opencode 在项目根目录完成 `wb_explore.py`：用 wbgapi 拉取世界银行数据（自己选择国家与指标，至少 2 个指标、近 10 年），终端能跑通
 3. 浏览 [世界银行指标](https://data.worldbank.org/indicator?tab=all)，选出 3-5 个与你自己研究方向相关的指标，记录指标代码
 4. 写最简版 `AGENTS.md`（项目目标 + 技术栈 + 目录约定），后续随项目演进逐步完善
-5. 自查留存：脚本代码 + 运行截图 + `AGENTS.md` + 环境验收截图 + 选定指标列表（本周不提交，W3 阶段成果一检查时作为环境就绪证据）
+5. 写第一篇反思日志（模板见 `templates/reflection-log.md`，2-3 段即可）：回应对罗家德第1-2章或 Lazer (2009) 的阅读，写下你对"人判断、AI执行"姿态的初步理解与疑问
+6. 自查留存：脚本代码 + 运行截图 + `AGENTS.md` + 环境验收截图 + 选定指标列表 + 反思日志（本周不提交，W3 阶段成果一检查时作为环境就绪与方法论锚定证据）
 
 ## 参考资料
 
 - 理念：Wang, H. et al. (2023). "Scientific discovery in the age of artificial intelligence." *Nature*, 620, 47-60
+- 方法论：罗家德、高馨、刘济帆、傅晓明. (2026). 《社会计算方法论：社会科学研究的一次范式转移》第1-2章. 清华大学出版社；Lazer, D. et al. (2009). "Computational Social Science." *Science*, 323(5915), 721-723
 - 工具：[opencode 文档](https://opencode.ai/docs/)、[Cursor 文档](https://docs.cursor.com/)、[AGENTS.md 规则](https://opencode.ai/docs/zh-cn/rules/)
 - 数据：[wbgapi PyPI](https://pypi.org/project/wbgapi/)、[世界银行指标浏览](https://data.worldbank.org/indicator)、[世界银行开发者文档](https://datahelpdesk.worldbank.org/knowledgebase/articles/889386)
 - 安装指南：`weeks/week01/setup.md`（Python 3.13 + Cursor + opencode 全流程，含排障）
