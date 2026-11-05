@@ -1,0 +1,13 @@
+# 密钥：永不入库（GitHub 课第一铁律）
+.env
+
+# Python 运行产物：换台机器重新生成，无入库价值
+__pycache__/
+*.pyc
+
+# 虚拟环境：每个人自己建（py -3.13 -m venv .venv）
+.venv/
+venv/
+
+# Streamlit 本地缓存
+.streamlit/secrets.toml
