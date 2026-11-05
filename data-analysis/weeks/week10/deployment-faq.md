@@ -20,7 +20,7 @@
 
 ## 第 0.5 步：部署前检查清单
 
-> 对应 plan.md 第 2 节第 4 步。部署前花 2 分钟逐项自查，能消除 80% 的部署后报错。
+> 对应 plan.md 第 3 节第 9 步（部署前检查清单）。部署前花 2 分钟逐项自查，能消除 80% 的部署后报错。
 
 - [ ] `requirements.txt` 存在且与本地 `pip list` 一致（`python -m pip freeze > requirements.txt`）
 - [ ] `.env` 在 `.gitignore` 中（`git status` 看不到 `.env`）
