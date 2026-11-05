@@ -12,7 +12,8 @@
 （对照成品：weeks/week07/cases/app.py）
 
 运行：streamlit run app.py
-前提：.env 中配置 TUSHARE_TOKEN 和 DEEPSEEK_API_KEY（.env 已被 .gitignore 忽略，永不入库）
+前提：本地在 .env 中配置 TUSHARE_TOKEN 和 DEEPSEEK_API_KEY（.env 已被 .gitignore 忽略，永不入库）；
+      部署到 Streamlit Cloud 时，在 App 的 Settings → Secrets 中配置同名变量（get_key 会自动兼容两处）
 """
 
 import json
@@ -26,10 +27,22 @@ import tushare as ts
 from dotenv import load_dotenv
 from openai import OpenAI
 
-load_dotenv(override=True)  # 本地读 .env（云端无此文件，静默跳过）
+load_dotenv(override=True)  # 本地：读 .env；云端：没有这个文件，自动跳过，不报错
 
-TUSHARE_TOKEN = os.getenv("TUSHARE_TOKEN")
-DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY")
+
+def get_key(name: str):
+    """兼容写法：本地从 .env 读，云端从 Streamlit Secrets 读——同一份代码两处都能跑"""
+    value = os.getenv(name)  # ① 先试本地：.env 已被 load_dotenv 装进环境变量
+    if value:
+        return value
+    try:
+        return st.secrets[name]  # ② 再试云端：从平台 Secrets 读
+    except Exception:
+        return None  # ③ 两处都没有 → 返回 None，交给下面的报错逻辑提示
+
+
+TUSHARE_TOKEN = get_key("TUSHARE_TOKEN")
+DEEPSEEK_API_KEY = get_key("DEEPSEEK_API_KEY")
 
 # ── 预设股票列表（侧栏 selectbox 用；与 prices/名称对齐） ──
 STOCKS = {
@@ -148,10 +161,16 @@ st.caption("升级篇配套成品 · 侧栏选股票 → 点按钮 → 自动取
 
 # ── 验收点：密钥缺失要有合理表现，不崩 ──
 if not TUSHARE_TOKEN:
-    st.error("请在 my-app-2026/.env 中配置 TUSHARE_TOKEN（公用 token 见实验文档 2.1）")
+    st.error(
+        "未配置 TUSHARE_TOKEN：本地请在 my-app-2026/.env 中配置（公用 token 见实验文档 2.1）；"
+        "云端请在 Streamlit Cloud 的 Secrets 中配置"
+    )
     st.stop()
 if not DEEPSEEK_API_KEY:
-    st.error("请在 my-app-2026/.env 中配置 DEEPSEEK_API_KEY")
+    st.error(
+        "未配置 DEEPSEEK_API_KEY：本地请在 my-app-2026/.env 中配置；"
+        "云端请在 Streamlit Cloud 的 Secrets 中配置"
+    )
     st.stop()
 
 # ── 骨架 ①：侧栏放选择和触发 ──
@@ -165,6 +184,16 @@ with st.sidebar:
     st.divider()
     # ── 骨架 ②：按钮触发（贵的操作让用户主动触发） ──
     predict_btn = st.button("🔮 开始预测", type="primary")
+
+    # ── 密钥体检（部署排障用）：一眼看出密钥有没有被读到 ──
+    with st.expander("🔧 密钥体检（部署排障用）"):
+        st.write("TUSHARE_TOKEN：", "✅ 已配置" if TUSHARE_TOKEN else "❌ 缺失")
+        st.write("DEEPSEEK_API_KEY：", "✅ 已配置" if DEEPSEEK_API_KEY else "❌ 缺失")
+        st.caption(
+            "提醒：本地在 my-app-2026/.env 中配置；云端在 Streamlit Cloud 的 "
+            "Settings → Secrets 中配置（TOML 格式：KEY = \"value\"）。"
+            "云端改完 Secrets 后需重启 App 才会生效。"
+        )
 
 # ── 验收点：按钮没点时页面不报错，给引导 ──
 if not predict_btn:

@@ -2,5 +2,6 @@ streamlit
 pandas
 plotly
 tushare
+six  # tushare 内部 import six 但未声明依赖，云端干净环境必须显式安装
 openai
 python-dotenv
