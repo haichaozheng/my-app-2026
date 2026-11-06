@@ -1,67 +1,40 @@
-# Week 01 课堂实验
+# Week 01 动手实验（课后练习）
+
+> 第一节课以讲授与教师投屏演示为主（第 3 节有分组实验），本实验为课后练习，不需要提交作业。第 1 部分与课堂的 case-nlp 演示是同一批数据；第 2 部分把脚本改造成你自己的版本。W2 课前须完成全部三部分。
 
 ## 实验目标
 
-验证 AI 工作环境可用，用 wbgapi 拉取世界银行数据完成第一个 Prompt 驱动的科研脚本，写最简版 `AGENTS.md`。
+亲手把股吧文本变成数据，回应课堂疑问"同一批文本，两种方法为何结论不同"；再把课上脚本改造成自己的版本；写最简版 `AGENTS.md`。
 
-## 实验步骤
+## 第 1 部分 · case-nlp 情感分析主线（约 80-110 分钟）
 
-### 第1步：Python 3.13 + Cursor（按 `setup.md` 第一、二部分）
+1. 打开 `weeks/week01/case-nlp/week01-nlp-lab.ipynb`，按 notebook 顺序亲手做：
+   - 分词（体会 `userdict.txt` 加入"光线传媒""股吧"等词前后的切分差异）
+   - 停用词 + 词频
+   - 词典法情感打分（`zhang_unformal_pos/neg.txt`）
+   - LLM 情感分析（需 `DEEPSEEK_API_KEY`，与词典法并排对比）
+   - 每日情绪曲线 → 情绪 vs 股价相关性
+2. 边做边回应课堂疑问：词典法和 LLM 法为何在"利好出尽""割韭菜"这类评论上结论不同？分歧最大的是哪类评论？各找 1-2 条例子
+3. 小改动实验：往词典里加/删 3-5 个你自己的词（如行情黑话），看每日情绪曲线怎么变
 
-1. 终端跑 `python --version`，须为 3.13.x
-2. 安装 Cursor 并登录
-3. `Ctrl+Shift+P → Python: Select Interpreter`，选路径里有 `Python313` 的
-4. 装包：`python -m pip install wbgapi pandas`
+## 第 2 部分 · 改造成你自己的脚本（约 30 分钟）
 
-### 第2步：opencode（按 `setup.md` 第三部分）
+4. 从自己研究方向出发，想 3-5 个想在社交媒体/论坛文本里追踪的关键词、黑话或品牌名
+5. 用 opencode 改造课上脚本 `mini_emotion.py`：换成你的关键词，或改分组维度（按小时/星期看发帖高峰、按点赞数看高热评论），终端跑通并截图
 
-5. 安装 Node.js LTS（24.x）：`node -v` 验收
-6. `npm install -g opencode-ai`（PowerShell 禁止脚本则用 `npm.cmd`）
-7. `opencode --version` 验收
-8. 建项目文件夹，在里面输入 `opencode` 启动 TUI
-9. 选模型（默认免费可跟课）
-10. 练四条命令：`/connect` `/model` `/session` `/compact`
+## 第 3 部分 · AGENTS.md
 
-### 第3步：第一个脚本
+6. 在项目根目录建 `AGENTS.md`，写最简版（3-5 行）：
+   - 项目目标（一句话）
+   - 技术栈（Python 3.13、pandas、jieba 等）
+   - 目录结构约定
+7. 退出 opencode 再重新打开，确认它读到了 `AGENTS.md`
 
-11. 在 opencode 输入框里打提示词，让它生成 `wb_explore.py`：
+## 实验交付（自查留存，本周不提交）
 
-```text
-我是社科博士生，刚装好 Python 和 wbgapi。请在当前目录写一个脚本 wb_explore.py，用 wbgapi 拉取世界银行数据。
-
-要求：
-1. 拉取中国（CHN）近 10 年的人均 GDP（NY.GDP.PCAP.CD）和 GDP 增长率（NY.GDP.MKTP.KD.ZG）
-2. 输出一个 pandas DataFrame，年份作为行，两个指标作为列
-3. 打印表格，并简单标注最高增长率的年份
-4. 用 wbgapi 库，不要用 requests 自己调 API
-5. Windows 终端要能跑：python wb_explore.py
-```
-
-12. 确认 opencode 写入文件后，**点运行**，终端无报错
-
-### 第4步：换成自己的指标
-
-13. 浏览 [世界银行指标](https://data.worldbank.org/indicator)，找出与自己研究方向相关的 3-5 个指标，记下指标代码（如 `SE.XPD.TOTL.GD.ZS` 教育支出占 GDP 比重、`SI.POV.GINI` 基尼系数、`SP.DYN.LE00.IN` 预期寿命）
-14. 让 opencode 改 `wb_explore.py`，换成自己选的指标和国家，再跑一遍
-
-### 第5步：AGENTS.md
-
-15. 在项目根目录建 `AGENTS.md`，写最简版（3-5 行）：
-    - 项目目标（一句话）
-    - 技术栈（Python 3.13、wbgapi、pandas 等）
-    - 目录结构约定
-16. 退出 opencode 再重新打开，确认它读到了 `AGENTS.md`
-
-### 第6步：互查
-
-17. 同学互助解答：每人机器跑通 `wb_explore.py`
-18. 卡住先问同学（对方口述步骤、盯着自己键入）；两分钟仍卡再举手
-
-## 实验交付（当堂自查留存，本周不提交）
-
-- `wb_explore.py`（代码 + 运行截图）
-- `AGENTS.md`（最简版）
-- 选定指标列表（3-5 个，含指标代码与含义）
+- notebook 运行记录（关键单元格输出截图）+ 对课堂疑问的 2-3 句回答（含 1-2 条分歧评论例句）
+- `mini_emotion.py` 改造版（代码 + 运行截图）+ 一句说明：你改了什么、看到了什么
+- 最简版 `AGENTS.md`
 - 环境验收截图（见 `setup.md` 末尾"安装顺序速查"六步）
 
 ## 卡住了
@@ -71,5 +44,5 @@
 - Cursor 运行按钮灰：`Ctrl+Shift+P → Python: Select Interpreter` 选 `Python313`
 - PowerShell 禁止 npm：用 `npm.cmd` 或 `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`
 - opencode 装不上：确认 `node -v` 能跑；仍失败带报错截图进课程群
-- wbgapi 调不通：确认 `pip install wbgapi` 成功；网络问题换热点重试
-- 卡住 → 问 AI（附报错）→ 同学互助解答 → 举手教师
+- notebook 缺依赖：`python -m pip install jieba pandas matplotlib openai`；Part 4 需要 `DEEPSEEK_API_KEY`（没有可跳过，只做词典法部分）
+- 卡住 → 问 AI（附报错）→ 同学互助解答 → 课程群提问

@@ -24,3 +24,4 @@ opencode.jsonc
 
 # Streamlit 本地缓存（Week10 示例项目：云端 Secrets 的本地对应物，含密钥不入库）
 .streamlit/secrets.toml
+ai4s/students/

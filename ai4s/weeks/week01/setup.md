@@ -67,16 +67,16 @@ conda config --set auto_activate_base false
 
 ### 2.3 先装本周要用的包
 
-本周还没有个人项目仓库，先在当前 Python 里装科研脚本要用的包：
+本周还没有个人项目仓库，先在当前 Python 里装本周案例要用的包：
 
 ```text
-python -m pip install wbgapi pandas
+python -m pip install pandas jieba
 ```
 
-- **wbgapi**：世界银行数据 API 的 Python 客户端，免费、无需 API key，一行代码拉取各国宏观经济与社会指标
-- **pandas**：数据分析基础库，wbgapi 返回的就是 pandas DataFrame
+- **pandas**：数据分析基础库，案例数据读进来就是 pandas DataFrame
+- **jieba**：中文分词库，case-nlp 股吧文本分析案例的依赖
 
-装完让 Cursor 生成脚本：用 wbgapi 拉取中国近 5 年的人均 GDP，打印表格，**必须点运行且终端无报错**。
+装完让 Cursor 生成脚本验证：读 `weeks/week01/case-nlp/cleaned_300251_comments.csv`，统计包含"韭菜"的评论有多少条，打印结果，**必须点运行且终端无报错**。
 
 个人项目的 `.venv` 虚拟环境留到下面第三部分建仓库时再配。
 
@@ -165,31 +165,65 @@ opencode
 
 ### 3.5 opencode 的工作模式：对话→改文件→运行
 
-opencode 不只是聊天，它能**直接改文件、运行脚本**。这是科研编程的关键工作模式，与网页版 Chat 的核心区别。
+opencode 不只是聊天，它能**直接改文件、运行脚本**。这是科研编程的关键工作模式，与网页版 Chat 的核心区别。下面的两次练习对应课堂分组实验（同题不同问 / 让 AI 改脚本），课上跟着做，课后照着复盘。
 
-试一下：在 opencode 输入框里直接打下面这段提示词（不是斜杠命令）：
+**第1练 · 同题不同问（对应课堂实验一）**：同一个任务，两种问法，看输出差多少。
+
+> 先准备数据：把 `cleaned_300251_comments.csv`（约 46MB）复制到你的 `ai4s-my-project` 文件夹——从课程仓库 `weeks/week01/case-nlp/` 复制，或从课程群下载。下面提示词里的路径就按这个写。
+
+先试模糊问法——在 opencode 输入框里打：
 
 ```text
-我是社科博士生，刚装好 Python 和 wbgapi。请在当前目录写一个脚本 wb_explore.py，用 wbgapi 拉取世界银行数据。
+帮我分析一下这些股吧评论
+```
+
+看它给出什么（多半是一段泛泛的文字建议，或反问你数据在哪）。
+
+再用明确问法——把数据说清楚、把要求列全：
+
+```text
+我是社科博士生，刚装好 Python 和 pandas。当前目录的 cleaned_300251_comments.csv
+是光线传媒（300251）股吧约 12.4 万条评论，含 date 和 comment 两列。
 
 要求：
-1. 拉取中国（CHN）近 10 年的人均 GDP（NY.GDP.PCAP.CD）和 GDP 增长率（NY.GDP.MKTP.KD.ZG）
-2. 输出一个 pandas DataFrame，年份作为行，两个指标作为列
-3. 打印表格，并简单标注最高增长率的年份
-4. 用 wbgapi 库，不要用 requests 自己调 API
-5. Windows 终端要能跑：python wb_explore.py
+1. 在当前目录写一个脚本 mini_emotion.py，统计包含"韭菜""利好""崩盘""涨停"的评论各有多少条
+2. 每个关键词再统计评论最集中的年份（按 date 的年份分组）
+3. 打印结果
+4. 用 pandas 读取，不要自己调 API
+5. Windows 终端要能跑：python mini_emotion.py
 ```
+
+对比两种问法的输出：**说清楚要什么、给足上下文、给足约束**，问得好，AI 才做得准。
 
 opencode 会生成文件、可以让你确认后直接写入磁盘。**点运行**，终端无报错，本步才算过。
 
-拉到数据后，可以继续让 opencode 改脚本——比如换成你自己感兴趣的国家或指标。世界银行有 1400+ 指标，覆盖经济、教育、健康、性别、贫困、环境、科技等 19 个主题，浏览全部指标：[https://data.worldbank.org/indicator](https://data.worldbank.org/indicator)。
+**第2练 · 让 AI 改脚本（对应课堂实验二）**：接着让 opencode 把写好的脚本改成用词典打分、输出每日情绪分数。
+
+> 数据也要备齐：把 `zhang_unformal_pos.txt`（正面词表）和 `zhang_unformal_neg.txt`（负面词表）也复制到你的 `ai4s-my-project` 文件夹（与 CSV 一起，都在课程仓库 `weeks/week01/case-nlp/`）。这是网络股吧情感词典，每行一个词，与课堂 app.py Part 3 词典法、课后 notebook 用的是同一份。
+
+```text
+请修改 mini_emotion.py：在关键词统计之外，增加词典法每日情绪分数——
+当前目录有 zhang_unformal_pos.txt（正面词表）和 zhang_unformal_neg.txt（负面词表），每行一个词。
+
+要求：
+1. 读入两个词典，去掉空行和首尾空格
+2. 用 jieba 对每条评论分词，词命中正面词表计 +1、命中负面词表计 −1（同一词重复出现重复计）
+3. 按日期汇总每条评论的分数，得到每日情绪分数
+4. 打印分数最高和最低的各 5 天，并把每日分数存成 daily_sentiment.csv
+5. 保留原有的关键词统计功能，不要删
+6. Windows 终端要能跑：python mini_emotion.py
+```
+
+分词打分 12.4 万条评论约需 1-2 分钟（学生机器可能更久），属正常等待，正好体会"文本数据是要算的"。
+
+改完**再点运行**，看终端输出——这就是"对话→改文件→运行"的完整闭环：AI 直接改磁盘上的文件、改完就能跑。这次改出来的每日情绪分数，与第1节 app.py Part 5 的"每日情绪曲线"用的是同一套词典逻辑——词典法是什么，你亲手跑了一遍。跑通后还可以继续改：往词典里加你自己的词，看情绪分数怎么变。参考/兜底脚本：`case-nlp/daily_sentiment.py`。
 
 ### 3.6 AGENTS.md：让 opencode 懂你的项目
 
 在项目根目录建一个 `AGENTS.md`，写清楚：
 
 - 项目目标（一句话）
-- 技术栈（Python 3.13、pandas、openai 等）
+- 技术栈（Python 3.13、pandas、jieba 等）
 - 目录结构约定
 - 代码风格偏好
 
@@ -205,10 +239,10 @@ opencode 打开时会自动读取这个文件，作为后续所有对话的上�
 |---|---|---|
 | 1. Python 3.13 | `python --version` → 3.13.x | ✅ |
 | 2. Cursor + 选解释器 | `Ctrl+Shift+P → Python: Select Interpreter` 选 Python313 | ✅ |
-| 3. 装包 wbgapi + pandas | `pip install wbgapi pandas` 无报错 | — |
+| 3. 装包 pandas + jieba | `python -m pip install pandas jieba` 无报错 | — |
 | 4. Node.js LTS | `node -v` → v24.x | — |
 | 5. opencode | `opencode --version` | ✅ |
-| 6. 第一个脚本跑通 | `python wb_explore.py` 打印世界银行数据 | ✅ |
+| 6. 第一个脚本跑通 | `python mini_emotion.py` 终端无报错 | ✅ |
 
 ---
 
@@ -230,6 +264,4 @@ opencode 打开时会自动读取这个文件，作为后续所有对话的上�
 - [Cursor 官网](https://cursor.com/cn) / [Cursor 文档](https://docs.cursor.com/)
 - [Python 官网](https://www.python.org/downloads/)
 - [Node.js 官网](https://nodejs.org/)
-- [wbgapi PyPI](https://pypi.org/project/wbgapi/) / [wbgapi GitHub](https://github.com/tgherzog/wbgapi)
-- [世界银行指标浏览](https://data.worldbank.org/indicator)（19 个主题、1400+ 指标，先浏览再选自己研究方向相关的）
 - 本科生课程同名材料（含更多排障细节，可参考）：`data-analysis/weeks/week01/python-setup.md`、`data-analysis/weeks/week02/opencode-setup.md`

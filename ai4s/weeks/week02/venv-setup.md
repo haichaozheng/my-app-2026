@@ -1,6 +1,6 @@
 # W2 个人项目虚拟环境
 
-> 给谁：AI4S 课程第 2 周，社科类博士生。W1 已在系统 Python 里跑通了 `wb_explore.py`，现在把环境收拢到项目内的 `.venv`，后续 9 周的科研脚本都从这里跑。  
+> 给谁：AI4S 课程第 2 周，社科类博士生。W1 已在系统 Python 里跑通了课上脚本（`mini_emotion.py`），现在把环境收拢到项目内的 `.venv`，后续 9 周的科研脚本都从这里跑。  
 > 前提：已按 `weeks/week01/setup.md` 装好 **Python 3.13** + Cursor + opencode；opencode 能在**项目根目录**打开。  
 > 本课约定：用 `python -m venv .venv`，不要用 Anaconda / conda 当项目环境。
 
@@ -76,9 +76,9 @@ source .venv/bin/activate
 
 ## 4. 装本课起步包
 
-在**已经出现** `(.venv)` **的终端**里装。W1 的世界银行数据脚本要 `wbgapi` + `pandas`；W2 的文献检索要 `requests`（调用 Semantic Scholar / Crossref API）；W3 的 RAG 知识库要 `chromadb` + `sentence-transformers`（嵌入模型，首次运行会自动下载约 90MB 模型文件）。也可以问 opencode：
+在**已经出现** `(.venv)` **的终端**里装。W1 的文本脚本要 `pandas` + `jieba`；W2 的文献检索要 `requests`（调用 Semantic Scholar / Crossref API）；W3 的 RAG 知识库要 `chromadb` + `sentence-transformers`（嵌入模型，首次运行会自动下载约 90MB 模型文件）。也可以问 opencode：
 
-> 环境已经激活。请帮我安装 wbgapi、pandas、requests、chromadb、sentence-transformers，并生成 `requirements.txt`。不要提交 `.venv` 文件夹。
+> 环境已经激活。请帮我安装 pandas、jieba、requests、chromadb、sentence-transformers，并生成 `requirements.txt`。不要提交 `.venv` 文件夹。
 
 已有 `requirements.txt` 时：
 
@@ -89,7 +89,7 @@ python -m pip install -r requirements.txt
 还没有该文件时：
 
 ```text
-python -m pip install wbgapi pandas requests chromadb sentence-transformers
+python -m pip install pandas requests chromadb sentence-transformers
 python -m pip freeze > requirements.txt
 ```
 
