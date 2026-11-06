@@ -41,7 +41,7 @@ BASE_URL = 'http://llm.swufe.edu.cn/v1'
 # Qwen3.8 尊重该参数：关闭思考，单条 15 秒级 -> 秒级
 EXTRA_BODY = {'chat_template_kwargs': {'enable_thinking': False}}
 BATCH_SIZE = 20        # 每次请求让大模型标多少条
-MAX_WORKERS = 3        # 并发线程数上限（学校共享网关，禁止调高）
+MAX_WORKERS = 10       # 并发线程数上限（学校共享网关，夜间 10，禁止调更高）
 MAX_CHARS = 500        # 单条评论截断长度（0=不截断）
 MAX_RETRIES = 3
 VALID = {'正面', '负面', '中性'}
@@ -225,46 +225,56 @@ def llm_score_all(df, rows_todo, workers=MAX_WORKERS, batch_size=BATCH_SIZE):
     return stats['fail']
 
 
-def retry_missing_individually(df, done, missing):
-    """对批量后仍缺的行逐条重试两轮，仍失败填中性"""
+def retry_missing_individually(df, done, missing, max_rounds=3):
+    """对批量后仍缺的行分轮重新标注，直到全部成功。
+    失败就是失败：任何情况下都不编造标签（绝不填中性）。
+    多轮仍失败的行留空（NaN），下次运行本脚本会自动重新标注这些行。"""
     if not missing:
-        return {}
-    print(f'\n有 {len(missing)} 条批量标注失败，逐条重试……')
+        return done
     from openai import OpenAI
     client = OpenAI(api_key=read_api_key(), base_url=BASE_URL,
                     timeout=60.0, max_retries=0)
 
-    still = {}
-    for r in missing:
-        text = df.at[r, 'comment'][:MAX_CHARS]
-        label = None
-        for _ in range(2):
-            try:
-                resp = client.chat.completions.create(
-                    model=MODEL,
-                    messages=[
-                        {'role': 'system', 'content': SYSTEM_PROMPT},
-                        {'role': 'user', 'content': f'评论：{text}'},
-                    ],
-                    temperature=0,
-                    extra_body=EXTRA_BODY,
-                )
-                got = parse_labels(resp.choices[0].message.content, [r])
-                if got:
-                    label = got[r]
-                    break
-            except Exception:
-                time.sleep(1)
-        if label:
-            append_checkpoint([(r, label)])
-            done[r] = label
-        else:
-            still[r] = True
-    if still:
-        print(f'警告：{len(still)} 条多次失败，填「中性」处理')
-        for r in still:
-            append_checkpoint([(r, '中性')])
-            done[r] = '中性'
+    pending = list(missing)
+    for rnd in range(1, max_rounds + 1):
+        print(f'\n第 {rnd}/{max_rounds} 轮重新标注：{len(pending)} 条失败行……')
+        still = []
+        for r in pending:
+            text = df.at[r, 'comment'][:MAX_CHARS]
+            label = None
+            for _ in range(2):
+                try:
+                    resp = client.chat.completions.create(
+                        model=MODEL,
+                        messages=[
+                            {'role': 'system', 'content': SYSTEM_PROMPT},
+                            {'role': 'user', 'content': f'评论：{text}'},
+                        ],
+                        temperature=0,
+                        extra_body=EXTRA_BODY,
+                    )
+                    got = parse_labels(resp.choices[0].message.content, [r])
+                    if got:
+                        label = got[r]
+                        break
+                except Exception:
+                    time.sleep(1)
+            if label:
+                append_checkpoint([(r, label)])
+                done[r] = label
+            else:
+                still.append(r)
+        if not still:
+            print(f'失败行全部重新标注成功（第 {rnd} 轮）')
+            return done
+        pending = still
+        if rnd < max_rounds:
+            print(f'{len(pending)} 条仍失败，30 秒后进入下一轮……')
+            time.sleep(30)
+
+    print(f'\n警告：{len(pending)} 条经 {max_rounds} 轮重新标注仍失败——'
+          '不填充任何标签，输出中保留为空')
+    print('重新运行本脚本会自动重新标注这些行')
     return done
 
 
@@ -275,10 +285,10 @@ def main():
     ap.add_argument('--limit', type=int, default=0, help='只处理前 N 条（测试用），0=全量')
     ap.add_argument('--skip-llm', action='store_true', help='只算 jieba_score')
     ap.add_argument('--workers', type=int, default=MAX_WORKERS,
-                    help='并发线程数（上限 3）')
+                    help='并发线程数（上限 10）')
     ap.add_argument('--batch-size', type=int, default=BATCH_SIZE, help='每批评论数')
     args = ap.parse_args()
-    # 并发硬上限：学校共享网关保护，传入再大也只按 3 跑
+    # 并发硬上限：学校共享网关保护，传入再大也只按 10 跑
     if args.workers > MAX_WORKERS:
         print(f'警告：并发 {args.workers} 超过上限，已强制改为 {MAX_WORKERS}'
               '（学校共享网关，禁止更高并发）')
@@ -311,6 +321,10 @@ def main():
         df['llm_score'] = pd.Series(done).reindex(df.index)
         print('\nLLM 标签分布：')
         print(df['llm_score'].value_counts().to_string())
+        unlabeled = int(df['llm_score'].isna().sum())
+        if unlabeled:
+            print(f'\n注意：{unlabeled} 条未成功标注，输出中保留为空——'
+                  '重新运行本脚本会自动重新标注这些行（绝不填充编造标签）')
 
         # 两法一致率 —— 课堂讨论点
         agree = (df['jieba_score'] == df['llm_score']).mean()
