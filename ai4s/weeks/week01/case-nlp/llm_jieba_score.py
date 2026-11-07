@@ -140,8 +140,9 @@ def build_user_prompt(items):
     return '请给下面每条评论打情感标签：\n' + '\n'.join(lines)
 
 
-def parse_labels(content, want_ids):
-    """从大模型返回的 JSONL/文本里解析 {行号: 标签}"""
+def parse_labels(content, want_ids=None):
+    """从大模型返回的 JSONL/文本里解析 {行号: 标签}；
+    want_ids=None 时返回解析出的全部条目"""
     got = {}
     for m in re.finditer(r'\{[^{}]*\}', content):
         try:
@@ -151,6 +152,8 @@ def parse_labels(content, want_ids):
                 got[int(obj['id'])] = label
         except (json.JSONDecodeError, KeyError, ValueError, TypeError):
             continue
+    if want_ids is None:
+        return got
     return {i: got[i] for i in want_ids if i in got}
 
 
@@ -248,12 +251,21 @@ def retry_missing_individually(df, done, missing, max_rounds=3):
                         model=MODEL,
                         messages=[
                             {'role': 'system', 'content': SYSTEM_PROMPT},
-                            {'role': 'user', 'content': f'评论：{text}'},
+                            # 带行号的 prompt（与批量一致），模型会回显行号
+                            {'role': 'user',
+                             'content': build_user_prompt([(r, text)])},
                         ],
                         temperature=0,
                         extra_body=EXTRA_BODY,
                     )
-                    got = parse_labels(resp.choices[0].message.content, [r])
+                    content = resp.choices[0].message.content or ''
+                    got = parse_labels(content, [r])
+                    if not got:
+                        # 兜底：单条请求下模型可能无视行号（恒回 id:1），
+                        # 只要返回了唯一一个合法标签，就是这条评论的结果
+                        all_got = parse_labels(content)
+                        if len(all_got) == 1:
+                            got = {r: next(iter(all_got.values()))}
                     if got:
                         label = got[r]
                         break
